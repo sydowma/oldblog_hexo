@@ -84,22 +84,19 @@
 
 
 
-<meta name="description" content="测试
-然后就可以在 Terminal 面板中用 hexo generate生成静态 html 文件，用 hexo server本地查看（在浏览器中用这个地址：localhost:4000），或用 hexo deploy 发布到 yourname.github.io 上去……
-以后你想发表博客文章的时候，无非就是在 source 目录中创建新的 .md 文件，而后 hexo generate，之后再">
+<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
 <meta property="og:type" content="article">
-<meta property="og:title" content="blog">
-<meta property="og:url" content="http://yoursite.com/2016/11/01/2.4 一旦发现需要重复的工作……/index.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://yoursite.com/2016/11/01/1. hello-world/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="测试
-然后就可以在 Terminal 面板中用 hexo generate生成静态 html 文件，用 hexo server本地查看（在浏览器中用这个地址：localhost:4000），或用 hexo deploy 发布到 yourname.github.io 上去……
-以后你想发表博客文章的时候，无非就是在 source 目录中创建新的 .md 文件，而后 hexo generate，之后再">
-<meta property="og:updated_time" content="2016-11-01T07:09:26.000Z">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
+<meta property="og:updated_time" content="2016-11-01T03:24:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="blog">
-<meta name="twitter:description" content="测试
-然后就可以在 Terminal 面板中用 hexo generate生成静态 html 文件，用 hexo server本地查看（在浏览器中用这个地址：localhost:4000），或用 hexo deploy 发布到 yourname.github.io 上去……
-以后你想发表博客文章的时候，无非就是在 source 目录中创建新的 .md 文件，而后 hexo generate，之后再">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
 
 
 
@@ -120,10 +117,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/01/2.4 一旦发现需要重复的工作……/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/01/1. hello-world/"/>
 
 
-  <title>  | blog </title>
+  <title> Hello World | blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +234,7 @@
             
             
               
-                
+                Hello World
               
             
           </h1>
@@ -249,7 +246,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T15:09:26+08:00" content="2016-11-01">
+            <time itemprop="dateCreated" datetime="2016-11-01T11:24:16+08:00" content="2016-11-01">
               2016-11-01
             </time>
           </span>
@@ -277,20 +274,15 @@
       
 
       
-        <p>测试</p>
-<p>然后就可以在 Terminal 面板中用 <code>hexo generate</code>生成静态 html 文件，用 <code>hexo server</code>本地查看（在浏览器中用这个地址：localhost:4000），或用 <code>hexo deploy</code> 发布到 yourname.github.io 上去……</p>
-<p>以后你想发表博客文章的时候，无非就是在 <code>source</code> 目录中创建新的 <code>.md</code> 文件，而后 <code>hexo generate</code>，之后再 <code>hexo deploy</code>.</p>
-<h3 id="2-4-一旦发现需要重复的工作……"><a href="#2-4-一旦发现需要重复的工作……" class="headerlink" title="2.4 一旦发现需要重复的工作……"></a>2.4 一旦发现需要重复的工作……</h3><p>—— 就要马上想办法要么 1)<strong>自动化</strong>，要么 2) <strong>减少工作量</strong>。这是工程师的思考行动方式，在工程师的世界里，懒惰有另外一种用处，是积极的用处：它是用来刺激寻找提高效率的手段。普通人懒起来就什么都不干了；工程师懒起来就使劲琢磨：</p>
-<blockquote>
-<p>“怎么做才能将来不用做或者起码少做却可以实际上干更多呢？”</p>
-</blockquote>
-<p>注意：“<strong>实际上干更多</strong>”才是重点！</p>
-<p>反复地敲 <code>hexo generate</code>、<code>hexo server</code>、<code>hexo deploy</code> 好累啊！怎么办？我们可以给命令行里反复输入的命令编制缩写……</p>
-<p>命令行下输入，其实就是用 Atom 打开 <code>~/.aliases</code> 文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">atom ~/.aliases</div></pre></td></tr></table></figure>
-<p>在该文件下输入以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alias hgs=&quot;hexo g&amp;&amp;hexo s&quot;</div><div class="line">alias hgd=&quot;hexo g&amp;&amp;hexo d&quot;</div></pre></td></tr></table></figure>
-<p>重新启动 Terminal 之后，只要输入 <code>hgs</code> 就是生成内容之后在 <code>localhost:4000</code> 里预览，输入 <code>hgd</code> 就是部署到服务器上……</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
@@ -316,16 +308,12 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/01/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/01/配置环境/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/01/2. 2.4 一旦发现需要重复的工作……/" rel="prev" title="测试">
+                测试 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -394,7 +382,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -426,7 +414,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-一旦发现需要重复的工作……"><span class="nav-number">1.</span> <span class="nav-text">2.4 一旦发现需要重复的工作……</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
