@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[将购买的域名配置到github pages中]]></title>
+      <url>2016%2F11%2F01%2F4.%20%E5%B0%86%E8%B4%AD%E4%B9%B0%E7%9A%84%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE%E5%88%B0github%20pages%E4%B8%AD%2F</url>
+      <content type="text"><![CDATA[将购买的域名配置到github pages中参考 : https://help.github.com/articles/setting-up-an-apex-domain/ 在yourname.github.io的Setting中添加你的自定义域名 在域名解析中添加相应的DNS 103.245.222.133 macOS下查看端口和杀掉端口 Find out the process ID (PID) which is occupying the port number (e.g., 5955) you would like to free 1sudo lsof -i :5955 Kill the process which is currently using the port using its PID 1sudo kill -9 PID]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[配置环境]]></title>
+      <url>2016%2F11%2F01%2F3.%20%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%2F</url>
+      <content type="text"><![CDATA[配置环境使用hexo搭建来自NexT的主题 教程来自http://xiaolai.li/ note： 命令出错可能是前面没有加上sudo 每次只需要把.md文件丢到source目录下，再运行hexo g和hexo d就可以 主题配置网站http://theme-next.iissnan.com/theme-settings.html]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[测试]]></title>
+      <url>2016%2F11%2F01%2F2.%202.4%20%E4%B8%80%E6%97%A6%E5%8F%91%E7%8E%B0%E9%9C%80%E8%A6%81%E9%87%8D%E5%A4%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E2%80%A6%E2%80%A6%2F</url>
+      <content type="text"><![CDATA[测试 然后就可以在 Terminal 面板中用 hexo generate生成静态 html 文件，用 hexo server本地查看（在浏览器中用这个地址：localhost:4000），或用 hexo deploy 发布到 yourname.github.io 上去…… 以后你想发表博客文章的时候，无非就是在 source 目录中创建新的 .md 文件，而后 hexo generate，之后再 hexo deploy. 2.4 一旦发现需要重复的工作……—— 就要马上想办法要么 1)自动化，要么 2) 减少工作量。这是工程师的思考行动方式，在工程师的世界里，懒惰有另外一种用处，是积极的用处：它是用来刺激寻找提高效率的手段。普通人懒起来就什么都不干了；工程师懒起来就使劲琢磨： “怎么做才能将来不用做或者起码少做却可以实际上干更多呢？” 注意：“实际上干更多”才是重点！ 反复地敲 hexo generate、hexo server、hexo deploy 好累啊！怎么办？我们可以给命令行里反复输入的命令编制缩写…… 命令行下输入，其实就是用 Atom 打开 ~/.aliases 文件： 1atom ~/.aliases 在该文件下输入以下内容： 12alias hgs=&quot;hexo g&amp;&amp;hexo s&quot;alias hgd=&quot;hexo g&amp;&amp;hexo d&quot; 重新启动 Terminal 之后，只要输入 hgs 就是生成内容之后在 localhost:4000 里预览，输入 hgd 就是部署到服务器上……]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>2016%2F11%2F01%2F1.%20hello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    </entry>
+
+    
+  
+  
+</search>
