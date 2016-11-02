@@ -4,9 +4,16 @@
   
     
     <entry>
+      <title><![CDATA[npm install速度慢的解决方法]]></title>
+      <url>2016%2F11%2F02%2F5.%20npm%20install%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
+      <content type="text"><![CDATA[npm install速度慢的解决方法在使用npm安装的时候经常遇到npm install速度慢的情况，这是因为我们的网络和npm的服务器相隔较远，延迟很大造成的，怎么解决呢？ 使用taobao镜像有两种方式，本文中的所有代码都需要在终端中输入 一、在命令后面加参数npm install --registry=https://registry.npm.taobao.org 这代表了我们可以从taobao的服务器中来获取，就解决了速度慢的问题。 二、使用cnpm使用cnpm的目的是可以一劳永逸的代替npm命令，这样的话就方便多了 安装cnpmnpm install -g cnpm --registry=https://registry.npm.taobao.org 验证一下当发现输入命令之后，后面的网址是taobao的时候就说明已经成功了 使用taobao镜像的缺点： 不能使用publish命令 和npm官方镜像源有10分钟的延迟]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[将购买的域名配置到github pages中]]></title>
       <url>2016%2F11%2F01%2F4.%20%E5%B0%86%E8%B4%AD%E4%B9%B0%E7%9A%84%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE%E5%88%B0github%20pages%E4%B8%AD%2F</url>
-      <content type="text"><![CDATA[将购买的域名配置到github pages中参考 : https://help.github.com/articles/setting-up-an-apex-domain/ 在yourname.github.io的Setting中添加你的自定义域名 在域名解析中添加相应的DNS 103.245.222.133 macOS下查看端口和杀掉端口 Find out the process ID (PID) which is occupying the port number (e.g., 5955) you would like to free 1sudo lsof -i :5955 Kill the process which is currently using the port using its PID 1sudo kill -9 PID]]></content>
+      <content type="text"><![CDATA[将购买的域名配置到github pages中参考 : https://help.github.com/articles/setting-up-an-apex-domain/ 在yourname.github.io的Setting中添加你的自定义域名 在域名解析中添加相应的DNS 103.245.222.133 macOS下查看端口和杀掉端口 Find out the process ID (PID) which is occupying the port number (e.g., 5955) you would like to free sudo lsof -i :5955 Kill the process which is currently using the port using its PID sudo kill -9 PID]]></content>
     </entry>
 
     
@@ -20,14 +27,14 @@
     <entry>
       <title><![CDATA[测试]]></title>
       <url>2016%2F11%2F01%2F2.%202.4%20%E4%B8%80%E6%97%A6%E5%8F%91%E7%8E%B0%E9%9C%80%E8%A6%81%E9%87%8D%E5%A4%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E2%80%A6%E2%80%A6%2F</url>
-      <content type="text"><![CDATA[测试 然后就可以在 Terminal 面板中用 hexo generate生成静态 html 文件，用 hexo server本地查看（在浏览器中用这个地址：localhost:4000），或用 hexo deploy 发布到 yourname.github.io 上去…… 以后你想发表博客文章的时候，无非就是在 source 目录中创建新的 .md 文件，而后 hexo generate，之后再 hexo deploy. 2.4 一旦发现需要重复的工作……—— 就要马上想办法要么 1)自动化，要么 2) 减少工作量。这是工程师的思考行动方式，在工程师的世界里，懒惰有另外一种用处，是积极的用处：它是用来刺激寻找提高效率的手段。普通人懒起来就什么都不干了；工程师懒起来就使劲琢磨： “怎么做才能将来不用做或者起码少做却可以实际上干更多呢？” 注意：“实际上干更多”才是重点！ 反复地敲 hexo generate、hexo server、hexo deploy 好累啊！怎么办？我们可以给命令行里反复输入的命令编制缩写…… 命令行下输入，其实就是用 Atom 打开 ~/.aliases 文件： 1atom ~/.aliases 在该文件下输入以下内容： 12alias hgs=&quot;hexo g&amp;&amp;hexo s&quot;alias hgd=&quot;hexo g&amp;&amp;hexo d&quot; 重新启动 Terminal 之后，只要输入 hgs 就是生成内容之后在 localhost:4000 里预览，输入 hgd 就是部署到服务器上……]]></content>
+      <content type="text"><![CDATA[测试 然后就可以在 Terminal 面板中用 hexo generate生成静态 html 文件，用 hexo server本地查看（在浏览器中用这个地址：localhost:4000），或用 hexo deploy 发布到 yourname.github.io 上去…… 以后你想发表博客文章的时候，无非就是在 source 目录中创建新的 .md 文件，而后 hexo generate，之后再 hexo deploy. 2.4 一旦发现需要重复的工作……—— 就要马上想办法要么 1)自动化，要么 2) 减少工作量。这是工程师的思考行动方式，在工程师的世界里，懒惰有另外一种用处，是积极的用处：它是用来刺激寻找提高效率的手段。普通人懒起来就什么都不干了；工程师懒起来就使劲琢磨： “怎么做才能将来不用做或者起码少做却可以实际上干更多呢？” 注意：“实际上干更多”才是重点！ 反复地敲 hexo generate、hexo server、hexo deploy 好累啊！怎么办？我们可以给命令行里反复输入的命令编制缩写…… 命令行下输入，其实就是用 Atom 打开 ~/.aliases 文件： atom ~/.aliases 在该文件下输入以下内容： alias hgs=&quot;hexo g&amp;&amp;hexo s&quot;alias hgd=&quot;hexo g&amp;&amp;hexo d&quot; 重新启动 Terminal 之后，只要输入 hgs 就是生成内容之后在 localhost:4000 里预览，输入 hgd 就是部署到服务器上……]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Hello World]]></title>
       <url>2016%2F11%2F01%2F1.%20hello-world%2F</url>
-      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post$ hexo new "My New Post" More info: Writing Run server$ hexo server More info: Server Generate static files$ hexo generate More info: Generating Deploy to remote sites$ hexo deploy More info: Deployment]]></content>
     </entry>
 
     
