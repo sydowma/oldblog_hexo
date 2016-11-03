@@ -69,7 +69,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Ubuntu," />
 
 
 
@@ -87,15 +87,48 @@
 
 
 
-<meta name="description" content="每天进步一点点">
-<meta property="og:type" content="website">
-<meta property="og:title" content="blog">
-<meta property="og:url" content="http://yoursite.com/tags/npm/index.html">
+<meta name="description" content="Ubuntu默认没有启用root账户，这有利于安全，但在实际操作中，我们常常需要访问一些需要root权限才可以访问的目录，需要启动root账户
+操作步骤
+登陆服务器
+ssh ubuntu@yoursiteIP
+
+修改root密码
+sudo passwd root
+
+修改ssh配置
+sudo vi /etc/ssh/sshd_config
+找到  PermitRootLogin 这项 将其改为 ye">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu开启root——以腾讯云为例">
+<meta property="og:url" content="http://yoursite.com/2016/11/03/Ubuntu开启root——以腾讯云为例/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="每天进步一点点">
+<meta property="og:description" content="Ubuntu默认没有启用root账户，这有利于安全，但在实际操作中，我们常常需要访问一些需要root权限才可以访问的目录，需要启动root账户
+操作步骤
+登陆服务器
+ssh ubuntu@yoursiteIP
+
+修改root密码
+sudo passwd root
+
+修改ssh配置
+sudo vi /etc/ssh/sshd_config
+找到  PermitRootLogin 这项 将其改为 ye">
+<meta property="og:image" content="http://yoursite.com/2016/11/03/Ubuntu开启root——以腾讯云为例/permitRootLogin.png">
+<meta property="og:updated_time" content="2016-11-03T05:40:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="blog">
-<meta name="twitter:description" content="每天进步一点点">
+<meta name="twitter:title" content="Ubuntu开启root——以腾讯云为例">
+<meta name="twitter:description" content="Ubuntu默认没有启用root账户，这有利于安全，但在实际操作中，我们常常需要访问一些需要root权限才可以访问的目录，需要启动root账户
+操作步骤
+登陆服务器
+ssh ubuntu@yoursiteIP
+
+修改root密码
+sudo passwd root
+
+修改ssh配置
+sudo vi /etc/ssh/sshd_config
+找到  PermitRootLogin 这项 将其改为 ye">
+<meta name="twitter:image" content="http://yoursite.com/2016/11/03/Ubuntu开启root——以腾讯云为例/permitRootLogin.png">
 
 
 
@@ -116,10 +149,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/npm/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/03/Ubuntu开启root——以腾讯云为例/"/>
 
 
-  <title> 标签: npm | blog </title>
+  <title> Ubuntu开启root——以腾讯云为例 | blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +182,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -250,46 +283,155 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        npm
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Ubuntu开启root——以腾讯云为例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-03T13:33:49+08:00" content="2016-11-03">
+              2016-11-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/03/Ubuntu开启root——以腾讯云为例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/03/Ubuntu开启root——以腾讯云为例/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/03/Ubuntu开启root——以腾讯云为例/" class="leancloud_visitors" data-flag-title="Ubuntu开启root——以腾讯云为例">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <p>Ubuntu默认没有启用root账户，这有利于安全，但在实际操作中，我们常常需要访问一些需要root权限才可以访问的目录，需要启动root账户</p>
+<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><ol>
+<li><p>登陆服务器</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ssh ubuntu@yoursiteIP</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改root密码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo passwd root</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改ssh配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo vi /etc/ssh/sshd_config</div></pre></td></tr></table></figure>
+<p>找到  <code>PermitRootLogin</code> 这项 将其改为 <code>yes</code></p>
+<img src="/2016/11/03/Ubuntu开启root——以腾讯云为例/permitRootLogin.png" alt="permitRootLogin.png" title="">
+</li>
+<li><p>退出并重启ssh服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo service ssh restart</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/11/02/5. npm install速度慢的解决方法/" itemprop="url">
-              
-                <span itemprop="name">npm install速度慢的解决方法</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-02T17:33:35+08:00"
-              content="2016-11-02" >
-          11-02
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu/" rel="tag">#Ubuntu</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/02/5. npm install速度慢的解决方法/" rel="next" title="npm install速度慢的解决方法">
+                <i class="fa fa-chevron-left"></i> npm install速度慢的解决方法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -297,6 +439,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -316,8 +469,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -387,6 +549,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作步骤"><span class="nav-number">1.</span> <span class="nav-text">操作步骤</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -490,6 +663,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
@@ -506,9 +683,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'magaofei';
-      var disqus_identifier = 'tags/npm/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/11/03/Ubuntu开启root——以腾讯云为例/';
+      var disqus_title = "Ubuntu开启root——以腾讯云为例";
+      var disqus_url = 'http://yoursite.com/2016/11/03/Ubuntu开启root——以腾讯云为例/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -519,6 +696,13 @@
       }
 
       run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
     </script>
   
