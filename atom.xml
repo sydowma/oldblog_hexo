@@ -17,8 +17,8 @@
   
   <entry>
     <title>博学谷直播介绍Vue</title>
-    <link href="http://yoursite.com/2016/11/03/%E5%8D%9A%E5%AD%A6%E8%B0%B7%E7%9B%B4%E6%92%AD%E4%BB%8B%E7%BB%8DVue.js/"/>
-    <id>http://yoursite.com/2016/11/03/博学谷直播介绍Vue.js/</id>
+    <link href="http://yoursite.com/2016/11/03/7.%20%E5%8D%9A%E5%AD%A6%E8%B0%B7%E7%9B%B4%E6%92%AD%E4%BB%8B%E7%BB%8DVue.js/"/>
+    <id>http://yoursite.com/2016/11/03/7. 博学谷直播介绍Vue.js/</id>
     <published>2016-11-03T12:17:00.000Z</published>
     <updated>2016-11-03T12:56:08.000Z</updated>
     
@@ -68,8 +68,8 @@
   
   <entry>
     <title>Ubuntu开启root——以腾讯云为例</title>
-    <link href="http://yoursite.com/2016/11/03/Ubuntu%E5%BC%80%E5%90%AFroot%E2%80%94%E2%80%94%E4%BB%A5%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%BA%E4%BE%8B/"/>
-    <id>http://yoursite.com/2016/11/03/Ubuntu开启root——以腾讯云为例/</id>
+    <link href="http://yoursite.com/2016/11/03/6.%20Ubuntu%E5%BC%80%E5%90%AFroot%E2%80%94%E2%80%94%E4%BB%A5%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%BA%E4%BE%8B/"/>
+    <id>http://yoursite.com/2016/11/03/6. Ubuntu开启root——以腾讯云为例/</id>
     <published>2016-11-03T05:33:49.000Z</published>
     <updated>2016-11-03T05:40:29.000Z</updated>
     
@@ -84,7 +84,7 @@
 <li><p>修改ssh配置</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo vi /etc/ssh/sshd_config</div></pre></td></tr></table></figure>
 <p>找到  <code>PermitRootLogin</code> 这项 将其改为 <code>yes</code></p>
-<img src="/2016/11/03/Ubuntu开启root——以腾讯云为例/permitRootLogin.png" alt="permitRootLogin.png" title="">
+<img src="/2016/11/03/6.%20Ubuntu开启root——以腾讯云为例/permitRootLogin.png" alt="permitRootLogin.png" title="">
 </li>
 <li><p>退出并重启ssh服务</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo service ssh restart</div></pre></td></tr></table></figure>
@@ -208,9 +208,9 @@
     </summary>
     
     
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
   </entry>
   

@@ -5,14 +5,14 @@
     
     <entry>
       <title><![CDATA[博学谷直播介绍Vue]]></title>
-      <url>2016%2F11%2F03%2F%E5%8D%9A%E5%AD%A6%E8%B0%B7%E7%9B%B4%E6%92%AD%E4%BB%8B%E7%BB%8DVue.js%2F</url>
+      <url>2016%2F11%2F03%2F7.%20%E5%8D%9A%E5%AD%A6%E8%B0%B7%E7%9B%B4%E6%92%AD%E4%BB%8B%E7%BB%8DVue.js%2F</url>
       <content type="text"><![CDATA[Vue.js 客户端Javascript框架 用于数据驱动的现代web开发 实现了MVVM思想 比如设计一个注册页面传统方式： 找到用户名的文本框，捕捉鼠标偏离的事件，判断文本框的内容进行是否存在的校验 问题： 界面代码重复使用率低 需要的变化大部分是在界面上，而 应用程序的基本逻辑：把数据放到界面上显示 理想状态，界面和数据独立 结论：用数据驱动界面，把界面放置到最后 var app = new Vue(&#123; //业务逻辑抽象 data: &#123; username: &apos;&apos;, email: &apos;&apos;, &#125;&#125;) 如何使用Vue.jsSublime Vue作者建议学习顺序从基础着手 通读javascript基础 操作步骤 找出来页面最核心组成，用数据的方式描述 ​ 根据设计的结构完成ViewModel的编写 ​ &lt;intput class = ""]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Ubuntu开启root——以腾讯云为例]]></title>
-      <url>2016%2F11%2F03%2FUbuntu%E5%BC%80%E5%90%AFroot%E2%80%94%E2%80%94%E4%BB%A5%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%BA%E4%BE%8B%2F</url>
+      <url>2016%2F11%2F03%2F6.%20Ubuntu%E5%BC%80%E5%90%AFroot%E2%80%94%E2%80%94%E4%BB%A5%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%BA%E4%BE%8B%2F</url>
       <content type="text"><![CDATA[Ubuntu默认没有启用root账户，这有利于安全，但在实际操作中，我们常常需要访问一些需要root权限才可以访问的目录，需要启动root账户 操作步骤 登陆服务器 ssh ubuntu@yoursiteIP 修改root密码 sudo passwd root 修改ssh配置 sudo vi /etc/ssh/sshd_config 找到 PermitRootLogin 这项 将其改为 yes 退出并重启ssh服务 sudo service ssh restart ​]]></content>
     </entry>
 
