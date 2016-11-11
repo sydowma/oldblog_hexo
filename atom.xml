@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-11T00:55:43.000Z</updated>
+  <updated>2016-11-11T08:16:52.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>导航控制器的按钮设置(Storyboard)</title>
+    <link href="http://yoursite.com/2016/11/11/12.%20%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E6%8C%89%E9%92%AE%E8%AE%BE%E7%BD%AE(Storyboard)/"/>
+    <id>http://yoursite.com/2016/11/11/12. 导航控制器的按钮设置(Storyboard)/</id>
+    <published>2016-11-11T07:56:53.000Z</published>
+    <updated>2016-11-11T08:16:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="导航控制器的按钮设置-Storyboard"><a href="#导航控制器的按钮设置-Storyboard" class="headerlink" title="导航控制器的按钮设置(Storyboard)"></a>导航控制器的按钮设置(Storyboard)</h1><p>效果图:</p>
+<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/效果图.png" alt="效果图.png" title="">
+<ol>
+<li><p>新建UIView, 放入 ViewController 中 </p>
+</li>
+<li><p>设置 UIView 的布局上左右都为0, 高度为44</p>
+<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/UIView.png" alt="UIView.png" title="">
+</li>
+<li><p>更新Frame</p>
+ 
+</li>
+<li><p>放入3个 Button 到 UIView 中</p>
+</li>
+<li><p>设置第一个 Button 的布局, 上下左右都为0</p>
+<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/button1.png" alt="button1.png" title="">
+</li>
+<li><p>设置第二个 Button 的布局, 右和下为0</p>
+<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/button2.png" alt="button2.png" title="">
+</li>
+<li><p>在上一步的基础上, 设置第二个 Button 和第一个 Button 相同宽度和高度, </p>
+<ol>
+<li>按住 Control 键, 拖拽第二个 Button 到第一个 Button 松手</li>
+<li>按住 Shift 键, 选中 Equal Widths 和 Equal Heights</li>
+<li>最后点击 Add Constraints </li>
+</ol>
+<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/equal.png" alt="equal.png" title="">
+</li>
+<li><p>设置第三个 Button 的布局, 右和下为0 (同第6步)</p>
+</li>
+<li><p>在上一步的基础上, 设置第三个 Button 和第二个 Button 相同宽度和高度 (同第7步)</p>
+</li>
+<li><p>选中三个 Button 同时按下<code>option</code> + <code>Command</code> + <code>=</code> 更新 Frame</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导航控制器的按钮设置-Storyboard&quot;&gt;&lt;a href=&quot;#导航控制器的按钮设置-Storyboard&quot; class=&quot;headerlink&quot; title=&quot;导航控制器的按钮设置(Storyboard)&quot;&gt;&lt;/a&gt;导航控制器的按钮设置(Storyboard)
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="Storyboard" scheme="http://yoursite.com/tags/Storyboard/"/>
+    
+  </entry>
   
   <entry>
     <title>熟悉Django的模板语言——Python第四周第二节</title>
@@ -37,9 +93,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="django" scheme="http://yoursite.com/tags/django/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -328,9 +384,9 @@
     </summary>
     
     
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
   </entry>
   

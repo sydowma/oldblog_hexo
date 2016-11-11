@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[导航控制器的按钮设置(Storyboard)]]></title>
+      <url>2016%2F11%2F11%2F12.%20%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E6%8C%89%E9%92%AE%E8%AE%BE%E7%BD%AE(Storyboard)%2F</url>
+      <content type="text"><![CDATA[导航控制器的按钮设置(Storyboard)效果图: 新建UIView, 放入 ViewController 中 设置 UIView 的布局上左右都为0, 高度为44 更新Frame 放入3个 Button 到 UIView 中 设置第一个 Button 的布局, 上下左右都为0 设置第二个 Button 的布局, 右和下为0 在上一步的基础上, 设置第二个 Button 和第一个 Button 相同宽度和高度, 按住 Control 键, 拖拽第二个 Button 到第一个 Button 松手 按住 Shift 键, 选中 Equal Widths 和 Equal Heights 最后点击 Add Constraints 设置第三个 Button 的布局, 右和下为0 (同第6步) 在上一步的基础上, 设置第三个 Button 和第二个 Button 相同宽度和高度 (同第7步) 选中三个 Button 同时按下option + Command + = 更新 Frame]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[熟悉Django的模板语言——Python第四周第二节]]></title>
       <url>2016%2F11%2F09%2F11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82%2F</url>
       <content type="text"><![CDATA[熟悉Django的模板语言——Python第四周第二节render()：渲染接收三个函数 request 用户点击的request x.html 我们指定模板的名称 context 上下文]]></content>
