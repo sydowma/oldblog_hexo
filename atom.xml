@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-11T08:16:52.000Z</updated>
+  <updated>2016-11-13T09:39:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>西单大悦城Apple Store体验</title>
+    <link href="http://yoursite.com/2016/11/12/13.%20%E8%A5%BF%E5%8D%95%E5%A4%A7%E6%82%A6%E5%9F%8EApple%20Store%E4%BD%93%E9%AA%8C/"/>
+    <id>http://yoursite.com/2016/11/12/13. 西单大悦城Apple Store体验/</id>
+    <published>2016-11-11T16:00:00.000Z</published>
+    <updated>2016-11-13T09:39:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="西单大悦城Apple-Store体验"><a href="#西单大悦城Apple-Store体验" class="headerlink" title="西单大悦城Apple Store体验"></a>西单大悦城Apple Store体验</h1><p>昨天去了北京的西单，路过Apple Store，焉能不进去看看？</p>
+<p>懒得去周边的商场，就一直呆了很久，对几个东西有点感触：</p>
+<ul>
+<li>iPhone7</li>
+<li>Bose降噪耳机</li>
+<li>全新的MacBook Pro</li>
+</ul>
+<h2 id="iPhone7"><a href="#iPhone7" class="headerlink" title="iPhone7"></a>iPhone7</h2><p>玩了玩iPhone7 和 iPhone7 Plus，发现大屏的体验还是不错的，改变了我对大屏手机的看法，也看了景深人像的功能，不过觉得没那么重要，Plus的作用还是大，这样的话可以接收更多的信息。</p>
+<p>把玩了许久iPhone7，又去体验体验iPhone6s，因为有不同，才能够更深刻的体验到变化。iPhone7的震动反馈做的更好，代替了原来单一的震动模式，增加了很多新的种类，结合着全新的Home Button，有了一个全新的反馈体验。</p>
+<p>对于新的Home Button，总结来说，已经不是实体按键了，看来Apple也放弃了实体键，最终转向了虚拟按键，本来还不是很适应，但当我把玩了一段时间的iPhone7之后，我再去用iPhone6s时，顿时感受手更累了，想回到iPhone7上面去。</p>
+<h2 id="Bose降噪耳机"><a href="#Bose降噪耳机" class="headerlink" title="Bose降噪耳机"></a>Bose降噪耳机</h2><p>以前就听过降噪耳机的用武之地，以前不觉得有什么，果然有些东西你不体会、不体验是不会知道的，当我戴上耳机的那一刹那，真是觉得置身事外，摘下耳机又回到了这个世界。倘若戴上这个耳机，走入地铁早高峰的洪流之中，至少耳朵是干净的。</p>
+<h2 id="全新的Macbook-Pro"><a href="#全新的Macbook-Pro" class="headerlink" title="全新的Macbook Pro"></a>全新的Macbook Pro</h2><p>没有带TouchBar的13寸的Macbook Pro，机身轻盈了不少，但13寸的好像只有2个USB-C接口，背面的ＬＯＧＯ也不亮了，这些都可以，唯一不能让人接受的就是键盘了，键盘为了配合机身，变得更薄了，但失去了触感，按下去好像没有按一样，官方声称这是第二代蝶式键盘，可我觉得和第一代没有什么改进，真是让人悲伤，或许以后会改变罢。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;西单大悦城Apple-Store体验&quot;&gt;&lt;a href=&quot;#西单大悦城Apple-Store体验&quot; class=&quot;headerlink&quot; title=&quot;西单大悦城Apple Store体验&quot;&gt;&lt;/a&gt;西单大悦城Apple Store体验&lt;/h1&gt;&lt;p&gt;昨天去了北京
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>导航控制器的按钮设置(Storyboard)</title>

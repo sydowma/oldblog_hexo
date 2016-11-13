@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[西单大悦城Apple Store体验]]></title>
+      <url>2016%2F11%2F12%2F13.%20%E8%A5%BF%E5%8D%95%E5%A4%A7%E6%82%A6%E5%9F%8EApple%20Store%E4%BD%93%E9%AA%8C%2F</url>
+      <content type="text"><![CDATA[西单大悦城Apple Store体验昨天去了北京的西单，路过Apple Store，焉能不进去看看？ 懒得去周边的商场，就一直呆了很久，对几个东西有点感触： iPhone7 Bose降噪耳机 全新的MacBook Pro iPhone7玩了玩iPhone7 和 iPhone7 Plus，发现大屏的体验还是不错的，改变了我对大屏手机的看法，也看了景深人像的功能，不过觉得没那么重要，Plus的作用还是大，这样的话可以接收更多的信息。 把玩了许久iPhone7，又去体验体验iPhone6s，因为有不同，才能够更深刻的体验到变化。iPhone7的震动反馈做的更好，代替了原来单一的震动模式，增加了很多新的种类，结合着全新的Home Button，有了一个全新的反馈体验。 对于新的Home Button，总结来说，已经不是实体按键了，看来Apple也放弃了实体键，最终转向了虚拟按键，本来还不是很适应，但当我把玩了一段时间的iPhone7之后，我再去用iPhone6s时，顿时感受手更累了，想回到iPhone7上面去。 Bose降噪耳机以前就听过降噪耳机的用武之地，以前不觉得有什么，果然有些东西你不体会、不体验是不会知道的，当我戴上耳机的那一刹那，真是觉得置身事外，摘下耳机又回到了这个世界。倘若戴上这个耳机，走入地铁早高峰的洪流之中，至少耳朵是干净的。 全新的Macbook Pro没有带TouchBar的13寸的Macbook Pro，机身轻盈了不少，但13寸的好像只有2个USB-C接口，背面的ＬＯＧＯ也不亮了，这些都可以，唯一不能让人接受的就是键盘了，键盘为了配合机身，变得更薄了，但失去了触感，按下去好像没有按一样，官方声称这是第二代蝶式键盘，可我觉得和第一代没有什么改进，真是让人悲伤，或许以后会改变罢。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[导航控制器的按钮设置(Storyboard)]]></title>
       <url>2016%2F11%2F11%2F12.%20%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E6%8C%89%E9%92%AE%E8%AE%BE%E7%BD%AE(Storyboard)%2F</url>
       <content type="text"><![CDATA[导航控制器的按钮设置(Storyboard)效果图: 新建UIView, 放入 ViewController 中 设置 UIView 的布局上左右都为0, 高度为44 更新Frame 放入3个 Button 到 UIView 中 设置第一个 Button 的布局, 上下左右都为0 设置第二个 Button 的布局, 右和下为0 在上一步的基础上, 设置第二个 Button 和第一个 Button 相同宽度和高度, 按住 Control 键, 拖拽第二个 Button 到第一个 Button 松手 按住 Shift 键, 选中 Equal Widths 和 Equal Heights 最后点击 Add Constraints 设置第三个 Button 的布局, 右和下为0 (同第6步) 在上一步的基础上, 设置第三个 Button 和第二个 Button 相同宽度和高度 (同第7步) 选中三个 Button 同时按下option + Command + = 更新 Frame]]></content>
