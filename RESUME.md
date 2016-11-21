@@ -2,7 +2,7 @@
 
 男 23岁 本科 2017年6月毕业 邮箱: mamian521@gmail.com 18603822757
 
-iOS一年开发经验、熟悉JSON/XML解析、了解多线程、网络请求、内存管理
+iOS一年开发经验、熟悉JSON/XML解析、了解多线程、网络请求、内存管理、常用设计模式
 
 熟悉C、Objective-C、HTML、CSS、Python、Git
 

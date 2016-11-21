@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-13T10:19:47.000Z</updated>
+  <updated>2016-11-21T06:16:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,107 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS界面开发（基础篇）主观题考试</title>
+    <link href="http://yoursite.com/2016/11/21/16.%20iOS%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91%EF%BC%88%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%89%E4%B8%BB%E8%A7%82%E9%A2%98%E8%80%83%E8%AF%95/"/>
+    <id>http://yoursite.com/2016/11/21/16. iOS界面开发（基础篇）主观题考试/</id>
+    <published>2016-11-21T06:15:00.000Z</published>
+    <updated>2016-11-21T06:16:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS界面开发（基础篇）主观题考试"><a href="#iOS界面开发（基础篇）主观题考试" class="headerlink" title="iOS界面开发（基础篇）主观题考试"></a>iOS界面开发（基础篇）主观题考试</h1><p><img src="http://nos.netease.com/edu-image/534CA7839EC540CB7C946BCEB1DEE313.png?imageView&amp;thumbnail=520x520&amp;quality=100" alt="img"></p>
+<p>要求：</p>
+<ol>
+<li><p>使用导航栏和UITableViewController构造一个和上面截图基本类似界面</p>
+<p><strong>界面只要求布局方位一致即可，不要求位置间距完全一致。每个商品Cell的 粉色字体 部分（限时购、特价、限购X件），不需要实现，也不用占位置</strong></p>
+<p>​</p>
+</li>
+<li><p>导航栏中间Title为 购物车（商品种类数量），例如上图是三类商品，那就是 购物车(3)，如果删除了一个商品，需要同步变成 购物车(2)</p>
+</li>
+<li><p>导航栏右侧的编辑和图标，可以不响应动作，但是需要显示出来</p>
+</li>
+<li><p>购物车里面的所有商品按照仓库分组，也就是说数据结构是：</p>
+<p>[ 仓库1 : [商品1, 商品2, …], 仓库2 : [商品1, 商品2, 商品3, …] ]</p>
+</li>
+<li><p>每个仓库的Section由：仓库名称、商品列表、仓库结算信息组成</p>
+</li>
+<li><p>仓库名称左侧选择按钮：</p>
+<p>a. 点击选中，该Section下的所有商品列表需要选中</p>
+<p>b. 取消选中，该Section下的所有商品列表需要取消选中</p>
+<p>c. 如果该Section下的所有商品列表只有部分选中，其应该为未选中：</p>
+<p><img src="http://nos.netease.com/edu-image/A4094EF2F9391856EBDD73D450D61203.png?imageView&amp;thumbnail=520x520&amp;quality=100" alt="img"></p>
+</li>
+<li><p>仓库结算信息，只需要包括 <strong>本仓总计（不含税）**</strong> **这一项，该项的数值是：该Section下的被选中的商品列表价格之和；其他结算信息项不用实现。</p>
+</li>
+<li><p>仓库和仓库Section间需要有大约10dp的灰色间隔</p>
+</li>
+<li><p>每个商品Cell需要支持右侧的滑动删除：</p>
+<p><img src="http://nos.netease.com/edu-image/68A76D49B9F8B79C60D81A420AFFEA51.png?imageView&amp;thumbnail=520x520&amp;quality=100" alt="img"></p>
+<p>当点击删除时，该商品需要被删除，导航栏的数目、仓库的左侧选中状态、仓库结算信息需要更新。</p>
+<p>税费点击展开，其中点击展开需要有高度变化动画（效果参考考拉海购APP）：</p>
+<p><img src="http://nos.netease.com/edu-image/81F06AA9BF87B6FE32B46C6930D7CDC2.png?imageView&amp;thumbnail=520x520&amp;quality=100" alt="img"></p>
+</li>
+<li><p>每个商品的文字描述最多为两行，超过显示… 。</p>
+<p>这里要求实现：a. 一行商品标题显示效果 b. 商品标题过长导致两行并跟随… 的显示效果。</p>
+</li>
+<li><p>每个商品Cell需要执行左侧的选择框的选中和取消选中，选中状态改变时，仓库的左侧选中状态、仓库结算信息需要更新。</p>
+</li>
+<li><p>整个页面底部的全部结算界面，其展示信息不需要变化，固定写死即可，也不用响应动作；只需要固定悬浮在屏幕的底部，不随滚动条滚动。</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS界面开发（基础篇）主观题考试&quot;&gt;&lt;a href=&quot;#iOS界面开发（基础篇）主观题考试&quot; class=&quot;headerlink&quot; title=&quot;iOS界面开发（基础篇）主观题考试&quot;&gt;&lt;/a&gt;iOS界面开发（基础篇）主观题考试&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python爬虫四周课程</title>
+    <link href="http://yoursite.com/2016/11/21/15.%20Python%E7%88%AC%E8%99%AB%E5%9B%9B%E5%91%A8%E8%AF%BE%E7%A8%8B/"/>
+    <id>http://yoursite.com/2016/11/21/15. Python爬虫四周课程/</id>
+    <published>2016-11-21T01:32:00.000Z</published>
+    <updated>2016-11-21T01:49:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python爬虫四周课程"><a href="#Python爬虫四周课程" class="headerlink" title="Python爬虫四周课程"></a>Python爬虫四周课程</h1><ol>
+<li><p>课程相关</p>
+<ol>
+<li>答疑时间: 14:00 - 17:00</li>
+<li>直播时间: 另行通知</li>
+<li>其他</li>
+</ol>
+</li>
+<li><p>课程简介:</p>
+<p>爬、存、查、现</p>
+</li>
+<li><p>爬虫</p>
+<p>分为定向和非定向(Google、Baidu)</p>
+<ol>
+<li>我们爬取的是指定网站的爬虫，</li>
+<li>我们只需要使用一个数据库存储，百度是分层集群存储</li>
+<li>哈希表存储线性结构</li>
+</ol>
+<p>爬虫 = 数据请求(HTTP) + 数据解析(html/json)</p>
+<p>Debug: </p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python爬虫四周课程&quot;&gt;&lt;a href=&quot;#Python爬虫四周课程&quot; class=&quot;headerlink&quot; title=&quot;Python爬虫四周课程&quot;&gt;&lt;/a&gt;Python爬虫四周课程&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;课程相关&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;答疑时
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>让你的 alfred 支持拼音搜索</title>
@@ -130,34 +231,6 @@
   </entry>
   
   <entry>
-    <title>熟悉Django的模板语言——Python第四周第二节</title>
-    <link href="http://yoursite.com/2016/11/09/11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82/"/>
-    <id>http://yoursite.com/2016/11/09/11. 熟悉Django的模板语言——Python第四周第二节/</id>
-    <published>2016-11-08T16:00:00.000Z</published>
-    <updated>2016-11-11T00:55:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="熟悉Django的模板语言——Python第四周第二节"><a href="#熟悉Django的模板语言——Python第四周第二节" class="headerlink" title="熟悉Django的模板语言——Python第四周第二节"></a>熟悉Django的模板语言——Python第四周第二节</h1><h4 id="render-：渲染"><a href="#render-：渲染" class="headerlink" title="render()：渲染"></a>render()：渲染</h4><p>接收三个函数</p>
-<ul>
-<li>request 用户点击的request</li>
-<li>x.html 我们指定模板的名称</li>
-<li>context 上下文</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;a href=&quot;#熟悉Django的模板语言——Python第四周第二节&quot; class=&quot;headerlink&quot; title=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;/a&gt;熟悉Dja
-    
-    </summary>
-    
-    
-      <category term="django" scheme="http://yoursite.com/tags/django/"/>
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>饿了么网上订餐流程</title>
     <link href="http://yoursite.com/2016/11/09/10.%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90%E6%B5%81%E7%A8%8B/"/>
     <id>http://yoursite.com/2016/11/09/10. 饿了么网上订餐流程/</id>
@@ -195,6 +268,57 @@
   </entry>
   
   <entry>
+    <title>熟悉Django的模板语言——Python第四周第二节</title>
+    <link href="http://yoursite.com/2016/11/09/11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82/"/>
+    <id>http://yoursite.com/2016/11/09/11. 熟悉Django的模板语言——Python第四周第二节/</id>
+    <published>2016-11-08T16:00:00.000Z</published>
+    <updated>2016-11-11T00:55:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="熟悉Django的模板语言——Python第四周第二节"><a href="#熟悉Django的模板语言——Python第四周第二节" class="headerlink" title="熟悉Django的模板语言——Python第四周第二节"></a>熟悉Django的模板语言——Python第四周第二节</h1><h4 id="render-：渲染"><a href="#render-：渲染" class="headerlink" title="render()：渲染"></a>render()：渲染</h4><p>接收三个函数</p>
+<ul>
+<li>request 用户点击的request</li>
+<li>x.html 我们指定模板的名称</li>
+<li>context 上下文</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;a href=&quot;#熟悉Django的模板语言——Python第四周第二节&quot; class=&quot;headerlink&quot; title=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;/a&gt;熟悉Dja
+    
+    </summary>
+    
+    
+      <category term="django" scheme="http://yoursite.com/tags/django/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python库安装</title>
+    <link href="http://yoursite.com/2016/11/08/9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2016/11/08/9. Python库安装/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-11T00:53:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python库安装"><a href="#Python库安装" class="headerlink" title="Python库安装"></a>Python库安装</h1><p>pip 一键安装库</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">pip3 install requests bs4 pymongo mongoengine jupy</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python库安装&quot;&gt;&lt;a href=&quot;#Python库安装&quot; class=&quot;headerlink&quot; title=&quot;Python库安装&quot;&gt;&lt;/a&gt;Python库安装&lt;/h1&gt;&lt;p&gt;pip 一键安装库&lt;/p&gt;
+&lt;figure class=&quot;highlight pyt
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Node环境介绍</title>
     <link href="http://yoursite.com/2016/11/08/8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D/"/>
     <id>http://yoursite.com/2016/11/08/8. Node环境介绍/</id>
@@ -223,29 +347,6 @@
     
     
       <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python库安装</title>
-    <link href="http://yoursite.com/2016/11/08/9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2016/11/08/9. Python库安装/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-11T00:53:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python库安装"><a href="#Python库安装" class="headerlink" title="Python库安装"></a>Python库安装</h1><p>pip 一键安装库</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">pip3 install requests bs4 pymongo mongoengine jupy</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Python库安装&quot;&gt;&lt;a href=&quot;#Python库安装&quot; class=&quot;headerlink&quot; title=&quot;Python库安装&quot;&gt;&lt;/a&gt;Python库安装&lt;/h1&gt;&lt;p&gt;pip 一键安装库&lt;/p&gt;
-&lt;figure class=&quot;highlight pyt
-    
-    </summary>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
