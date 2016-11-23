@@ -1,12 +1,12 @@
 # 个人简历
 
-男 23岁 本科 2017年6月毕业 邮箱: mamian521@gmail.com 18603822757
-
-iOS一年开发经验、熟悉JSON/XML解析、了解多线程、网络请求、内存管理、常用设计模式
+马高飞 男 23岁 本科 2017年6月毕业 邮箱: mamian521@gmail.com 18603822757
 
 熟悉C、Objective-C、HTML、CSS、Python、Git
 
-GitHub地址：https://github.com/magaofei
+了解JSON/XML解析、多线程、网络请求、内存管理、常用设计模式
+
+GitHub地：https://github.com/magaofei
 
 ##项目经验
 
@@ -20,9 +20,10 @@ iOS 2016.09 - 2016.10
 
 用到的第三方库有
 
-- Hpple  将网页中的信息解析为想要的信息
+- Hpple  格式化HTML
 - MBProgressHUD  显示提示框
 - Masonry  简化了AutoLayout的代码
+- MJRefresh 下拉刷新
 
 项目GitHub地址：https://github.com/magaofei/AyitHelperOC
 
