@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[Objective-C属性声明的关键字]]></title>
+      <url>2016%2F11%2F23%2F18.%20%E5%B1%9E%E6%80%A7%E5%A3%B0%E6%98%8E%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97%2F</url>
+      <content type="text"><![CDATA[Objective-C属性声明的关键字readonly和readwritereadonly只有getter方法，没有setter方法，杜绝了从外部访问属性的可能，但是在本身也无法使用self调用方法 解决方法：把属性的声明写在.m文件中，可以避免外界的访问，也可以在本身使用self调用方法 默认是readwrite strong vs weak不同 引用计数+1 strong是强引用，属性声明时默认就是强引用 注意：强引用循环/循环引用现象说明：循环引用是指，两个对象之间相互强引用，导致无法被释放，造成内存泄露。一般是存在父子关系的时候容易发生这种现象，比如两个包类，其中背包里面拥有钱包。 // 来自《iOS编程》第四版// BNRItem.h@property (nonatomic, strong) BNRItem *containedItem;@property (nonatomic, strong) BNRItem *container;// BNRItem.m- (void)setContainedItem:(BNRItem *)containedItem &#123; _containedItem = containedItem; // 将item加入容纳它的BNRItem对象时， // 会将它的container实例变量指向容纳它的对象 self.containedItem.container = self;&#125;- (void)dealloc &#123; NSLog(@"Destroyed %@", self);&#125;// main.m#import &lt;Foundation/Foundation.h&gt;#import "BNRItem.h"#import "Person.h"int main(int argc, const char * argv[]) &#123; @autoreleasepool &#123; // 创建一个NSMutableArray对象，并用items变量保存该对象的地址 NSMutableArray *items = [[NSMutableArray alloc] init]; BNRItem *backpack = [[BNRItem alloc] initWithItemName:@"Backpack"]; [items addObject:backpack]; BNRItem *calculator = [[BNRItem alloc] initWithItemName:@"Calculator"]; [items addObject:calculator]; backpack.containedItem = calculator; backpack = nil; calculator = nil; for (BNRItem *item in items) &#123; NSLog(@"%@", item); &#125; NSLog(@"Setting items to nil...."); items = nil; &#125; //此时输出结果是 /* 2016-11-24 13:50:44.023481 RandomItems[36837:2040846] Backpack () :Worth $0, recorded on 2016-11-24 05:50:44 +00002016-11-24 13:50:44.023586 RandomItems[36837:2040846] Calculator () :Worth $0, recorded on 2016-11-24 05:50:44 +00002016-11-24 13:50:44.023605 RandomItems[36837:2040846] Setting items to nil....Program ended with exit code: 0 */ 由于我们重写了dealloc方法，在对象即将被释放时，应该调用dealloc方法，这里并没有调用，说明这两个对象并没有正常释放。 首先确定父子关系，确定之后，让父对象拥有子对象，子对象不能拥有父对象，比如backpack是父对象，calculator是子对象，根据这个规则名，将backpack指向calculator(_containedItem)的指针保留为强引用，将calculator指向backpack(_container)的指针保留为弱引用。 @property (nonatomic, weak) BNRItem *container;//输出/* 2016-11-24 14:10:18.675480 RandomItems[37054:2053319] Backpack () :Worth $0, recorded on 2016-11-24 06:10:18 +00002016-11-24 14:10:18.675578 RandomItems[37054:2053319] Calculator () :Worth $0, recorded on 2016-11-24 06:10:18 +00002016-11-24 14:10:18.675595 RandomItems[37054:2053319] Setting items to nil....2016-11-24 14:10:18.675635 RandomItems[37054:2053319] Destroyed Backpack () :Worth $0, recorded on 2016-11-24 06:10:18 +00002016-11-24 14:10:18.675929 RandomItems[37054:2053319] Destroyed Calculator () :Worth $0, recorded on */ 比如背包和钱包是同一品牌的产品，我们用一个类来代替，类中有两个属性，(containedItem)一个是里面放了什么东西，(container)一个是被什么东西包含了，在把钱包放入背包后，背包的containedItem指向了钱包，而钱包的container指向了背包，就造成了循环引用，解决方法是，把钱包的指向改为弱引用。 strong vs assign不同 strong修饰OC对象 strong强引用，引用计数+1 assign修饰非OC对象 assign拷贝值，不做引用计数 assign可以用在非OC对象上吗？ 可以，但不会做引用计数+1 weak vs assign相同 可以修饰OC对象 不做强引用，引用计数不加1 不同 weak在对象释放时自动置为nil assign保留原始值，释放对象时不会置为nil（不安全）(unsafe_unretained) 场景：在对象被释放之后，weak会将对象置为nil，准确的说是对象的地址置为nil，而assign则不会，所以就有可能发生一种现象，如果对象被释放了，而assign修饰的对象的指针还在指向着那块内存地址，当其他对象使用了这块内存地址时，就容易发生冲突，基础类型不会发生这种情况，所以我们应该使用weak来修饰对象，用assign来修饰基础类型。 copy使用copy关键字声明属性，在使用过程中，内部会调用copyWithZone方法，重新生成一个新的不可变的类型并赋值返回，这样做的好处是，当拥有一个可变类型的子类来使用时，就可以避免可变类型的子类对象进行的反复修改，避免导致不可控现象。 举例说明 // main.m#import &lt;Foundation/Foundation.h&gt;#import "Person.h"int main(int argc, const char * argv[]) &#123; @autoreleasepool &#123; // insert code here... NSMutableString *mutableString = [[NSMutableString alloc] init]; mutableString = [NSMutableString stringWithString:@"1234"]; Person *p1 = [[Person alloc] init]; p1.name = mutableString; NSLog(@"p1.name = %@ --&gt; %p", p1.name, p1.name); NSLog(@"mutableString = %@ --&gt; %p", mutableString, mutableString); NSLog(@"appendString之后"); [mutableString appendString:@"5"]; NSLog(@"p1.name = %@", p1.name); NSLog(@"mutableString = %@", mutableString); &#125; return 0;&#125;// 使用copy关键字声明的name// 输出/*2016-11-24 13:25:12.320037 copy[36455:2025654] p1.name = 1234 --&gt; 0x34333231452016-11-24 13:25:12.321110 copy[36455:2025654] mutableString = 1234 --&gt; 0x1003065a02016-11-24 13:25:12.321189 copy[36455:2025654] appendString之后2016-11-24 13:25:12.321433 copy[36455:2025654] p1.name = 12342016-11-24 13:25:12.321475 copy[36455:2025654] mutableString = 12345*/ 可以看到，在执行完毕p1.name = mutableString;之后，两个指针的地址就不同了，这就是因为重新生成了一个地址来指向p1.name，并且是不可变类型的。而mutableString还在那里。 缺点：频繁使用会造成内存的浪费，所以我们只在必要时使用 nonatomic vs atomic在iOS上我们用nonatomic，默认时atomic，所以我们要将其声明 说明，两者的区别是使用时保证线程安全，在多线程中调用属性可能会发生线程锁的问题，不过苹果声明，在iOS上不必考虑这个问题，缺点是会影响性能。 getter vs setter可以用来指定getter和setter的方法名，常用于BOOL中 如有错误，欢迎指正]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[指针变量的写法]]></title>
       <url>2016%2F11%2F23%2F17.%20%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F%E7%9A%84%E5%86%99%E6%B3%95%2F</url>
       <content type="text"><![CDATA[指针变量的写法在刚学习C语言的时候，我对于指针很畏惧，很大程度上是因为它那个恶心的*，后来接触到了以后，发现确实挺恶心的 关于指针变量的写法不外乎这几种 int *foo;int * foo;int* foo; 第一种最流行，它写在了变量名前面，能够很清晰的表明这是个指针变量，但我觉得也有问题，为什么？先举个例子 int a = 0;foo = &amp;a;*foo = 100; 注意到了吗？ 在使用指针变量的时候，我们不会把那个*再写出来了，反而，如果你写出来的话，代表的意思就不是指针变量了，而是指针变量所指向变量。 如果我写了 int *foo;foo = &amp;a; 我会感觉到这样的代码，让我有一点歧义，明明上面的foo变量在声明时带上了*表明它是一个指针变量，而下面的带上了就成了另外一种意思，所以我有点讨厌这样的写法。 第二种写法，很清晰，但也很分散，这样的代码估计很少有人写，另外也有一点歧义，太像乘*了 第三种写法，直接写在类型的后面，写的人比第二种多一些，我觉得不错，避免了第一种的歧义。 不管你怎么写，在实际当中肯定还是要遵守团队的规范]]></content>
@@ -46,16 +53,16 @@
 
     
     <entry>
-      <title><![CDATA[饿了么网上订餐流程]]></title>
-      <url>2016%2F11%2F09%2F10.%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90%E6%B5%81%E7%A8%8B%2F</url>
-      <content type="text"><![CDATA[饿了么网上订餐流程毕业设计——网上订餐系统技术调研 检测地理位置（可以省略或简化，比如直接选择地点，因为后边会填写详细地点，所以这里无需深究） 选择商家（可以按照位置分类） 选择商品（每个商家的商品） 结算（计算） 选择收获地址和支付方式，填写详细信息（） 确定下单 如果在线支付转到支付页面 判断支付是否成功 ​]]></content>
+      <title><![CDATA[熟悉Django的模板语言——Python第四周第二节]]></title>
+      <url>2016%2F11%2F09%2F11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82%2F</url>
+      <content type="text"><![CDATA[熟悉Django的模板语言——Python第四周第二节render()：渲染接收三个函数 request 用户点击的request x.html 我们指定模板的名称 context 上下文]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[熟悉Django的模板语言——Python第四周第二节]]></title>
-      <url>2016%2F11%2F09%2F11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82%2F</url>
-      <content type="text"><![CDATA[熟悉Django的模板语言——Python第四周第二节render()：渲染接收三个函数 request 用户点击的request x.html 我们指定模板的名称 context 上下文]]></content>
+      <title><![CDATA[饿了么网上订餐流程]]></title>
+      <url>2016%2F11%2F09%2F10.%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90%E6%B5%81%E7%A8%8B%2F</url>
+      <content type="text"><![CDATA[饿了么网上订餐流程毕业设计——网上订餐系统技术调研 检测地理位置（可以省略或简化，比如直接选择地点，因为后边会填写详细地点，所以这里无需深究） 选择商家（可以按照位置分类） 选择商品（每个商家的商品） 结算（计算） 选择收获地址和支付方式，填写详细信息（） 确定下单 如果在线支付转到支付页面 判断支付是否成功 ​]]></content>
     </entry>
 
     

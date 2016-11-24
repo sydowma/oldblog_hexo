@@ -69,7 +69,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="npm,node.js," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -87,27 +87,37 @@
 
 
 
-<meta name="description" content="在使用npm安装的时候经常遇到npm install速度慢的情况，这是因为我们的网络和npm的服务器相隔较远，延迟很大造成的，怎么解决呢？
-使用taobao镜像有两种方式，本文中的所有代码都需要在终端中输入
-一、在命令后面加参数npm install --registry=https://registry.npm.taobao.org
-这代表了我们可以从taobao的服务器中来获取，就解决了速度慢">
+<meta name="description" content="Objective-C属性声明的关键字readonly和readwritereadonly只有getter方法，没有setter方法，杜绝了从外部访问属性的可能，但是在本身也无法使用self调用方法
+解决方法：把属性的声明写在.m文件中，可以避免外界的访问，也可以在本身使用self调用方法
+默认是readwrite
+strong vs weak不同
+
+引用计数+1
+
+strong是强引用，属性声明">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm install速度慢的解决方法">
-<meta property="og:url" content="http://yoursite.com/2016/11/02/5. npm install速度慢的解决方法/index.html">
+<meta property="og:title" content="Objective-C属性声明的关键字">
+<meta property="og:url" content="http://yoursite.com/2016/11/23/18. 属性声明的关键字/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="在使用npm安装的时候经常遇到npm install速度慢的情况，这是因为我们的网络和npm的服务器相隔较远，延迟很大造成的，怎么解决呢？
-使用taobao镜像有两种方式，本文中的所有代码都需要在终端中输入
-一、在命令后面加参数npm install --registry=https://registry.npm.taobao.org
-这代表了我们可以从taobao的服务器中来获取，就解决了速度慢">
-<meta property="og:image" content="http://yoursite.com/2016/11/02/5.%20npm%20install速度慢的解决方法/cnpm.png">
-<meta property="og:updated_time" content="2016-11-02T12:48:21.000Z">
+<meta property="og:description" content="Objective-C属性声明的关键字readonly和readwritereadonly只有getter方法，没有setter方法，杜绝了从外部访问属性的可能，但是在本身也无法使用self调用方法
+解决方法：把属性的声明写在.m文件中，可以避免外界的访问，也可以在本身使用self调用方法
+默认是readwrite
+strong vs weak不同
+
+引用计数+1
+
+strong是强引用，属性声明">
+<meta property="og:updated_time" content="2016-11-24T06:15:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm install速度慢的解决方法">
-<meta name="twitter:description" content="在使用npm安装的时候经常遇到npm install速度慢的情况，这是因为我们的网络和npm的服务器相隔较远，延迟很大造成的，怎么解决呢？
-使用taobao镜像有两种方式，本文中的所有代码都需要在终端中输入
-一、在命令后面加参数npm install --registry=https://registry.npm.taobao.org
-这代表了我们可以从taobao的服务器中来获取，就解决了速度慢">
-<meta name="twitter:image" content="http://yoursite.com/2016/11/02/5.%20npm%20install速度慢的解决方法/cnpm.png">
+<meta name="twitter:title" content="Objective-C属性声明的关键字">
+<meta name="twitter:description" content="Objective-C属性声明的关键字readonly和readwritereadonly只有getter方法，没有setter方法，杜绝了从外部访问属性的可能，但是在本身也无法使用self调用方法
+解决方法：把属性的声明写在.m文件中，可以避免外界的访问，也可以在本身使用self调用方法
+默认是readwrite
+strong vs weak不同
+
+引用计数+1
+
+strong是强引用，属性声明">
 
 
 
@@ -128,10 +138,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/02/5. npm install速度慢的解决方法/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/23/18. 属性声明的关键字/"/>
 
 
-  <title> npm install速度慢的解决方法 | blog </title>
+  <title> Objective-C属性声明的关键字 | blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -292,7 +302,7 @@
             
             
               
-                npm install速度慢的解决方法
+                Objective-C属性声明的关键字
               
             
           </h1>
@@ -304,8 +314,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-02T17:33:35+08:00" content="2016-11-02">
-              2016-11-02
+            <time itemprop="dateCreated" datetime="2016-11-23T18:44:11+08:00" content="2016-11-23">
+              2016-11-23
             </time>
           </span>
 
@@ -315,8 +325,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/02/5. npm install速度慢的解决方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/02/5. npm install速度慢的解决方法/" itemprop="commentsCount"></span>
+                <a href="/2016/11/23/18. 属性声明的关键字/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/23/18. 属性声明的关键字/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -326,7 +336,7 @@
 
           
           
-             <span id="/2016/11/02/5. npm install速度慢的解决方法/" class="leancloud_visitors" data-flag-title="npm install速度慢的解决方法">
+             <span id="/2016/11/23/18. 属性声明的关键字/" class="leancloud_visitors" data-flag-title="Objective-C属性声明的关键字">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -348,18 +358,51 @@
       
 
       
-        <p>在使用npm安装的时候经常遇到npm install速度慢的情况，这是因为我们的网络和npm的服务器相隔较远，延迟很大造成的，怎么解决呢？</p>
-<h2 id="使用taobao镜像"><a href="#使用taobao镜像" class="headerlink" title="使用taobao镜像"></a><a href="https://npm.taobao.org" target="_blank" rel="external">使用taobao镜像</a></h2><p>有两种方式，本文中的所有代码都需要在终端中输入</p>
-<h3 id="一、在命令后面加参数"><a href="#一、在命令后面加参数" class="headerlink" title="一、在命令后面加参数"></a>一、在命令后面加参数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
-<p>这代表了我们可以从taobao的服务器中来获取，就解决了速度慢的问题。</p>
-<h3 id="二、使用cnpm"><a href="#二、使用cnpm" class="headerlink" title="二、使用cnpm"></a>二、使用<code>cnpm</code></h3><p>使用<code>cnpm</code>的目的是可以一劳永逸的代替<code>npm</code>命令，这样的话就方便多了</p>
-<h5 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装<code>cnpm</code></h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
-<h3 id="验证一下"><a href="#验证一下" class="headerlink" title="验证一下"></a>验证一下</h3><p>当发现输入命令之后，后面的网址是taobao的时候就说明已经成功了</p>
-<img src="/2016/11/02/5.%20npm%20install速度慢的解决方法/cnpm.png" alt="cnpm.png" title="">
-<h3 id="使用taobao镜像的缺点："><a href="#使用taobao镜像的缺点：" class="headerlink" title="使用taobao镜像的缺点："></a>使用taobao镜像的缺点：</h3><ul>
-<li>不能使用<code>publish</code>命令</li>
-<li>和<code>npm</code>官方镜像源有10分钟的延迟</li>
+        <h1 id="Objective-C属性声明的关键字"><a href="#Objective-C属性声明的关键字" class="headerlink" title="Objective-C属性声明的关键字"></a>Objective-C属性声明的关键字</h1><h3 id="readonly和readwrite"><a href="#readonly和readwrite" class="headerlink" title="readonly和readwrite"></a><code>readonly</code>和<code>readwrite</code></h3><h4 id="readonly"><a href="#readonly" class="headerlink" title="readonly"></a>readonly</h4><p>只有getter方法，没有setter方法，杜绝了从外部访问属性的可能，但是在本身也无法使用self调用方法</p>
+<p>解决方法：把属性的声明写在.m文件中，可以避免外界的访问，也可以在本身使用self调用方法</p>
+<p>默认是readwrite</p>
+<h3 id="strong-vs-weak"><a href="#strong-vs-weak" class="headerlink" title="strong vs weak"></a>strong vs weak</h3><p>不同</p>
+<ul>
+<li>引用计数+1</li>
 </ul>
+<p>strong是强引用，属性声明时默认就是强引用</p>
+<h4 id="注意：强引用循环-循环引用现象"><a href="#注意：强引用循环-循环引用现象" class="headerlink" title="注意：强引用循环/循环引用现象"></a>注意：强引用循环/循环引用现象</h4><p>说明：循环引用是指，两个对象之间相互强引用，导致无法被释放，造成内存泄露。一般是存在父子关系的时候容易发生这种现象，比如两个包类，其中背包里面拥有钱包。</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 来自《iOS编程》第四版</span></div><div class="line"><span class="comment">// BNRItem.h</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) BNRItem *containedItem;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) BNRItem *container;</div><div class="line"></div><div class="line"><span class="comment">// BNRItem.m</span></div><div class="line">- (<span class="keyword">void</span>)setContainedItem:(BNRItem *)containedItem &#123;</div><div class="line">    _containedItem = containedItem;</div><div class="line">  <span class="comment">// 将item加入容纳它的BNRItem对象时，</span></div><div class="line">  <span class="comment">// 会将它的container实例变量指向容纳它的对象</span></div><div class="line">    <span class="keyword">self</span>.containedItem.container = <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)dealloc &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Destroyed %@"</span>, <span class="keyword">self</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// main.m</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"BNRItem.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</div><div class="line">    <span class="keyword">@autoreleasepool</span> &#123;</div><div class="line">        </div><div class="line">        <span class="comment">// 创建一个NSMutableArray对象，并用items变量保存该对象的地址</span></div><div class="line">        <span class="built_in">NSMutableArray</span> *items = [[<span class="built_in">NSMutableArray</span> alloc] init];</div><div class="line">        BNRItem *backpack = [[BNRItem alloc] initWithItemName:<span class="string">@"Backpack"</span>];</div><div class="line">        [items addObject:backpack];</div><div class="line">        </div><div class="line">        BNRItem *calculator = [[BNRItem alloc] initWithItemName:<span class="string">@"Calculator"</span>];</div><div class="line">        [items addObject:calculator];</div><div class="line">        </div><div class="line">        backpack.containedItem = calculator;</div><div class="line">        </div><div class="line">        backpack = <span class="literal">nil</span>;</div><div class="line">        calculator = <span class="literal">nil</span>;</div><div class="line">        <span class="keyword">for</span> (BNRItem *item <span class="keyword">in</span> items) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, item);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Setting items to nil...."</span>);</div><div class="line">        items = <span class="literal">nil</span>; </div><div class="line">    &#125;</div><div class="line">  <span class="comment">//此时输出结果是</span></div><div class="line">  <span class="comment">/*</span></div><div class="line">  2016-11-24 13:50:44.023481 RandomItems[36837:2040846] Backpack () :Worth $0, recorded on 2016-11-24 05:50:44 +0000</div><div class="line">2016-11-24 13:50:44.023586 RandomItems[36837:2040846] Calculator () :Worth $0, recorded on 2016-11-24 05:50:44 +0000</div><div class="line">2016-11-24 13:50:44.023605 RandomItems[36837:2040846] Setting items to nil....</div><div class="line">Program ended with exit code: 0</div><div class="line">  </div><div class="line">  */</div></pre></td></tr></table></figure>
+<p>由于我们重写了dealloc方法，在对象即将被释放时，应该调用dealloc方法，这里并没有调用，说明这两个对象并没有正常释放。</p>
+<p>首先确定父子关系，确定之后，让父对象拥有子对象，子对象不能拥有父对象，比如backpack是父对象，calculator是子对象，根据这个规则名，将backpack指向<code>calculator(_containedItem)</code>的指针保留为强引用，将calculator指向<code>backpack(_container)</code>的指针保留为弱引用。</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) BNRItem *container;</div><div class="line"></div><div class="line"><span class="comment">//输出</span></div><div class="line"><span class="comment">/* </span></div><div class="line">2016-11-24 14:10:18.675480 RandomItems[37054:2053319] Backpack () :Worth $0, recorded on 2016-11-24 06:10:18 +0000</div><div class="line">2016-11-24 14:10:18.675578 RandomItems[37054:2053319] Calculator () :Worth $0, recorded on 2016-11-24 06:10:18 +0000</div><div class="line">2016-11-24 14:10:18.675595 RandomItems[37054:2053319] Setting items to nil....</div><div class="line">2016-11-24 14:10:18.675635 RandomItems[37054:2053319] Destroyed Backpack () :Worth $0, recorded on 2016-11-24 06:10:18 +0000</div><div class="line">2016-11-24 14:10:18.675929 RandomItems[37054:2053319] Destroyed Calculator () :Worth $0, recorded on </div><div class="line"></div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>比如背包和钱包是同一品牌的产品，我们用一个类来代替，类中有两个属性，(containedItem)一个是里面放了什么东西，(container)一个是被什么东西包含了，在把钱包放入背包后，背包的containedItem指向了钱包，而钱包的container指向了背包，就造成了循环引用，解决方法是，把钱包的指向改为弱引用。</p>
+<h3 id="strong-vs-assign"><a href="#strong-vs-assign" class="headerlink" title="strong vs assign"></a>strong vs assign</h3><p>不同</p>
+<ul>
+<li>strong修饰OC对象</li>
+<li>strong强引用，引用计数+1</li>
+</ul>
+<ul>
+<li>assign修饰非OC对象</li>
+<li>assign拷贝值，不做引用计数</li>
+</ul>
+<p>assign可以用在非OC对象上吗？</p>
+<p>可以，但不会做引用计数+1</p>
+<h3 id="weak-vs-assign"><a href="#weak-vs-assign" class="headerlink" title="weak vs assign"></a>weak vs assign</h3><p>相同</p>
+<ul>
+<li>可以修饰OC对象</li>
+<li>不做强引用，引用计数不加1</li>
+</ul>
+<p>不同</p>
+<ul>
+<li>weak在对象释放时自动置为nil</li>
+<li>assign保留原始值，释放对象时不会置为nil（不安全）(unsafe_unretained)</li>
+</ul>
+<p>场景：在对象被释放之后，weak会将对象置为nil，准确的说是对象的地址置为nil，而assign则不会，所以就有可能发生一种现象，如果对象被释放了，而assign修饰的对象的指针还在指向着那块内存地址，当其他对象使用了这块内存地址时，就容易发生冲突，基础类型不会发生这种情况，所以我们应该使用weak来修饰对象，用assign来修饰基础类型。</p>
+<h3 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h3><p>使用copy关键字声明属性，在使用过程中，内部会调用copyWithZone方法，重新生成一个新的不可变的类型并赋值返回，这样做的好处是，当拥有一个可变类型的子类来使用时，就可以避免可变类型的子类对象进行的反复修改，避免导致不可控现象。</p>
+<p>举例说明</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="comment">// main.m</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</div><div class="line">    <span class="keyword">@autoreleasepool</span> &#123;</div><div class="line">        <span class="comment">// insert code here...</span></div><div class="line">        </div><div class="line">        <span class="built_in">NSMutableString</span> *mutableString = [[<span class="built_in">NSMutableString</span> alloc] init];</div><div class="line">        mutableString = [<span class="built_in">NSMutableString</span> stringWithString:<span class="string">@"1234"</span>];</div><div class="line">        Person *p1 = [[Person alloc] init];</div><div class="line">        </div><div class="line">        p1.name = mutableString;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"p1.name = %@ --&gt; %p"</span>, p1.name, p1.name);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"mutableString = %@ --&gt; %p"</span>, mutableString, mutableString);</div><div class="line">        </div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"appendString之后"</span>);</div><div class="line">        [mutableString appendString:<span class="string">@"5"</span>];</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"p1.name = %@"</span>, p1.name);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"mutableString = %@"</span>, mutableString);</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用copy关键字声明的name</span></div><div class="line"><span class="comment">// 输出</span></div><div class="line"><span class="comment">/*</span></div><div class="line"></div><div class="line">2016-11-24 13:25:12.320037 copy[36455:2025654] p1.name = 1234 --&gt; 0x3433323145</div><div class="line">2016-11-24 13:25:12.321110 copy[36455:2025654] mutableString = 1234 --&gt; 0x1003065a0</div><div class="line">2016-11-24 13:25:12.321189 copy[36455:2025654] appendString之后</div><div class="line">2016-11-24 13:25:12.321433 copy[36455:2025654] p1.name = 1234</div><div class="line">2016-11-24 13:25:12.321475 copy[36455:2025654] mutableString = 12345</div><div class="line"></div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>可以看到，在执行完毕<code>p1.name = mutableString;</code>之后，两个指针的地址就不同了，这就是因为重新生成了一个地址来指向<code>p1.name</code>，并且是不可变类型的。而<code>mutableString</code>还在那里。</p>
+<p>缺点：频繁使用会造成内存的浪费，所以我们只在必要时使用</p>
+<h3 id="nonatomic-vs-atomic"><a href="#nonatomic-vs-atomic" class="headerlink" title="nonatomic vs atomic"></a>nonatomic vs atomic</h3><p>在iOS上我们用nonatomic，默认时atomic，所以我们要将其声明</p>
+<p>说明，两者的区别是使用时保证线程安全，在多线程中调用属性可能会发生线程锁的问题，不过苹果声明，在iOS上不必考虑这个问题，缺点是会影响性能。</p>
+<h3 id="getter-vs-setter"><a href="#getter-vs-setter" class="headerlink" title="getter vs setter"></a>getter vs setter</h3><p>可以用来指定getter和setter的方法名，常用于BOOL中</p>
+<p>如有错误，欢迎指正</p>
 
       
     </div>
@@ -382,9 +425,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/npm/" rel="tag">#npm</a>
-          
-            <a href="/tags/node-js/" rel="tag">#node.js</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -393,17 +434,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/01/4. 将购买的域名配置到github pages中/" rel="next" title="将购买的域名配置到github pages中">
-                <i class="fa fa-chevron-left"></i> 将购买的域名配置到github pages中
+              <a href="/2016/11/23/17. 指针变量的写法/" rel="next" title="指针变量的写法">
+                <i class="fa fa-chevron-left"></i> 指针变量的写法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/03/6. Ubuntu开启root——以腾讯云为例/" rel="prev" title="Ubuntu开启root——以腾讯云为例">
-                Ubuntu开启root——以腾讯云为例 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,7 +581,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用taobao镜像"><span class="nav-number">1.</span> <span class="nav-text">使用taobao镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、在命令后面加参数"><span class="nav-number">1.1.</span> <span class="nav-text">一、在命令后面加参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、使用cnpm"><span class="nav-number">1.2.</span> <span class="nav-text">二、使用cnpm</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装cnpm"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">安装cnpm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证一下"><span class="nav-number">1.3.</span> <span class="nav-text">验证一下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用taobao镜像的缺点："><span class="nav-number">1.4.</span> <span class="nav-text">使用taobao镜像的缺点：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Objective-C属性声明的关键字"><span class="nav-number">1.</span> <span class="nav-text">Objective-C属性声明的关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#readonly和readwrite"><span class="nav-number">1.0.1.</span> <span class="nav-text">readonly和readwrite</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readonly"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">readonly</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strong-vs-weak"><span class="nav-number">1.0.2.</span> <span class="nav-text">strong vs weak</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意：强引用循环-循环引用现象"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">注意：强引用循环/循环引用现象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strong-vs-assign"><span class="nav-number">1.0.3.</span> <span class="nav-text">strong vs assign</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weak-vs-assign"><span class="nav-number">1.0.4.</span> <span class="nav-text">weak vs assign</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy"><span class="nav-number">1.0.5.</span> <span class="nav-text">copy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nonatomic-vs-atomic"><span class="nav-number">1.0.6.</span> <span class="nav-text">nonatomic vs atomic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getter-vs-setter"><span class="nav-number">1.0.7.</span> <span class="nav-text">getter vs setter</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -671,9 +708,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'magaofei';
-      var disqus_identifier = '2016/11/02/5. npm install速度慢的解决方法/';
-      var disqus_title = "npm install速度慢的解决方法";
-      var disqus_url = 'http://yoursite.com/2016/11/02/5. npm install速度慢的解决方法/';
+      var disqus_identifier = '2016/11/23/18. 属性声明的关键字/';
+      var disqus_title = "Objective-C属性声明的关键字";
+      var disqus_url = 'http://yoursite.com/2016/11/23/18. 属性声明的关键字/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
