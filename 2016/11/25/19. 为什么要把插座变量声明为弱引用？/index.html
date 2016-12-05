@@ -87,15 +87,22 @@
 
 
 
-<meta name="description" content="每天进步一点点">
-<meta property="og:type" content="website">
-<meta property="og:title" content="blog">
-<meta property="og:url" content="http://yoursite.com/tags/Storyboard/index.html">
+<meta name="description" content="iOS上强引用循环的几处场景为什么要把插座变量声明为弱引用？将插座变量声明为弱引用是一个编程约定，当系统的可用内存偏少时，视图控制器会自动释放其视图并在之后需要显示时再创建。因此，视图控制器应该使用弱引用特性的插座变量指向view的子视图，以便在释放view时同时释放view的所有子视图
+来自《iOSProgramming》4th edition
+委托弱引用对象及其委托之间产生强引用循环。例如BN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么要把插座变量声明为弱引用？">
+<meta property="og:url" content="http://yoursite.com/2016/11/25/19. 为什么要把插座变量声明为弱引用？/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="每天进步一点点">
+<meta property="og:description" content="iOS上强引用循环的几处场景为什么要把插座变量声明为弱引用？将插座变量声明为弱引用是一个编程约定，当系统的可用内存偏少时，视图控制器会自动释放其视图并在之后需要显示时再创建。因此，视图控制器应该使用弱引用特性的插座变量指向view的子视图，以便在释放view时同时释放view的所有子视图
+来自《iOSProgramming》4th edition
+委托弱引用对象及其委托之间产生强引用循环。例如BN">
+<meta property="og:updated_time" content="2016-11-25T08:14:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="blog">
-<meta name="twitter:description" content="每天进步一点点">
+<meta name="twitter:title" content="为什么要把插座变量声明为弱引用？">
+<meta name="twitter:description" content="iOS上强引用循环的几处场景为什么要把插座变量声明为弱引用？将插座变量声明为弱引用是一个编程约定，当系统的可用内存偏少时，视图控制器会自动释放其视图并在之后需要显示时再创建。因此，视图控制器应该使用弱引用特性的插座变量指向view的子视图，以便在释放view时同时释放view的所有子视图
+来自《iOSProgramming》4th edition
+委托弱引用对象及其委托之间产生强引用循环。例如BN">
 
 
 
@@ -116,10 +123,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Storyboard/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/25/19. 为什么要把插座变量声明为弱引用？/"/>
 
 
-  <title> 标签: Storyboard | blog </title>
+  <title> 为什么要把插座变量声明为弱引用？ | blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -158,7 +165,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -259,46 +266,138 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Storyboard
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                为什么要把插座变量声明为弱引用？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-25T10:33:07+08:00" content="2016-11-25">
+              2016-11-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/25/19. 为什么要把插座变量声明为弱引用？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/25/19. 为什么要把插座变量声明为弱引用？/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/25/19. 为什么要把插座变量声明为弱引用？/" class="leancloud_visitors" data-flag-title="为什么要把插座变量声明为弱引用？">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="iOS上强引用循环的几处场景"><a href="#iOS上强引用循环的几处场景" class="headerlink" title="iOS上强引用循环的几处场景"></a>iOS上强引用循环的几处场景</h1><h3 id="为什么要把插座变量声明为弱引用？"><a href="#为什么要把插座变量声明为弱引用？" class="headerlink" title="为什么要把插座变量声明为弱引用？"></a>为什么要把插座变量声明为弱引用？</h3><p>将插座变量声明为弱引用是一个编程约定，当系统的可用内存偏少时，视图控制器会自动释放其视图并在之后需要显示时再创建。因此，视图控制器应该使用弱引用特性的插座变量指向view的子视图，以便在释放view时同时释放view的所有子视图</p>
+<p>来自《iOSProgramming》4th edition</p>
+<h3 id="委托弱引用"><a href="#委托弱引用" class="headerlink" title="委托弱引用"></a>委托弱引用</h3><p>对象及其委托之间产生强引用循环。例如<code>BNRHypnosisViewController</code>是<code>UITextfield</code>对象的委托，而且<code>UITextfield</code>对象是<code>BNRHypnosisViewController</code>的强引用属性，如果<code>UITextfield</code>对象再对其委托保持强引用，就会在两者之间产生强引用循环，很容易造成内存泄露</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/11/11/12. 导航控制器的按钮设置(Storyboard)/" itemprop="url">
-              
-                <span itemprop="name">导航控制器的按钮设置(Storyboard)</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-11T15:56:53+08:00"
-              content="2016-11-11" >
-          11-11
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/23/18. 属性声明的关键字/" rel="next" title="Objective-C属性声明的关键字">
+                <i class="fa fa-chevron-left"></i> Objective-C属性声明的关键字
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/26/20. 算法学习第一节/" rel="prev" title="算法学习第一节">
+                算法学习第一节 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -306,6 +405,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -325,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -396,6 +515,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS上强引用循环的几处场景"><span class="nav-number">1.</span> <span class="nav-text">iOS上强引用循环的几处场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要把插座变量声明为弱引用？"><span class="nav-number">1.0.1.</span> <span class="nav-text">为什么要把插座变量声明为弱引用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#委托弱引用"><span class="nav-number">1.0.2.</span> <span class="nav-text">委托弱引用</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -499,6 +629,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
@@ -515,9 +649,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'magaofei';
-      var disqus_identifier = 'tags/Storyboard/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/11/25/19. 为什么要把插座变量声明为弱引用？/';
+      var disqus_title = "为什么要把插座变量声明为弱引用？";
+      var disqus_url = 'http://yoursite.com/2016/11/25/19. 为什么要把插座变量声明为弱引用？/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -528,6 +662,13 @@
       }
 
       run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
     </script>
   

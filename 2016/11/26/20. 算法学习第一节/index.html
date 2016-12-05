@@ -87,15 +87,33 @@
 
 
 
-<meta name="description" content="每天进步一点点">
-<meta property="og:type" content="website">
-<meta property="og:title" content="blog">
-<meta property="og:url" content="http://yoursite.com/tags/Storyboard/index.html">
+<meta name="description" content="Dynamic Connectivity(动态连通性)Question：
+How many connected components result after performing the following sequence of union operations on a set of 10 items?
+1-2 3-4 5-6 7-8 7-9 2-8 0-5 1-9
+Answer:
+3
+个人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习第一节">
+<meta property="og:url" content="http://yoursite.com/2016/11/26/20. 算法学习第一节/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="每天进步一点点">
+<meta property="og:description" content="Dynamic Connectivity(动态连通性)Question：
+How many connected components result after performing the following sequence of union operations on a set of 10 items?
+1-2 3-4 5-6 7-8 7-9 2-8 0-5 1-9
+Answer:
+3
+个人">
+<meta property="og:image" content="http://yoursite.com/images/QuickUnion1.png">
+<meta property="og:updated_time" content="2016-11-27T10:31:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="blog">
-<meta name="twitter:description" content="每天进步一点点">
+<meta name="twitter:title" content="算法学习第一节">
+<meta name="twitter:description" content="Dynamic Connectivity(动态连通性)Question：
+How many connected components result after performing the following sequence of union operations on a set of 10 items?
+1-2 3-4 5-6 7-8 7-9 2-8 0-5 1-9
+Answer:
+3
+个人">
+<meta name="twitter:image" content="http://yoursite.com/images/QuickUnion1.png">
 
 
 
@@ -116,10 +134,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Storyboard/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/26/20. 算法学习第一节/"/>
 
 
-  <title> 标签: Storyboard | blog </title>
+  <title> 算法学习第一节 | blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -158,7 +176,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -259,46 +277,155 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Storyboard
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                算法学习第一节
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-26T19:14:22+08:00" content="2016-11-26">
+              2016-11-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/26/20. 算法学习第一节/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/26/20. 算法学习第一节/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/26/20. 算法学习第一节/" class="leancloud_visitors" data-flag-title="算法学习第一节">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="Dynamic-Connectivity-动态连通性"><a href="#Dynamic-Connectivity-动态连通性" class="headerlink" title="Dynamic Connectivity(动态连通性)"></a>Dynamic Connectivity(动态连通性)</h1><p>Question：</p>
+<p>How many connected components result after performing the following sequence of <em>union</em> operations on a set of 10 items?</p>
+<p>1-2 3-4 5-6 7-8 7-9 2-8 0-5 1-9</p>
+<p>Answer:</p>
+<p>3</p>
+<p>个人见解：这个问题是说，有几个连通的集合，比如1-2，说明1和2之间是连接的，那么1-2 和 2-8 说明1到8之间是连通状态，那么他们三个是一个集合，由此计算，总共有3个集合</p>
+<h3 id="Quick-Find（快速查找、贪心算法）"><a href="#Quick-Find（快速查找、贪心算法）" class="headerlink" title="Quick Find（快速查找、贪心算法）"></a>Quick Find（快速查找、贪心算法）</h3><p>code:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickFindUF</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span>[] id;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">QuickFindUF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)  <span class="comment">// set id of each object to itself</span></div><div class="line">      id[i] = i;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">connected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;  <span class="comment">//check whether p and q are in the same component</span></div><div class="line">    <span class="keyword">return</span> id[p] == id[q];</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;  <span class="comment">// change all entries with id[p] to id[q]</span></div><div class="line">    <span class="keyword">int</span> pid = id[p];</div><div class="line">    <span class="keyword">int</span> qid = id[q];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; id.length; i++) </div><div class="line">      <span class="keyword">if</span> (id[i] == pid) id[i] = qid;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>将连接到的数字更改为相同数字</li>
+<li>相同的数组元素就意味着连通</li>
+</ol>
+<p>时间复杂度</p>
+<p>缺点 时间复杂度太大</p>
+<h1 id="Quick-Union"><a href="#Quick-Union" class="headerlink" title="Quick Union"></a>Quick Union</h1><p>把数组看作一组树，数组中每一项是它在树中的父节点</p>
+<p>Question:</p>
+<p>Suppose that in a quick-union data structure on 10 elements that the id[] array is </p>
+<p>0 9 6 5 4 2 61 0 5</p>
+<p><img src="/images/QuickUnion1.png" alt="QuickUnion1"> </p>
+<p>What are the roots of 3 and 7, respectively?</p>
+<p>Answer:</p>
+<p>6 and 6</p>
+<p>The root of 3 is 6: 3-&gt;5-&gt;2-&gt;6</p>
+<p>The root of 7 is 6: 7-&gt;1-&gt;9-&gt;5-&gt;2-&gt;6</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/11/11/12. 导航控制器的按钮设置(Storyboard)/" itemprop="url">
-              
-                <span itemprop="name">导航控制器的按钮设置(Storyboard)</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-11T15:56:53+08:00"
-              content="2016-11-11" >
-          11-11
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/25/19. 为什么要把插座变量声明为弱引用？/" rel="next" title="为什么要把插座变量声明为弱引用？">
+                <i class="fa fa-chevron-left"></i> 为什么要把插座变量声明为弱引用？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -306,6 +433,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -325,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -396,6 +543,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dynamic-Connectivity-动态连通性"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Connectivity(动态连通性)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quick-Find（快速查找、贪心算法）"><span class="nav-number">1.0.1.</span> <span class="nav-text">Quick Find（快速查找、贪心算法）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-Union"><span class="nav-number">2.</span> <span class="nav-text">Quick Union</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -499,6 +657,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
@@ -515,9 +677,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'magaofei';
-      var disqus_identifier = 'tags/Storyboard/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/11/26/20. 算法学习第一节/';
+      var disqus_title = "算法学习第一节";
+      var disqus_url = 'http://yoursite.com/2016/11/26/20. 算法学习第一节/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -528,6 +690,13 @@
       }
 
       run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
     </script>
   

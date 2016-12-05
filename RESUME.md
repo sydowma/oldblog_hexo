@@ -1,12 +1,12 @@
 # 个人简历
 
-马高飞 男 23岁 本科 2017年6月毕业 邮箱: mamian521@gmail.com 18603822757
+马高飞 男 22岁 本科 2017年6月毕业 邮箱: mamian521@gmail.com 18603822757
 
 熟悉C、Objective-C、HTML、CSS、Python、Git
 
 了解JSON/XML解析、多线程、网络请求、内存管理、常用设计模式
 
-GitHub地：https://github.com/magaofei
+GitHub：https://github.com/magaofei
 
 ##项目经验
 
@@ -14,7 +14,7 @@ GitHub地：https://github.com/magaofei
 
 iOS 2016.09 - 2016.10
 
-在iOS端实现抓取网页信息，并抽取显示(UITableView)，点击文章的cell标题后打开相关的网页(WKWebView)，目前已在App Store[上架](https://itunes.apple.com/cn/app/yang-gong-xue-yuan-zhu-shou/id1159552979?l=zh&ls=1&mt=8)
+在iOS端实现抓取网页信息，并抽取显示，点击文章的cell标题后打开相关的网页，目前已在App Store[上架](https://itunes.apple.com/cn/app/yang-gong-xue-yuan-zhu-shou/id1159552979?l=zh&ls=1&mt=8)
 
 使用到的技术有：自定义UITableViewCell、AutoLayout、代码实现界面跳转
 
@@ -27,7 +27,7 @@ iOS 2016.09 - 2016.10
 
 项目GitHub地址：https://github.com/magaofei/AyitHelperOC
 
-App Store地址：https://itunes.apple.com/cn/app/yang-gong-xue-yuan-zhu-shou/id1159552979?l=zh&ls=1&mt=8
+App Store地址：http://t.cn/Rf8FOwV
 
 ###中州大学资产管理有限公司网站
 web前端  	2014.03-2014.06

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-24T06:15:47.000Z</updated>
+  <updated>2016-11-27T10:31:57.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,76 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>算法学习第一节</title>
+    <link href="http://yoursite.com/2016/11/26/20.%20%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/"/>
+    <id>http://yoursite.com/2016/11/26/20. 算法学习第一节/</id>
+    <published>2016-11-26T11:14:22.000Z</published>
+    <updated>2016-11-27T10:31:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Dynamic-Connectivity-动态连通性"><a href="#Dynamic-Connectivity-动态连通性" class="headerlink" title="Dynamic Connectivity(动态连通性)"></a>Dynamic Connectivity(动态连通性)</h1><p>Question：</p>
+<p>How many connected components result after performing the following sequence of <em>union</em> operations on a set of 10 items?</p>
+<p>1-2 3-4 5-6 7-8 7-9 2-8 0-5 1-9</p>
+<p>Answer:</p>
+<p>3</p>
+<p>个人见解：这个问题是说，有几个连通的集合，比如1-2，说明1和2之间是连接的，那么1-2 和 2-8 说明1到8之间是连通状态，那么他们三个是一个集合，由此计算，总共有3个集合</p>
+<h3 id="Quick-Find（快速查找、贪心算法）"><a href="#Quick-Find（快速查找、贪心算法）" class="headerlink" title="Quick Find（快速查找、贪心算法）"></a>Quick Find（快速查找、贪心算法）</h3><p>code:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickFindUF</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span>[] id;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">QuickFindUF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)  <span class="comment">// set id of each object to itself</span></div><div class="line">      id[i] = i;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">connected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;  <span class="comment">//check whether p and q are in the same component</span></div><div class="line">    <span class="keyword">return</span> id[p] == id[q];</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;  <span class="comment">// change all entries with id[p] to id[q]</span></div><div class="line">    <span class="keyword">int</span> pid = id[p];</div><div class="line">    <span class="keyword">int</span> qid = id[q];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; id.length; i++) </div><div class="line">      <span class="keyword">if</span> (id[i] == pid) id[i] = qid;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>将连接到的数字更改为相同数字</li>
+<li>相同的数组元素就意味着连通</li>
+</ol>
+<p>时间复杂度</p>
+<p>缺点 时间复杂度太大</p>
+<h1 id="Quick-Union"><a href="#Quick-Union" class="headerlink" title="Quick Union"></a>Quick Union</h1><p>把数组看作一组树，数组中每一项是它在树中的父节点</p>
+<p>Question:</p>
+<p>Suppose that in a quick-union data structure on 10 elements that the id[] array is </p>
+<p>0 9 6 5 4 2 61 0 5</p>
+<p><img src="/images/QuickUnion1.png" alt="QuickUnion1"> </p>
+<p>What are the roots of 3 and 7, respectively?</p>
+<p>Answer:</p>
+<p>6 and 6</p>
+<p>The root of 3 is 6: 3-&gt;5-&gt;2-&gt;6</p>
+<p>The root of 7 is 6: 7-&gt;1-&gt;9-&gt;5-&gt;2-&gt;6</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Dynamic-Connectivity-动态连通性&quot;&gt;&lt;a href=&quot;#Dynamic-Connectivity-动态连通性&quot; class=&quot;headerlink&quot; title=&quot;Dynamic Connectivity(动态连通性)&quot;&gt;&lt;/a&gt;Dynamic
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>为什么要把插座变量声明为弱引用？</title>
+    <link href="http://yoursite.com/2016/11/25/19.%20%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8A%8A%E6%8F%92%E5%BA%A7%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E4%B8%BA%E5%BC%B1%E5%BC%95%E7%94%A8%EF%BC%9F/"/>
+    <id>http://yoursite.com/2016/11/25/19. 为什么要把插座变量声明为弱引用？/</id>
+    <published>2016-11-25T02:33:07.000Z</published>
+    <updated>2016-11-25T08:14:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS上强引用循环的几处场景"><a href="#iOS上强引用循环的几处场景" class="headerlink" title="iOS上强引用循环的几处场景"></a>iOS上强引用循环的几处场景</h1><h3 id="为什么要把插座变量声明为弱引用？"><a href="#为什么要把插座变量声明为弱引用？" class="headerlink" title="为什么要把插座变量声明为弱引用？"></a>为什么要把插座变量声明为弱引用？</h3><p>将插座变量声明为弱引用是一个编程约定，当系统的可用内存偏少时，视图控制器会自动释放其视图并在之后需要显示时再创建。因此，视图控制器应该使用弱引用特性的插座变量指向view的子视图，以便在释放view时同时释放view的所有子视图</p>
+<p>来自《iOSProgramming》4th edition</p>
+<h3 id="委托弱引用"><a href="#委托弱引用" class="headerlink" title="委托弱引用"></a>委托弱引用</h3><p>对象及其委托之间产生强引用循环。例如<code>BNRHypnosisViewController</code>是<code>UITextfield</code>对象的委托，而且<code>UITextfield</code>对象是<code>BNRHypnosisViewController</code>的强引用属性，如果<code>UITextfield</code>对象再对其委托保持强引用，就会在两者之间产生强引用循环，很容易造成内存泄露</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS上强引用循环的几处场景&quot;&gt;&lt;a href=&quot;#iOS上强引用循环的几处场景&quot; class=&quot;headerlink&quot; title=&quot;iOS上强引用循环的几处场景&quot;&gt;&lt;/a&gt;iOS上强引用循环的几处场景&lt;/h1&gt;&lt;h3 id=&quot;为什么要把插座变量声明为弱引用？&quot;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Objective-C属性声明的关键字</title>
     <link href="http://yoursite.com/2016/11/23/18.%20%E5%B1%9E%E6%80%A7%E5%A3%B0%E6%98%8E%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97/"/>
     <id>http://yoursite.com/2016/11/23/18. 属性声明的关键字/</id>
     <published>2016-11-23T10:44:11.000Z</published>
-    <updated>2016-11-24T06:15:47.000Z</updated>
+    <updated>2016-11-24T06:17:31.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Objective-C属性声明的关键字"><a href="#Objective-C属性声明的关键字" class="headerlink" title="Objective-C属性声明的关键字"></a>Objective-C属性声明的关键字</h1><h3 id="readonly和readwrite"><a href="#readonly和readwrite" class="headerlink" title="readonly和readwrite"></a><code>readonly</code>和<code>readwrite</code></h3><h4 id="readonly"><a href="#readonly" class="headerlink" title="readonly"></a>readonly</h4><p>只有getter方法，没有setter方法，杜绝了从外部访问属性的可能，但是在本身也无法使用self调用方法</p>
+    <content type="html"><![CDATA[<h1 id="Objective-C声明属性的关键字介绍"><a href="#Objective-C声明属性的关键字介绍" class="headerlink" title="Objective-C声明属性的关键字介绍"></a>Objective-C声明属性的关键字介绍</h1><h3 id="readonly和readwrite"><a href="#readonly和readwrite" class="headerlink" title="readonly和readwrite"></a><code>readonly</code>和<code>readwrite</code></h3><h4 id="readonly"><a href="#readonly" class="headerlink" title="readonly"></a>readonly</h4><p>只有getter方法，没有setter方法，杜绝了从外部访问属性的可能，但是在本身也无法使用self调用方法</p>
 <p>解决方法：把属性的声明写在.m文件中，可以避免外界的访问，也可以在本身使用self调用方法</p>
 <p>默认是readwrite</p>
 <h3 id="strong-vs-weak"><a href="#strong-vs-weak" class="headerlink" title="strong vs weak"></a>strong vs weak</h3><p>不同</p>
@@ -71,7 +134,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Objective-C属性声明的关键字&quot;&gt;&lt;a href=&quot;#Objective-C属性声明的关键字&quot; class=&quot;headerlink&quot; title=&quot;Objective-C属性声明的关键字&quot;&gt;&lt;/a&gt;Objective-C属性声明的关键字&lt;/h1&gt;&lt;h3 i
+      &lt;h1 id=&quot;Objective-C声明属性的关键字介绍&quot;&gt;&lt;a href=&quot;#Objective-C声明属性的关键字介绍&quot; class=&quot;headerlink&quot; title=&quot;Objective-C声明属性的关键字介绍&quot;&gt;&lt;/a&gt;Objective-C声明属性的关键字介绍&lt;/
     
     </summary>
     
@@ -278,12 +341,12 @@
     <updated>2016-11-11T08:16:52.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="导航控制器的按钮设置-Storyboard"><a href="#导航控制器的按钮设置-Storyboard" class="headerlink" title="导航控制器的按钮设置(Storyboard)"></a>导航控制器的按钮设置(Storyboard)</h1><p>效果图:</p>
-<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/效果图.png" alt="效果图.png" title="">
+
 <ol>
 <li><p>新建UIView, 放入 ViewController 中 </p>
 </li>
 <li><p>设置 UIView 的布局上左右都为0, 高度为44</p>
-<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/UIView.png" alt="UIView.png" title="">
+
 </li>
 <li><p>更新Frame</p>
  
@@ -291,10 +354,10 @@
 <li><p>放入3个 Button 到 UIView 中</p>
 </li>
 <li><p>设置第一个 Button 的布局, 上下左右都为0</p>
-<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/button1.png" alt="button1.png" title="">
+
 </li>
 <li><p>设置第二个 Button 的布局, 右和下为0</p>
-<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/button2.png" alt="button2.png" title="">
+
 </li>
 <li><p>在上一步的基础上, 设置第二个 Button 和第一个 Button 相同宽度和高度, </p>
 <ol>
@@ -302,7 +365,7 @@
 <li>按住 Shift 键, 选中 Equal Widths 和 Equal Heights</li>
 <li>最后点击 Add Constraints </li>
 </ol>
-<img src="/2016/11/11/12.%20导航控制器的按钮设置(Storyboard)/equal.png" alt="equal.png" title="">
+
 </li>
 <li><p>设置第三个 Button 的布局, 右和下为0 (同第6步)</p>
 </li>
@@ -323,34 +386,6 @@
       <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
     
       <category term="Storyboard" scheme="http://yoursite.com/tags/Storyboard/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>熟悉Django的模板语言——Python第四周第二节</title>
-    <link href="http://yoursite.com/2016/11/09/11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82/"/>
-    <id>http://yoursite.com/2016/11/09/11. 熟悉Django的模板语言——Python第四周第二节/</id>
-    <published>2016-11-08T16:00:00.000Z</published>
-    <updated>2016-11-11T00:55:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="熟悉Django的模板语言——Python第四周第二节"><a href="#熟悉Django的模板语言——Python第四周第二节" class="headerlink" title="熟悉Django的模板语言——Python第四周第二节"></a>熟悉Django的模板语言——Python第四周第二节</h1><h4 id="render-：渲染"><a href="#render-：渲染" class="headerlink" title="render()：渲染"></a>render()：渲染</h4><p>接收三个函数</p>
-<ul>
-<li>request 用户点击的request</li>
-<li>x.html 我们指定模板的名称</li>
-<li>context 上下文</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;a href=&quot;#熟悉Django的模板语言——Python第四周第二节&quot; class=&quot;headerlink&quot; title=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;/a&gt;熟悉Dja
-    
-    </summary>
-    
-    
-      <category term="django" scheme="http://yoursite.com/tags/django/"/>
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -392,23 +427,28 @@
   </entry>
   
   <entry>
-    <title>Python库安装</title>
-    <link href="http://yoursite.com/2016/11/08/9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2016/11/08/9. Python库安装/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-11T00:53:30.000Z</updated>
+    <title>熟悉Django的模板语言——Python第四周第二节</title>
+    <link href="http://yoursite.com/2016/11/09/11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82/"/>
+    <id>http://yoursite.com/2016/11/09/11. 熟悉Django的模板语言——Python第四周第二节/</id>
+    <published>2016-11-08T16:00:00.000Z</published>
+    <updated>2016-11-11T00:55:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Python库安装"><a href="#Python库安装" class="headerlink" title="Python库安装"></a>Python库安装</h1><p>pip 一键安装库</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">pip3 install requests bs4 pymongo mongoengine jupy</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h1 id="熟悉Django的模板语言——Python第四周第二节"><a href="#熟悉Django的模板语言——Python第四周第二节" class="headerlink" title="熟悉Django的模板语言——Python第四周第二节"></a>熟悉Django的模板语言——Python第四周第二节</h1><h4 id="render-：渲染"><a href="#render-：渲染" class="headerlink" title="render()：渲染"></a>render()：渲染</h4><p>接收三个函数</p>
+<ul>
+<li>request 用户点击的request</li>
+<li>x.html 我们指定模板的名称</li>
+<li>context 上下文</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Python库安装&quot;&gt;&lt;a href=&quot;#Python库安装&quot; class=&quot;headerlink&quot; title=&quot;Python库安装&quot;&gt;&lt;/a&gt;Python库安装&lt;/h1&gt;&lt;p&gt;pip 一键安装库&lt;/p&gt;
-&lt;figure class=&quot;highlight pyt
+      &lt;h1 id=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;a href=&quot;#熟悉Django的模板语言——Python第四周第二节&quot; class=&quot;headerlink&quot; title=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;/a&gt;熟悉Dja
     
     </summary>
     
+    
+      <category term="django" scheme="http://yoursite.com/tags/django/"/>
     
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
@@ -443,6 +483,29 @@
     
     
       <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python库安装</title>
+    <link href="http://yoursite.com/2016/11/08/9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2016/11/08/9. Python库安装/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-11T00:53:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python库安装"><a href="#Python库安装" class="headerlink" title="Python库安装"></a>Python库安装</h1><p>pip 一键安装库</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">pip3 install requests bs4 pymongo mongoengine jupy</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python库安装&quot;&gt;&lt;a href=&quot;#Python库安装&quot; class=&quot;headerlink&quot; title=&quot;Python库安装&quot;&gt;&lt;/a&gt;Python库安装&lt;/h1&gt;&lt;p&gt;pip 一键安装库&lt;/p&gt;
+&lt;figure class=&quot;highlight pyt
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -515,7 +578,7 @@
 <li><p>修改ssh配置</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo vi /etc/ssh/sshd_config</div></pre></td></tr></table></figure>
 <p>找到  <code>PermitRootLogin</code> 这项 将其改为 <code>yes</code></p>
-<img src="/2016/11/03/6.%20Ubuntu开启root——以腾讯云为例/permitRootLogin.png" alt="permitRootLogin.png" title="">
+
 </li>
 <li><p>退出并重启ssh服务</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo service ssh restart</div></pre></td></tr></table></figure>
@@ -550,7 +613,7 @@
 <h3 id="二、使用cnpm"><a href="#二、使用cnpm" class="headerlink" title="二、使用cnpm"></a>二、使用<code>cnpm</code></h3><p>使用<code>cnpm</code>的目的是可以一劳永逸的代替<code>npm</code>命令，这样的话就方便多了</p>
 <h5 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装<code>cnpm</code></h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
 <h3 id="验证一下"><a href="#验证一下" class="headerlink" title="验证一下"></a>验证一下</h3><p>当发现输入命令之后，后面的网址是taobao的时候就说明已经成功了</p>
-<img src="/2016/11/02/5.%20npm%20install速度慢的解决方法/cnpm.png" alt="cnpm.png" title="">
+
 <h3 id="使用taobao镜像的缺点："><a href="#使用taobao镜像的缺点：" class="headerlink" title="使用taobao镜像的缺点："></a>使用taobao镜像的缺点：</h3><ul>
 <li>不能使用<code>publish</code>命令</li>
 <li>和<code>npm</code>官方镜像源有10分钟的延迟</li>
@@ -588,7 +651,7 @@
 </blockquote>
 </li>
 </ol>
-<img src="/2016/11/01/4.%20将购买的域名配置到github%20pages中/域名解析.png" alt="域名解析.png" title="">
+
 <h2 id="Github-pages设置301重定向"><a href="#Github-pages设置301重定向" class="headerlink" title="Github pages设置301重定向"></a>Github pages设置301重定向</h2><p>购买了域名之后，我们想要让不带www的网址重定向到带www前缀的网址上面</p>
 <ol>
 <li>在<code>yourname.github.io</code>目录下新建CNAME文件，内容是你的自定义域名比如www.magaofei.com</li>
