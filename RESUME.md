@@ -14,7 +14,7 @@ GitHub：https://github.com/magaofei
 
 iOS 2016.09 - 2016.10
 
-在iOS端实现抓取网页信息，并抽取显示，点击文章的cell标题后打开相关的网页，目前已在App Store[上架](https://itunes.apple.com/cn/app/yang-gong-xue-yuan-zhu-shou/id1159552979?l=zh&ls=1&mt=8)
+抓取并显示学校网站新闻，登录教务网站，查询课表等。目前已在App Store[上架](https://itunes.apple.com/cn/app/yang-gong-xue-yuan-zhu-shou/id1159552979?l=zh&ls=1&mt=8)
 
 使用到的技术有：自定义UITableViewCell、AutoLayout、代码实现界面跳转
 

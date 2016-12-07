@@ -104,7 +104,7 @@ Answer:
 3
 个人">
 <meta property="og:image" content="http://yoursite.com/images/QuickUnion1.png">
-<meta property="og:updated_time" content="2016-11-27T10:31:57.000Z">
+<meta property="og:updated_time" content="2016-11-27T13:28:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习第一节">
 <meta name="twitter:description" content="Dynamic Connectivity(动态连通性)Question：
@@ -372,12 +372,43 @@ Answer:
 <p>Question:</p>
 <p>Suppose that in a quick-union data structure on 10 elements that the id[] array is </p>
 <p>0 9 6 5 4 2 61 0 5</p>
-<p><img src="/images/QuickUnion1.png" alt="QuickUnion1"> </p>
 <p>What are the roots of 3 and 7, respectively?</p>
 <p>Answer:</p>
 <p>6 and 6</p>
 <p>The root of 3 is 6: 3-&gt;5-&gt;2-&gt;6</p>
 <p>The root of 7 is 6: 7-&gt;1-&gt;9-&gt;5-&gt;2-&gt;6</p>
+<p><img src="/images/QuickUnion1.png" alt="QuickUnion1"> </p>
+<p>和Quick Find的区别在于，是用相同根节点来表示数组中相同的元素，并且有利于合并。在合并树的时候，只需要改变一个值，比如把p这个树合并到q中，只需要更改<code>id[9]</code>的值为6即可，这就意味着9这个结点的根节点是6，这样其他值就无需更改，减少了操作</p>
+<p>code:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickUnionUF</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span>[] id;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">QuickUnionUF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</div><div class="line">      id[i] = i;  <span class="comment">//set id of each to itself</span></div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;  <span class="comment">// chase parent pointers until reach root</span></div><div class="line">    <span class="keyword">while</span> (i != id[i]) </div><div class="line">      i = id[i];</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">cinnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123; <span class="comment">//check if p and q have same root</span></div><div class="line">    <span class="keyword">return</span> root(p) == root(q);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;  <span class="comment">// change root of p to point to root of q</span></div><div class="line">    <span class="keyword">int</span> i = root(p);</div><div class="line">    <span class="keyword">int</span> j = root(q);</div><div class="line">    id[j] = j;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">algorithm</th>
+<th style="text-align:center">initialize</th>
+<th style="text-align:center">union</th>
+<th style="text-align:center">find</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">quick-find</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">quick-union</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+</tr>
+</tbody>
+</table>
+<p>to slow</p>
+<p>在查找一个高度很高的树时，每一次都需要回溯整棵树，浪费时间，每一次查找都是对数组的一次遍历</p>
+<h1 id="Quick-Union-Improvements"><a href="#Quick-Union-Improvements" class="headerlink" title="Quick-Union Improvements"></a>Quick-Union Improvements</h1><p>在实现quick-union的时候执行一些操作避免得到很高的树，如果一个大树和小树合并，避免将大树放在下面，那将会导致更高的树</p>
+<p>在带权算法中，总是将小的树放在下面</p>
 
       
     </div>
@@ -410,6 +441,10 @@ Answer:
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/28/21. Genymotion Android模拟器/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -484,7 +519,7 @@ Answer:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -550,7 +585,7 @@ Answer:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dynamic-Connectivity-动态连通性"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Connectivity(动态连通性)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quick-Find（快速查找、贪心算法）"><span class="nav-number">1.0.1.</span> <span class="nav-text">Quick Find（快速查找、贪心算法）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-Union"><span class="nav-number">2.</span> <span class="nav-text">Quick Union</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dynamic-Connectivity-动态连通性"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Connectivity(动态连通性)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quick-Find（快速查找、贪心算法）"><span class="nav-number">1.0.1.</span> <span class="nav-text">Quick Find（快速查找、贪心算法）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-Union"><span class="nav-number">2.</span> <span class="nav-text">Quick Union</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-Union-Improvements"><span class="nav-number">3.</span> <span class="nav-text">Quick-Union Improvements</span></a></li></ol></div>
             
           </div>
         </section>

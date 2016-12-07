@@ -4,9 +4,23 @@
   
     
     <entry>
+      <title><![CDATA[retainCount并不能返回正确的数值]]></title>
+      <url>2016%2F12%2F07%2F22.%20retainCount%E5%B9%B6%E4%B8%8D%E8%83%BD%E8%BF%94%E5%9B%9E%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%95%B0%E5%80%BC%2F</url>
+      <content type="text"><![CDATA[retainCount并不能返回正确的数值我想通过retainCount来理解引用计数，在网上搜了搜，看到了这个方法 相同意思的两行代码，却返回了不同的结果 NSDate *now = [NSDate date]; NSDate *nowinit = [[NSDate alloc] init]; NSLog(@"now = %@, retain count = %ld", now, CFGetRetainCount((__bridge CFTypeRef)(now))); NSLog(@"nowinit = %@, retain count = %ld", nowinit, CFGetRetainCount((__bridge CFTypeRef)(nowinit))); retainCount的值 [NSDate date]输出的结果是2 [[NSDate alloc] init]输出的结果是1 这让我大为不解，从结果来看，他们是完全相同的，不应该会是这样，如果不同的话，其他人也应该会指出的，但我没发现有人说出来。 我尝试Google了一下，Google上第一个就是 Cocoa中retainCount返回值不准的原因这个，看了之后我才发现，Apple也说了，这个东西不准，我干，既然不准，这个方法还存在干嘛。我有看到StackOverFlow上面的回答，他劝我们使用 Instruments 中的 Leaks 和 Zombies 来检测泄露的内存和僵尸对象。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title></title>
+      <url>2016%2F11%2F28%2F21.%20Genymotion%20Android%E6%A8%A1%E6%8B%9F%E5%99%A8%2F</url>
+      <content type="text"><![CDATA[Genymotion Android模拟器想试试用Charles对AndroidApp 抓包，谁知道模拟器这么难调试 记录一下 Genymotion网络为(NAT) 用模拟器访问本机地址为 10.0.3.2 我的Charles代理端口为7777，所以就设置上了 Mac 上启用 Surge 后，虚拟机的「网络设置-代理」里填上对应的 IP 地址就可以让虚拟机也能走代理，如下图所示假定 Mac 里的代理设置是 127.0.0.1:6152，通过查看虚拟机的 IP 可以推断出 Mac 作为主机的 IP 是 10.211.55.2，代理设置里填写 10.211.55.2:6152 即可。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[算法学习第一节]]></title>
       <url>2016%2F11%2F26%2F20.%20%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82%2F</url>
-      <content type="text"><![CDATA[Dynamic Connectivity(动态连通性)Question： How many connected components result after performing the following sequence of union operations on a set of 10 items? 1-2 3-4 5-6 7-8 7-9 2-8 0-5 1-9 Answer: 3 个人见解：这个问题是说，有几个连通的集合，比如1-2，说明1和2之间是连接的，那么1-2 和 2-8 说明1到8之间是连通状态，那么他们三个是一个集合，由此计算，总共有3个集合 Quick Find（快速查找、贪心算法）code: public class QuickFindUF &#123; private int[] id; public QuickFindUF(int N) &#123; id = new int[N]; for (int i = 0; i &lt; N; i++) // set id of each object to itself id[i] = i; &#125; public boolean connected(int p, int q) &#123; //check whether p and q are in the same component return id[p] == id[q]; &#125; public void union(int p, int q) &#123; // change all entries with id[p] to id[q] int pid = id[p]; int qid = id[q]; for (int i = 0; i &lt; id.length; i++) if (id[i] == pid) id[i] = qid; &#125;&#125; 将连接到的数字更改为相同数字 相同的数组元素就意味着连通 时间复杂度 缺点 时间复杂度太大 Quick Union把数组看作一组树，数组中每一项是它在树中的父节点 Question: Suppose that in a quick-union data structure on 10 elements that the id[] array is 0 9 6 5 4 2 61 0 5 What are the roots of 3 and 7, respectively? Answer: 6 and 6 The root of 3 is 6: 3-&gt;5-&gt;2-&gt;6 The root of 7 is 6: 7-&gt;1-&gt;9-&gt;5-&gt;2-&gt;6]]></content>
+      <content type="text"><![CDATA[Dynamic Connectivity(动态连通性)Question： How many connected components result after performing the following sequence of union operations on a set of 10 items? 1-2 3-4 5-6 7-8 7-9 2-8 0-5 1-9 Answer: 3 个人见解：这个问题是说，有几个连通的集合，比如1-2，说明1和2之间是连接的，那么1-2 和 2-8 说明1到8之间是连通状态，那么他们三个是一个集合，由此计算，总共有3个集合 Quick Find（快速查找、贪心算法）code: public class QuickFindUF &#123; private int[] id; public QuickFindUF(int N) &#123; id = new int[N]; for (int i = 0; i &lt; N; i++) // set id of each object to itself id[i] = i; &#125; public boolean connected(int p, int q) &#123; //check whether p and q are in the same component return id[p] == id[q]; &#125; public void union(int p, int q) &#123; // change all entries with id[p] to id[q] int pid = id[p]; int qid = id[q]; for (int i = 0; i &lt; id.length; i++) if (id[i] == pid) id[i] = qid; &#125;&#125; 将连接到的数字更改为相同数字 相同的数组元素就意味着连通 时间复杂度 缺点 时间复杂度太大 Quick Union把数组看作一组树，数组中每一项是它在树中的父节点 Question: Suppose that in a quick-union data structure on 10 elements that the id[] array is 0 9 6 5 4 2 61 0 5 What are the roots of 3 and 7, respectively? Answer: 6 and 6 The root of 3 is 6: 3-&gt;5-&gt;2-&gt;6 The root of 7 is 6: 7-&gt;1-&gt;9-&gt;5-&gt;2-&gt;6 和Quick Find的区别在于，是用相同根节点来表示数组中相同的元素，并且有利于合并。在合并树的时候，只需要改变一个值，比如把p这个树合并到q中，只需要更改id[9]的值为6即可，这就意味着9这个结点的根节点是6，这样其他值就无需更改，减少了操作 code: public class QuickUnionUF &#123; private int[] id; public QuickUnionUF(int N) &#123; id = new int[N]; for (int i = 0; i &lt; N; i++) id[i] = i; //set id of each to itself &#125; private int root(int i) &#123; // chase parent pointers until reach root while (i != id[i]) i = id[i]; return i; &#125; public boolean cinnected(int p, int q) &#123; //check if p and q have same root return root(p) == root(q); &#125; public void union(int p, int q) &#123; // change root of p to point to root of q int i = root(p); int j = root(q); id[j] = j; &#125;&#125; algorithm initialize union find quick-find N N 1 quick-union N N N to slow 在查找一个高度很高的树时，每一次都需要回溯整棵树，浪费时间，每一次查找都是对数组的一次遍历 Quick-Union Improvements在实现quick-union的时候执行一些操作避免得到很高的树，如果一个大树和小树合并，避免将大树放在下面，那将会导致更高的树 在带权算法中，总是将小的树放在下面]]></content>
     </entry>
 
     
@@ -67,13 +81,6 @@
 
     
     <entry>
-      <title><![CDATA[饿了么网上订餐流程]]></title>
-      <url>2016%2F11%2F09%2F10.%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90%E6%B5%81%E7%A8%8B%2F</url>
-      <content type="text"><![CDATA[饿了么网上订餐流程毕业设计——网上订餐系统技术调研 检测地理位置（可以省略或简化，比如直接选择地点，因为后边会填写详细地点，所以这里无需深究） 选择商家（可以按照位置分类） 选择商品（每个商家的商品） 结算（计算） 选择收获地址和支付方式，填写详细信息（） 确定下单 如果在线支付转到支付页面 判断支付是否成功 ​]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[熟悉Django的模板语言——Python第四周第二节]]></title>
       <url>2016%2F11%2F09%2F11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82%2F</url>
       <content type="text"><![CDATA[熟悉Django的模板语言——Python第四周第二节render()：渲染接收三个函数 request 用户点击的request x.html 我们指定模板的名称 context 上下文]]></content>
@@ -81,16 +88,23 @@
 
     
     <entry>
-      <title><![CDATA[Node环境介绍]]></title>
-      <url>2016%2F11%2F08%2F8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%2F</url>
-      <content type="text"><![CDATA[Node环境介绍普通的node项目环境主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。 路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中 Node.js项目文件package.json：包依赖和其他元数据 node_modules中的依赖：通过package.json安装的第三方模块 数据库：一个MongoDB和元数据的实例 模板：以.jade结尾的文件 配置文件config.json：与应用安全性无关的设置，比如应用的标题 Expressnode_modules：Express.js和第三方模块的依赖都在这个目录下 views：Jade或者其他模版引擎文件 routes：包含请求处理程序的Node.js模块 db：MongoDB的种子数据和脚本 public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件]]></content>
+      <title><![CDATA[饿了么网上订餐流程]]></title>
+      <url>2016%2F11%2F09%2F10.%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90%E6%B5%81%E7%A8%8B%2F</url>
+      <content type="text"><![CDATA[饿了么网上订餐流程毕业设计——网上订餐系统技术调研 检测地理位置（可以省略或简化，比如直接选择地点，因为后边会填写详细地点，所以这里无需深究） 选择商家（可以按照位置分类） 选择商品（每个商家的商品） 结算（计算） 选择收获地址和支付方式，填写详细信息（） 确定下单 如果在线支付转到支付页面 判断支付是否成功 ​]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Python库安装]]></title>
       <url>2016%2F11%2F08%2F9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85%2F</url>
-      <content type="text"><![CDATA[Python库安装pip 一键安装库 pip3 install requests bs4 pymongo mongoengine jupy]]></content>
+      <content type="text"><![CDATA[Python库安装pip 一键安装库 pip3 install requests bs4 pymongo mongoengine jupy Ubuntu16.04问题 root@centos-512mb-nyc3-01:~# pip3 listTraceback (most recent call last): File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt; sys.exit(main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 换个命令试试root@centos-512mb-nyc3-01:~# python3 -m pip listTraceback (most recent call last): File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main &quot;__main__&quot;, mod_spec) File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code exec(code, run_globals) File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt; sys.exit(pip.main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 解决export LC_ALL=C Python的在线编译器 jupyter notebook命令会默认开启8888端口，会和surge起冲突 解决： jupyter notebook --port [自定义端口]]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Node环境介绍]]></title>
+      <url>2016%2F11%2F08%2F8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%2F</url>
+      <content type="text"><![CDATA[Node环境介绍普通的node项目环境主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。 路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中 Node.js项目文件package.json：包依赖和其他元数据 node_modules中的依赖：通过package.json安装的第三方模块 数据库：一个MongoDB和元数据的实例 模板：以.jade结尾的文件 配置文件config.json：与应用安全性无关的设置，比如应用的标题 Expressnode_modules：Express.js和第三方模块的依赖都在这个目录下 views：Jade或者其他模版引擎文件 routes：包含请求处理程序的Node.js模块 db：MongoDB的种子数据和脚本 public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件]]></content>
     </entry>
 
     
