@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title><![CDATA[ruby on rails学习]]></title>
+      <url>2016%2F12%2F09%2F25.%20ruby%20on%20rails%E5%AD%A6%E4%B9%A0%2F</url>
+      <content type="text"><![CDATA[ruby on rails学习（档案／资料夹 ：用途 ） app/ ： 包含你应用程式的 controllers、models、views。你要改的东西大多是这些。 config/ ： 设定应用程式的执行阶段规则、路由设定（routes）、资料库等等。 db/ ：显示你目前资料库的 schema（结构定义），以及资料库的 migrations。 public/ ：这是唯一一个资料夹会是放什么就出现什么的。如果你把档案放里面，server 会直接回传，不会经过 Rails 的处理。 app/assets/ ：你会要把图片、JavaScript、stylesheets (CSS) 还有其他静态档案放在里面。现代的 Rails 应用程式使用一种叫做 Assets Pipeline 的东西，把在这资料夹里面的所有 JavaScript 和 CSS 档合并成一个档案来加速。 rails new 还建立了其他很多东西。大概可以写一本书来讲，所以我们现在先无视它们。 new topics这些网页到底怎么建出来，又是如何连在一起的呢？Rails 的 scaffold 帮你处理好了。 我们来仔细瞧瞧 rails 帮我们建立的档案： app/models/topic.rb 这个档案里面有我们的 topic model 的程式码。如果你仔细看，他其实几乎是空白的。 对资料的新增、读取、更新、删除操作在 Rails 是内建的。 app/views/topics 这个资料夹里面有我们的 topics model 的 view 的程式码。 你刚刚使用的表单的程式码就放在这里面。Rails 会帮你建好这些档案作为 scaffold 的一部分。 如果你以前写过 HTML，这些程式你应该不陌生。 Rails 的 view 只是 HTML 加上一些用来显示资料库来的资料的程式。 app/views/topics/index.html.erb 这个程式是用在列出所有 topics 的页面。 index 是用来表示一个网站或网站的一部分的“预设”页面。当你打开 http://localhost:3000/topics 的时候，topics 的 index 页面会传送到你的电脑上。 app/views/topics/show.html.erb 是当你在 Listing topics 按一下 show 时会看到的页面。 app/views/topics/new.html.erb 是当你按一下 New Topic 时会看到的页面。 app/views/topics/edit.html.erb 是当你按一下 Edit 时会看到的页面。 app/views/topics/_form.html.erb 你或许注意到了，新增 topic 和编辑 topics 的页面长得很像。这是因为他们都使用了这个档案来显示表单。 这种档案称作 partial，因为他只有网页里面一部分的内容。Partial 的档名一定是底线开头的。 挑战题：你可以找到 partial 是在 new.html.erb 和 edit.html.erb 的哪一行程式被引用的吗？ app/controllers/topics_controller.rb 这称为 controller 档，Rails 自动透过 scaffold 产生的。 如果你打开来看，你会看到每一个 view ，除了 _form.html.erb 之外都对应到一个 method（开头是 def）。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[mongod 使用]]></title>
+      <url>2016%2F12%2F08%2F24.%20mongod-%E4%BD%BF%E7%94%A8%2F</url>
+      <content type="text"><![CDATA[mongod 使用进入Shell mongo 启动 mongod]]></content>
+    </entry>
+
+    
+    <entry>
+      <title></title>
+      <url>2016%2F12%2F07%2FautoLayoutAndFrame%2F</url>
+      <content type="text"><![CDATA[autoLayout(void)setNeedsUpdateConstraints- (void)updateConstraintsIfNeeded frame- (void)setNeedsLayout- (void)layoutIfNeeded - (void)layoutSubviews // 更改子view的布局]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[retainCount并不能返回正确的数值]]></title>
       <url>2016%2F12%2F07%2F22.%20retainCount%E5%B9%B6%E4%B8%8D%E8%83%BD%E8%BF%94%E5%9B%9E%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%95%B0%E5%80%BC%2F</url>
       <content type="text"><![CDATA[retainCount并不能返回正确的数值我想通过retainCount来理解引用计数，在网上搜了搜，看到了这个方法 相同意思的两行代码，却返回了不同的结果 NSDate *now = [NSDate date]; NSDate *nowinit = [[NSDate alloc] init]; NSLog(@"now = %@, retain count = %ld", now, CFGetRetainCount((__bridge CFTypeRef)(now))); NSLog(@"nowinit = %@, retain count = %ld", nowinit, CFGetRetainCount((__bridge CFTypeRef)(nowinit))); retainCount的值 [NSDate date]输出的结果是2 [[NSDate alloc] init]输出的结果是1 这让我大为不解，从结果来看，他们是完全相同的，不应该会是这样，如果不同的话，其他人也应该会指出的，但我没发现有人说出来。 我尝试Google了一下，Google上第一个就是 Cocoa中retainCount返回值不准的原因这个，看了之后我才发现，Apple也说了，这个东西不准，我干，既然不准，这个方法还存在干嘛。我有看到StackOverFlow上面的回答，他劝我们使用 Instruments 中的 Leaks 和 Zombies 来检测泄露的内存和僵尸对象。]]></content>
@@ -11,7 +32,7 @@
 
     
     <entry>
-      <title></title>
+      <title><![CDATA[Genymotion Android模拟器]]></title>
       <url>2016%2F11%2F28%2F21.%20Genymotion%20Android%E6%A8%A1%E6%8B%9F%E5%99%A8%2F</url>
       <content type="text"><![CDATA[Genymotion Android模拟器想试试用Charles对AndroidApp 抓包，谁知道模拟器这么难调试 记录一下 Genymotion网络为(NAT) 用模拟器访问本机地址为 10.0.3.2 我的Charles代理端口为7777，所以就设置上了 Mac 上启用 Surge 后，虚拟机的「网络设置-代理」里填上对应的 IP 地址就可以让虚拟机也能走代理，如下图所示假定 Mac 里的代理设置是 127.0.0.1:6152，通过查看虚拟机的 IP 可以推断出 Mac 作为主机的 IP 是 10.211.55.2，代理设置里填写 10.211.55.2:6152 即可。]]></content>
     </entry>
@@ -95,16 +116,16 @@
 
     
     <entry>
-      <title><![CDATA[Python库安装]]></title>
-      <url>2016%2F11%2F08%2F9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85%2F</url>
-      <content type="text"><![CDATA[Python库安装pip 一键安装库 pip3 install requests bs4 pymongo mongoengine jupy Ubuntu16.04问题 root@centos-512mb-nyc3-01:~# pip3 listTraceback (most recent call last): File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt; sys.exit(main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 换个命令试试root@centos-512mb-nyc3-01:~# python3 -m pip listTraceback (most recent call last): File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main &quot;__main__&quot;, mod_spec) File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code exec(code, run_globals) File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt; sys.exit(pip.main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 解决export LC_ALL=C Python的在线编译器 jupyter notebook命令会默认开启8888端口，会和surge起冲突 解决： jupyter notebook --port [自定义端口]]]></content>
+      <title><![CDATA[Node环境介绍]]></title>
+      <url>2016%2F11%2F08%2F8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%2F</url>
+      <content type="text"><![CDATA[Node环境介绍普通的node项目环境主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。 路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中 Node.js项目文件package.json：包依赖和其他元数据 node_modules中的依赖：通过package.json安装的第三方模块 数据库：一个MongoDB和元数据的实例 模板：以.jade结尾的文件 配置文件config.json：与应用安全性无关的设置，比如应用的标题 Expressnode_modules：Express.js和第三方模块的依赖都在这个目录下 views：Jade或者其他模版引擎文件 routes：包含请求处理程序的Node.js模块 db：MongoDB的种子数据和脚本 public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[Node环境介绍]]></title>
-      <url>2016%2F11%2F08%2F8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%2F</url>
-      <content type="text"><![CDATA[Node环境介绍普通的node项目环境主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。 路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中 Node.js项目文件package.json：包依赖和其他元数据 node_modules中的依赖：通过package.json安装的第三方模块 数据库：一个MongoDB和元数据的实例 模板：以.jade结尾的文件 配置文件config.json：与应用安全性无关的设置，比如应用的标题 Expressnode_modules：Express.js和第三方模块的依赖都在这个目录下 views：Jade或者其他模版引擎文件 routes：包含请求处理程序的Node.js模块 db：MongoDB的种子数据和脚本 public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件]]></content>
+      <title><![CDATA[Python库安装]]></title>
+      <url>2016%2F11%2F08%2F9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85%2F</url>
+      <content type="text"><![CDATA[Python库安装pip 一键安装库 pip3 install requests bs4 pymongo mongoengine jupy Ubuntu16.04问题 root@centos-512mb-nyc3-01:~# pip3 listTraceback (most recent call last): File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt; sys.exit(main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 换个命令试试root@centos-512mb-nyc3-01:~# python3 -m pip listTraceback (most recent call last): File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main &quot;__main__&quot;, mod_spec) File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code exec(code, run_globals) File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt; sys.exit(pip.main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 解决export LC_ALL=C Python的在线编译器 jupyter notebook命令会默认开启8888端口，会和surge起冲突 解决： jupyter notebook --port [自定义端口]]]></content>
     </entry>
 
     

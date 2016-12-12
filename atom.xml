@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-07T10:24:42.000Z</updated>
+  <updated>2016-12-12T12:03:30.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,109 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ruby on rails学习</title>
+    <link href="http://yoursite.com/2016/12/09/25.%20ruby%20on%20rails%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2016/12/09/25. ruby on rails学习/</id>
+    <published>2016-12-09T01:47:05.000Z</published>
+    <updated>2016-12-12T12:03:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ruby-on-rails学习"><a href="#ruby-on-rails学习" class="headerlink" title="ruby on rails学习"></a>ruby on rails学习</h1><p>（<strong>档案／资料夹 ：</strong>用途 ）</p>
+<p><strong>app/ ：</strong> 包含你应用程式的 controllers、models、views。你要改的东西大多是这些。</p>
+<p><strong>config/ ：</strong> 设定应用程式的执行阶段规则、路由设定（routes）、资料库等等。</p>
+<p><strong>db/ ：</strong>显示你目前资料库的 schema（结构定义），以及资料库的 migrations。</p>
+<p><strong>public/ ：</strong>这是唯一一个资料夹会是放什么就出现什么的。如果你把档案放里面，server 会直接回传，不会经过 Rails 的处理。</p>
+<p><strong>app/assets/ ：</strong>你会要把图片、JavaScript、stylesheets (CSS) 还有其他静态档案放在里面。现代的 Rails 应用程式使用一种叫做 Assets Pipeline 的东西，把在这资料夹里面的所有 JavaScript 和 CSS 档合并成一个档案来加速。</p>
+<p><code>rails new</code> 还建立了其他很多东西。大概可以写一本书来讲，所以我们现在先无视它们。</p>
+<h3 id="new-topics"><a href="#new-topics" class="headerlink" title="new topics"></a>new topics</h3><p>这些网页到底怎么建出来，又是如何连在一起的呢？Rails 的 scaffold 帮你处理好了。</p>
+<p>我们来仔细瞧瞧 rails 帮我们建立的档案：</p>
+<ul>
+<li><code>app/models/topic.rb</code></li>
+<li>这个档案里面有我们的 topic model 的程式码。如果你仔细看，他其实几乎是空白的。 对资料的新增、读取、更新、删除操作在 Rails 是内建的。</li>
+<li><code>app/views/topics</code></li>
+<li>这个资料夹里面有我们的 topics model 的 view 的程式码。 你刚刚使用的表单的程式码就放在这里面。Rails 会帮你建好这些档案作为 scaffold 的一部分。</li>
+<li>如果你以前写过 HTML，这些程式你应该不陌生。 Rails 的 view 只是 HTML 加上一些用来显示资料库来的资料的程式。</li>
+<li><code>app/views/topics/index.html.erb</code><ul>
+<li>这个程式是用在列出所有 topics 的页面。</li>
+<li>index 是用来表示一个网站或网站的一部分的“预设”页面。当你打开 <a href="http://localhost:3000/topics" target="_blank" rel="external">http://localhost:3000/topics</a> 的时候，topics 的 index 页面会传送到你的电脑上。 </li>
+</ul>
+</li>
+<li><code>app/views/topics/show.html.erb</code><ul>
+<li>是当你在 <code>Listing topics</code> 按一下 <code>show</code> 时会看到的页面。 </li>
+</ul>
+</li>
+<li><code>app/views/topics/new.html.erb</code><ul>
+<li>是当你按一下 <code>New Topic</code> 时会看到的页面。</li>
+<li><code>app/views/topics/edit.html.erb</code></li>
+<li>是当你按一下 <code>Edit</code> 时会看到的页面。 </li>
+</ul>
+</li>
+<li><code>app/views/topics/_form.html.erb</code><ul>
+<li>你或许注意到了，新增 topic 和编辑 topics 的页面长得很像。这是因为他们都使用了这个档案来显示表单。 这种档案称作 <code>partial</code>，因为他只有网页里面一部分的内容。Partial 的档名一定是底线开头的。 </li>
+<li>挑战题：你可以找到 partial 是在 new.html.erb 和 edit.html.erb 的哪一行程式被引用的吗？ </li>
+</ul>
+</li>
+<li><code>app/controllers/topics_controller.rb</code><ul>
+<li>这称为 controller 档，Rails 自动透过 scaffold 产生的。</li>
+<li>如果你打开来看，你会看到每一个 view ，除了 _form.html.erb 之外都对应到一个 method（开头是 def）。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ruby-on-rails学习&quot;&gt;&lt;a href=&quot;#ruby-on-rails学习&quot; class=&quot;headerlink&quot; title=&quot;ruby on rails学习&quot;&gt;&lt;/a&gt;ruby on rails学习&lt;/h1&gt;&lt;p&gt;（&lt;strong&gt;档案／资料夹 ：&lt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mongod 使用</title>
+    <link href="http://yoursite.com/2016/12/08/24.%20mongod-%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2016/12/08/24. mongod-使用/</id>
+    <published>2016-12-08T11:12:32.000Z</published>
+    <updated>2016-12-08T11:12:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="mongod-使用"><a href="#mongod-使用" class="headerlink" title="mongod 使用"></a>mongod 使用</h1><p>进入Shell</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mongo</div></pre></td></tr></table></figure>
+<p>启动</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mongod</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;mongod-使用&quot;&gt;&lt;a href=&quot;#mongod-使用&quot; class=&quot;headerlink&quot; title=&quot;mongod 使用&quot;&gt;&lt;/a&gt;mongod 使用&lt;/h1&gt;&lt;p&gt;进入Shell&lt;/p&gt;
+&lt;figure class=&quot;highlight plain
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/12/07/autoLayoutAndFrame/"/>
+    <id>http://yoursite.com/2016/12/07/autoLayoutAndFrame/</id>
+    <published>2016-12-07T14:10:20.000Z</published>
+    <updated>2016-12-07T14:10:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="autoLayout"><a href="#autoLayout" class="headerlink" title="autoLayout"></a>autoLayout</h2><figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">(<span class="keyword">void</span>)setNeedsUpdateConstraints</div><div class="line">- (<span class="keyword">void</span>)updateConstraintsIfNeeded</div></pre></td></tr></table></figure>
+<h2 id="frame"><a href="#frame" class="headerlink" title="frame"></a>frame</h2><figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setNeedsLayout</div><div class="line">- (<span class="keyword">void</span>)layoutIfNeeded</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)layoutSubviews</div><div class="line">  <span class="comment">// 更改子view的布局</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;autoLayout&quot;&gt;&lt;a href=&quot;#autoLayout&quot; class=&quot;headerlink&quot; title=&quot;autoLayout&quot;&gt;&lt;/a&gt;autoLayout&lt;/h2&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>retainCount并不能返回正确的数值</title>
@@ -42,11 +145,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>Genymotion Android模拟器</title>
     <link href="http://yoursite.com/2016/11/28/21.%20Genymotion%20Android%E6%A8%A1%E6%8B%9F%E5%99%A8/"/>
     <id>http://yoursite.com/2016/11/28/21. Genymotion Android模拟器/</id>
     <published>2016-11-28T08:19:40.000Z</published>
-    <updated>2016-11-29T04:50:46.000Z</updated>
+    <updated>2016-12-08T11:00:15.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Genymotion-Android模拟器"><a href="#Genymotion-Android模拟器" class="headerlink" title="Genymotion Android模拟器"></a>Genymotion Android模拟器</h1><p>想试试用Charles对AndroidApp 抓包，谁知道模拟器这么难调试</p>
 <p>记录一下</p>
@@ -536,35 +639,6 @@
   </entry>
   
   <entry>
-    <title>Python库安装</title>
-    <link href="http://yoursite.com/2016/11/08/9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2016/11/08/9. Python库安装/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-12-03T07:40:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python库安装"><a href="#Python库安装" class="headerlink" title="Python库安装"></a>Python库安装</h1><p>pip 一键安装库</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">pip3 install requests bs4 pymongo mongoengine jupy</div></pre></td></tr></table></figure>
-<p>Ubuntu16.04问题</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">root@centos-512mb-nyc3-01:~# pip3 list</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt;</div><div class="line">    sys.exit(main())</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main</div><div class="line">    locale.setlocale(locale.LC_ALL, &apos;&apos;)</div><div class="line">  File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale</div><div class="line">    return _setlocale(category, locale)</div><div class="line">locale.Error: unsupported locale setting</div><div class="line"></div><div class="line"># 换个命令试试</div><div class="line">root@centos-512mb-nyc3-01:~# python3 -m pip list</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main</div><div class="line">    &quot;__main__&quot;, mod_spec)</div><div class="line">  File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code</div><div class="line">    exec(code, run_globals)</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt;</div><div class="line">    sys.exit(pip.main())</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main</div><div class="line">    locale.setlocale(locale.LC_ALL, &apos;&apos;)</div><div class="line">  File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale</div><div class="line">    return _setlocale(category, locale)</div><div class="line">locale.Error: unsupported locale setting</div><div class="line"></div><div class="line"># 解决</div><div class="line">export LC_ALL=C</div></pre></td></tr></table></figure>
-<p>Python的在线编译器</p>
-<p>jupyter notebook命令会默认开启8888端口，会和surge起冲突</p>
-<p>解决：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">jupyter notebook --port [自定义端口]</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Python库安装&quot;&gt;&lt;a href=&quot;#Python库安装&quot; class=&quot;headerlink&quot; title=&quot;Python库安装&quot;&gt;&lt;/a&gt;Python库安装&lt;/h1&gt;&lt;p&gt;pip 一键安装库&lt;/p&gt;
-&lt;figure class=&quot;highlight pyt
-    
-    </summary>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Node环境介绍</title>
     <link href="http://yoursite.com/2016/11/08/8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D/"/>
     <id>http://yoursite.com/2016/11/08/8. Node环境介绍/</id>
@@ -593,6 +667,35 @@
     
     
       <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python库安装</title>
+    <link href="http://yoursite.com/2016/11/08/9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2016/11/08/9. Python库安装/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-12-03T07:40:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python库安装"><a href="#Python库安装" class="headerlink" title="Python库安装"></a>Python库安装</h1><p>pip 一键安装库</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">pip3 install requests bs4 pymongo mongoengine jupy</div></pre></td></tr></table></figure>
+<p>Ubuntu16.04问题</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">root@centos-512mb-nyc3-01:~# pip3 list</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt;</div><div class="line">    sys.exit(main())</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main</div><div class="line">    locale.setlocale(locale.LC_ALL, &apos;&apos;)</div><div class="line">  File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale</div><div class="line">    return _setlocale(category, locale)</div><div class="line">locale.Error: unsupported locale setting</div><div class="line"></div><div class="line"># 换个命令试试</div><div class="line">root@centos-512mb-nyc3-01:~# python3 -m pip list</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main</div><div class="line">    &quot;__main__&quot;, mod_spec)</div><div class="line">  File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code</div><div class="line">    exec(code, run_globals)</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt;</div><div class="line">    sys.exit(pip.main())</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main</div><div class="line">    locale.setlocale(locale.LC_ALL, &apos;&apos;)</div><div class="line">  File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale</div><div class="line">    return _setlocale(category, locale)</div><div class="line">locale.Error: unsupported locale setting</div><div class="line"></div><div class="line"># 解决</div><div class="line">export LC_ALL=C</div></pre></td></tr></table></figure>
+<p>Python的在线编译器</p>
+<p>jupyter notebook命令会默认开启8888端口，会和surge起冲突</p>
+<p>解决：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">jupyter notebook --port [自定义端口]</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python库安装&quot;&gt;&lt;a href=&quot;#Python库安装&quot; class=&quot;headerlink&quot; title=&quot;Python库安装&quot;&gt;&lt;/a&gt;Python库安装&lt;/h1&gt;&lt;p&gt;pip 一键安装库&lt;/p&gt;
+&lt;figure class=&quot;highlight pyt
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -683,115 +786,6 @@
     
     
       <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>npm install速度慢的解决方法</title>
-    <link href="http://yoursite.com/2016/11/02/5.%20npm%20install%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2016/11/02/5. npm install速度慢的解决方法/</id>
-    <published>2016-11-02T09:33:35.000Z</published>
-    <updated>2016-11-02T12:48:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在使用npm安装的时候经常遇到npm install速度慢的情况，这是因为我们的网络和npm的服务器相隔较远，延迟很大造成的，怎么解决呢？</p>
-<h2 id="使用taobao镜像"><a href="#使用taobao镜像" class="headerlink" title="使用taobao镜像"></a><a href="https://npm.taobao.org" target="_blank" rel="external">使用taobao镜像</a></h2><p>有两种方式，本文中的所有代码都需要在终端中输入</p>
-<h3 id="一、在命令后面加参数"><a href="#一、在命令后面加参数" class="headerlink" title="一、在命令后面加参数"></a>一、在命令后面加参数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
-<p>这代表了我们可以从taobao的服务器中来获取，就解决了速度慢的问题。</p>
-<h3 id="二、使用cnpm"><a href="#二、使用cnpm" class="headerlink" title="二、使用cnpm"></a>二、使用<code>cnpm</code></h3><p>使用<code>cnpm</code>的目的是可以一劳永逸的代替<code>npm</code>命令，这样的话就方便多了</p>
-<h5 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装<code>cnpm</code></h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
-<h3 id="验证一下"><a href="#验证一下" class="headerlink" title="验证一下"></a>验证一下</h3><p>当发现输入命令之后，后面的网址是taobao的时候就说明已经成功了</p>
-
-<h3 id="使用taobao镜像的缺点："><a href="#使用taobao镜像的缺点：" class="headerlink" title="使用taobao镜像的缺点："></a>使用taobao镜像的缺点：</h3><ul>
-<li>不能使用<code>publish</code>命令</li>
-<li>和<code>npm</code>官方镜像源有10分钟的延迟</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在使用npm安装的时候经常遇到npm install速度慢的情况，这是因为我们的网络和npm的服务器相隔较远，延迟很大造成的，怎么解决呢？&lt;/p&gt;
-&lt;h2 id=&quot;使用taobao镜像&quot;&gt;&lt;a href=&quot;#使用taobao镜像&quot; class=&quot;headerlink&quot; ti
-    
-    </summary>
-    
-    
-      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
-    
-      <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>将购买的域名配置到github pages中</title>
-    <link href="http://yoursite.com/2016/11/01/4.%20%E5%B0%86%E8%B4%AD%E4%B9%B0%E7%9A%84%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE%E5%88%B0github%20pages%E4%B8%AD/"/>
-    <id>http://yoursite.com/2016/11/01/4. 将购买的域名配置到github pages中/</id>
-    <published>2016-11-01T12:28:40.000Z</published>
-    <updated>2016-11-02T12:48:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>参考 : <a href="https://help.github.com/articles/setting-up-an-apex-domain/" target="_blank" rel="external">https://help.github.com/articles/setting-up-an-apex-domain/</a></p>
-<ol>
-<li><p>在yourname.github.io的Setting中添加你的自定义域名</p>
-</li>
-<li><p>在域名解析中添加相应的DNS</p>
-<blockquote>
-<p>103.245.222.133</p>
-</blockquote>
-</li>
-</ol>
-
-<h2 id="Github-pages设置301重定向"><a href="#Github-pages设置301重定向" class="headerlink" title="Github pages设置301重定向"></a>Github pages设置301重定向</h2><p>购买了域名之后，我们想要让不带www的网址重定向到带www前缀的网址上面</p>
-<ol>
-<li>在<code>yourname.github.io</code>目录下新建CNAME文件，内容是你的自定义域名比如www.magaofei.com</li>
-<li>在域名解析那里，添加CNAME类型的记录，值为<code>yourname.github.io</code></li>
-</ol>
-<h4 id="macOS下查看端口和杀掉端口"><a href="#macOS下查看端口和杀掉端口" class="headerlink" title="macOS下查看端口和杀掉端口"></a><a href="http://stackoverflow.com/questions/12397175/how-do-i-close-an-open-port-from-the-terminal-on-the-mac" target="_blank" rel="external">macOS下查看端口和杀掉端口</a></h4><ol>
-<li><p>Find out the process ID (PID) which is occupying the port number (e.g., 5955) you would like to free</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo lsof -i :5955</div></pre></td></tr></table></figure>
-</li>
-<li><p>Kill the process which is currently using the port using its PID</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo kill -9 PID</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>## </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;参考 : &lt;a href=&quot;https://help.github.com/articles/setting-up-an-apex-domain/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://help.github.com/article
-    
-    </summary>
-    
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置环境</title>
-    <link href="http://yoursite.com/2016/11/01/3.%20%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/"/>
-    <id>http://yoursite.com/2016/11/01/3. 配置环境/</id>
-    <published>2016-11-01T08:24:33.000Z</published>
-    <updated>2016-11-02T02:00:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h1><p>使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>搭建来自<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a>的主题</p>
-<p>教程来自<a href="http://xiaolai.li/" target="_blank" rel="external">http://xiaolai.li/</a></p>
-<h4 id="note："><a href="#note：" class="headerlink" title="note："></a>note：</h4><ul>
-<li>命令出错可能是前面没有加上<code>sudo</code></li>
-<li>每次只需要把.md文件丢到source目录下，再运行<code>hexo g</code>和<code>hexo d</code>就可以</li>
-<li>主题配置网站<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">http://theme-next.iissnan.com/theme-settings.html</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;配置环境&quot;&gt;&lt;a href=&quot;#配置环境&quot; class=&quot;headerlink&quot; title=&quot;配置环境&quot;&gt;&lt;/a&gt;配置环境&lt;/h1&gt;&lt;p&gt;使用&lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;extern
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
   </entry>
   
