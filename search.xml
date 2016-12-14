@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[data转NSString的Encoding问题]]></title>
+      <url>2016%2F12%2F14%2F26.%20data%E8%BD%ACNSString%E7%9A%84Encoding%E9%97%AE%E9%A2%98%2F</url>
+      <content type="text"><![CDATA[data转NSString的Encoding问题在做安工助手这款App的时候需要抓取网页HTML，我想把抓取放到后台来进行，于是使用NSURLSessionDataTask，却发现了一个BUG，死活获取不到数据，不知道为什么。今天一步步排查，终于找到原因了，因为Encoding的问题 不完整代码： NSURLSessionDataTask *task = [_session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123; NSLog(@"task = %@", [NSThread currentThread]); NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; NSLog(@"str = %@", str); dispatch_async(dispatch_get_main_queue(), ^&#123; _dataTextView.text = str; NSLog(@"_dataTextView %@", [NSThread currentThread]); &#125;); &#125;]; 设置断点后的结果是，data是有数据的，但str是没数据的，这我就很纳闷了，不可能啊，试了其他代码之后，终于想到，难道是encoding的问题？我果断把请求的URL换成百度，成功了…这真是个坑，我们在将网页的NSData转换为NSString，一定要看好网页原来是什么格式的 例如我这个网页的编码是GB2312 那么就应该需要响应的编码 NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);NSString *str = [[NSString alloc] initWithData:data encoding:enc]; 运行以后，正常。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[ruby on rails学习]]></title>
       <url>2016%2F12%2F09%2F25.%20ruby%20on%20rails%E5%AD%A6%E4%B9%A0%2F</url>
       <content type="text"><![CDATA[ruby on rails学习（档案／资料夹 ：用途 ） app/ ： 包含你应用程式的 controllers、models、views。你要改的东西大多是这些。 config/ ： 设定应用程式的执行阶段规则、路由设定（routes）、资料库等等。 db/ ：显示你目前资料库的 schema（结构定义），以及资料库的 migrations。 public/ ：这是唯一一个资料夹会是放什么就出现什么的。如果你把档案放里面，server 会直接回传，不会经过 Rails 的处理。 app/assets/ ：你会要把图片、JavaScript、stylesheets (CSS) 还有其他静态档案放在里面。现代的 Rails 应用程式使用一种叫做 Assets Pipeline 的东西，把在这资料夹里面的所有 JavaScript 和 CSS 档合并成一个档案来加速。 rails new 还建立了其他很多东西。大概可以写一本书来讲，所以我们现在先无视它们。 new topics这些网页到底怎么建出来，又是如何连在一起的呢？Rails 的 scaffold 帮你处理好了。 我们来仔细瞧瞧 rails 帮我们建立的档案： app/models/topic.rb 这个档案里面有我们的 topic model 的程式码。如果你仔细看，他其实几乎是空白的。 对资料的新增、读取、更新、删除操作在 Rails 是内建的。 app/views/topics 这个资料夹里面有我们的 topics model 的 view 的程式码。 你刚刚使用的表单的程式码就放在这里面。Rails 会帮你建好这些档案作为 scaffold 的一部分。 如果你以前写过 HTML，这些程式你应该不陌生。 Rails 的 view 只是 HTML 加上一些用来显示资料库来的资料的程式。 app/views/topics/index.html.erb 这个程式是用在列出所有 topics 的页面。 index 是用来表示一个网站或网站的一部分的“预设”页面。当你打开 http://localhost:3000/topics 的时候，topics 的 index 页面会传送到你的电脑上。 app/views/topics/show.html.erb 是当你在 Listing topics 按一下 show 时会看到的页面。 app/views/topics/new.html.erb 是当你按一下 New Topic 时会看到的页面。 app/views/topics/edit.html.erb 是当你按一下 Edit 时会看到的页面。 app/views/topics/_form.html.erb 你或许注意到了，新增 topic 和编辑 topics 的页面长得很像。这是因为他们都使用了这个档案来显示表单。 这种档案称作 partial，因为他只有网页里面一部分的内容。Partial 的档名一定是底线开头的。 挑战题：你可以找到 partial 是在 new.html.erb 和 edit.html.erb 的哪一行程式被引用的吗？ app/controllers/topics_controller.rb 这称为 controller 档，Rails 自动透过 scaffold 产生的。 如果你打开来看，你会看到每一个 view ，除了 _form.html.erb 之外都对应到一个 method（开头是 def）。]]></content>
@@ -102,13 +109,6 @@
 
     
     <entry>
-      <title><![CDATA[熟悉Django的模板语言——Python第四周第二节]]></title>
-      <url>2016%2F11%2F09%2F11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82%2F</url>
-      <content type="text"><![CDATA[熟悉Django的模板语言——Python第四周第二节render()：渲染接收三个函数 request 用户点击的request x.html 我们指定模板的名称 context 上下文]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[饿了么网上订餐流程]]></title>
       <url>2016%2F11%2F09%2F10.%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90%E6%B5%81%E7%A8%8B%2F</url>
       <content type="text"><![CDATA[饿了么网上订餐流程毕业设计——网上订餐系统技术调研 检测地理位置（可以省略或简化，比如直接选择地点，因为后边会填写详细地点，所以这里无需深究） 选择商家（可以按照位置分类） 选择商品（每个商家的商品） 结算（计算） 选择收获地址和支付方式，填写详细信息（） 确定下单 如果在线支付转到支付页面 判断支付是否成功 ​]]></content>
@@ -116,9 +116,9 @@
 
     
     <entry>
-      <title><![CDATA[Node环境介绍]]></title>
-      <url>2016%2F11%2F08%2F8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%2F</url>
-      <content type="text"><![CDATA[Node环境介绍普通的node项目环境主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。 路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中 Node.js项目文件package.json：包依赖和其他元数据 node_modules中的依赖：通过package.json安装的第三方模块 数据库：一个MongoDB和元数据的实例 模板：以.jade结尾的文件 配置文件config.json：与应用安全性无关的设置，比如应用的标题 Expressnode_modules：Express.js和第三方模块的依赖都在这个目录下 views：Jade或者其他模版引擎文件 routes：包含请求处理程序的Node.js模块 db：MongoDB的种子数据和脚本 public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件]]></content>
+      <title><![CDATA[熟悉Django的模板语言——Python第四周第二节]]></title>
+      <url>2016%2F11%2F09%2F11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82%2F</url>
+      <content type="text"><![CDATA[熟悉Django的模板语言——Python第四周第二节render()：渲染接收三个函数 request 用户点击的request x.html 我们指定模板的名称 context 上下文]]></content>
     </entry>
 
     
@@ -126,6 +126,13 @@
       <title><![CDATA[Python库安装]]></title>
       <url>2016%2F11%2F08%2F9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85%2F</url>
       <content type="text"><![CDATA[Python库安装pip 一键安装库 pip3 install requests bs4 pymongo mongoengine jupy Ubuntu16.04问题 root@centos-512mb-nyc3-01:~# pip3 listTraceback (most recent call last): File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt; sys.exit(main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 换个命令试试root@centos-512mb-nyc3-01:~# python3 -m pip listTraceback (most recent call last): File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main &quot;__main__&quot;, mod_spec) File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code exec(code, run_globals) File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt; sys.exit(pip.main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 解决export LC_ALL=C Python的在线编译器 jupyter notebook命令会默认开启8888端口，会和surge起冲突 解决： jupyter notebook --port [自定义端口]]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Node环境介绍]]></title>
+      <url>2016%2F11%2F08%2F8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%2F</url>
+      <content type="text"><![CDATA[Node环境介绍普通的node项目环境主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。 路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中 Node.js项目文件package.json：包依赖和其他元数据 node_modules中的依赖：通过package.json安装的第三方模块 数据库：一个MongoDB和元数据的实例 模板：以.jade结尾的文件 配置文件config.json：与应用安全性无关的设置，比如应用的标题 Expressnode_modules：Express.js和第三方模块的依赖都在这个目录下 views：Jade或者其他模版引擎文件 routes：包含请求处理程序的Node.js模块 db：MongoDB的种子数据和脚本 public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件]]></content>
     </entry>
 
     

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-12T12:03:30.000Z</updated>
+  <updated>2016-12-14T11:04:35.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>data转NSString的Encoding问题</title>
+    <link href="http://yoursite.com/2016/12/14/26.%20data%E8%BD%ACNSString%E7%9A%84Encoding%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/12/14/26. data转NSString的Encoding问题/</id>
+    <published>2016-12-14T10:52:36.000Z</published>
+    <updated>2016-12-14T11:04:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="data转NSString的Encoding问题"><a href="#data转NSString的Encoding问题" class="headerlink" title="data转NSString的Encoding问题"></a>data转NSString的Encoding问题</h1><p>在做安工助手这款App的时候需要抓取网页HTML，我想把抓取放到后台来进行，于是使用<code>NSURLSessionDataTask</code>，却发现了一个BUG，死活获取不到数据，不知道为什么。今天一步步排查，终于找到原因了，因为<code>Encoding</code>的问题</p>
+<p>不完整代码：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSURLSessionDataTask</span> *task = [_session dataTaskWithRequest:request completionHandler:^(<span class="built_in">NSData</span> * _Nullable data, <span class="built_in">NSURLResponse</span> * _Nullable response, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">     <span class="built_in">NSLog</span>(<span class="string">@"task = %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">     <span class="built_in">NSString</span> *str = [[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">     <span class="built_in">NSLog</span>(<span class="string">@"str = %@"</span>, str);</div><div class="line">     </div><div class="line">     <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line"></div><div class="line">         _dataTextView.text = str;</div><div class="line">         </div><div class="line">         <span class="built_in">NSLog</span>(<span class="string">@"_dataTextView %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">     &#125;);</div><div class="line"> &#125;];</div></pre></td></tr></table></figure>
+<p>设置断点后的结果是，data是有数据的，但<code>str</code>是没数据的，这我就很纳闷了，不可能啊，试了其他代码之后，终于想到，难道是<code>encoding</code>的问题？我果断把请求的URL换成百度，成功了…这真是个坑，我们在将网页的NSData转换为NSString，一定要看好网页原来是什么格式的</p>
+<p>例如我这个网页的编码是GB2312</p>
+<p><img src="../images/dataNStringencoding.png" alt=""></p>
+<p>那么就应该需要响应的编码</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSStringEncoding</span> enc = <span class="built_in">CFStringConvertEncodingToNSStringEncoding</span>(kCFStringEncodingGB_18030_2000);</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> *str = [[<span class="built_in">NSString</span> alloc] initWithData:data encoding:enc];</div></pre></td></tr></table></figure>
+<p>运行以后，正常。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;data转NSString的Encoding问题&quot;&gt;&lt;a href=&quot;#data转NSString的Encoding问题&quot; class=&quot;headerlink&quot; title=&quot;data转NSString的Encoding问题&quot;&gt;&lt;/a&gt;data转NSString的
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>ruby on rails学习</title>
@@ -574,34 +601,6 @@
   </entry>
   
   <entry>
-    <title>熟悉Django的模板语言——Python第四周第二节</title>
-    <link href="http://yoursite.com/2016/11/09/11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82/"/>
-    <id>http://yoursite.com/2016/11/09/11. 熟悉Django的模板语言——Python第四周第二节/</id>
-    <published>2016-11-08T16:00:00.000Z</published>
-    <updated>2016-11-11T00:55:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="熟悉Django的模板语言——Python第四周第二节"><a href="#熟悉Django的模板语言——Python第四周第二节" class="headerlink" title="熟悉Django的模板语言——Python第四周第二节"></a>熟悉Django的模板语言——Python第四周第二节</h1><h4 id="render-：渲染"><a href="#render-：渲染" class="headerlink" title="render()：渲染"></a>render()：渲染</h4><p>接收三个函数</p>
-<ul>
-<li>request 用户点击的request</li>
-<li>x.html 我们指定模板的名称</li>
-<li>context 上下文</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;a href=&quot;#熟悉Django的模板语言——Python第四周第二节&quot; class=&quot;headerlink&quot; title=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;/a&gt;熟悉Dja
-    
-    </summary>
-    
-    
-      <category term="django" scheme="http://yoursite.com/tags/django/"/>
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>饿了么网上订餐流程</title>
     <link href="http://yoursite.com/2016/11/09/10.%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90%E6%B5%81%E7%A8%8B/"/>
     <id>http://yoursite.com/2016/11/09/10. 饿了么网上订餐流程/</id>
@@ -639,34 +638,30 @@
   </entry>
   
   <entry>
-    <title>Node环境介绍</title>
-    <link href="http://yoursite.com/2016/11/08/8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://yoursite.com/2016/11/08/8. Node环境介绍/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-11T00:54:15.000Z</updated>
+    <title>熟悉Django的模板语言——Python第四周第二节</title>
+    <link href="http://yoursite.com/2016/11/09/11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82/"/>
+    <id>http://yoursite.com/2016/11/09/11. 熟悉Django的模板语言——Python第四周第二节/</id>
+    <published>2016-11-08T16:00:00.000Z</published>
+    <updated>2016-11-11T00:55:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Node环境介绍"><a href="#Node环境介绍" class="headerlink" title="Node环境介绍"></a>Node环境介绍</h1><h2 id="普通的node项目环境"><a href="#普通的node项目环境" class="headerlink" title="普通的node项目环境"></a>普通的node项目环境</h2><p>主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。</p>
-<p>路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中</p>
-<p>Node.js项目文件package.json：包依赖和其他元数据</p>
-<p>node_modules中的依赖：通过package.json安装的第三方模块</p>
-<p>数据库：一个MongoDB和元数据的实例</p>
-<p>模板：以.jade结尾的文件</p>
-<p>配置文件config.json：与应用安全性无关的设置，比如应用的标题</p>
-<h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><p>node_modules：Express.js和第三方模块的依赖都在这个目录下</p>
-<p>views：Jade或者其他模版引擎文件</p>
-<p>routes：包含请求处理程序的Node.js模块</p>
-<p>db：MongoDB的种子数据和脚本</p>
-<p>public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件</p>
+    <content type="html"><![CDATA[<h1 id="熟悉Django的模板语言——Python第四周第二节"><a href="#熟悉Django的模板语言——Python第四周第二节" class="headerlink" title="熟悉Django的模板语言——Python第四周第二节"></a>熟悉Django的模板语言——Python第四周第二节</h1><h4 id="render-：渲染"><a href="#render-：渲染" class="headerlink" title="render()：渲染"></a>render()：渲染</h4><p>接收三个函数</p>
+<ul>
+<li>request 用户点击的request</li>
+<li>x.html 我们指定模板的名称</li>
+<li>context 上下文</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Node环境介绍&quot;&gt;&lt;a href=&quot;#Node环境介绍&quot; class=&quot;headerlink&quot; title=&quot;Node环境介绍&quot;&gt;&lt;/a&gt;Node环境介绍&lt;/h1&gt;&lt;h2 id=&quot;普通的node项目环境&quot;&gt;&lt;a href=&quot;#普通的node项目环境&quot; class
+      &lt;h1 id=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;a href=&quot;#熟悉Django的模板语言——Python第四周第二节&quot; class=&quot;headerlink&quot; title=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;/a&gt;熟悉Dja
     
     </summary>
     
     
-      <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
+      <category term="django" scheme="http://yoursite.com/tags/django/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -696,6 +691,38 @@
     
     
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node环境介绍</title>
+    <link href="http://yoursite.com/2016/11/08/8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://yoursite.com/2016/11/08/8. Node环境介绍/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-11T00:54:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Node环境介绍"><a href="#Node环境介绍" class="headerlink" title="Node环境介绍"></a>Node环境介绍</h1><h2 id="普通的node项目环境"><a href="#普通的node项目环境" class="headerlink" title="普通的node项目环境"></a>普通的node项目环境</h2><p>主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。</p>
+<p>路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中</p>
+<p>Node.js项目文件package.json：包依赖和其他元数据</p>
+<p>node_modules中的依赖：通过package.json安装的第三方模块</p>
+<p>数据库：一个MongoDB和元数据的实例</p>
+<p>模板：以.jade结尾的文件</p>
+<p>配置文件config.json：与应用安全性无关的设置，比如应用的标题</p>
+<h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><p>node_modules：Express.js和第三方模块的依赖都在这个目录下</p>
+<p>views：Jade或者其他模版引擎文件</p>
+<p>routes：包含请求处理程序的Node.js模块</p>
+<p>db：MongoDB的种子数据和脚本</p>
+<p>public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Node环境介绍&quot;&gt;&lt;a href=&quot;#Node环境介绍&quot; class=&quot;headerlink&quot; title=&quot;Node环境介绍&quot;&gt;&lt;/a&gt;Node环境介绍&lt;/h1&gt;&lt;h2 id=&quot;普通的node项目环境&quot;&gt;&lt;a href=&quot;#普通的node项目环境&quot; class
+    
+    </summary>
+    
+    
+      <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
     
   </entry>
   
@@ -747,45 +774,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu开启root——以腾讯云为例</title>
-    <link href="http://yoursite.com/2016/11/03/6.%20Ubuntu%E5%BC%80%E5%90%AFroot%E2%80%94%E2%80%94%E4%BB%A5%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%BA%E4%BE%8B/"/>
-    <id>http://yoursite.com/2016/11/03/6. Ubuntu开启root——以腾讯云为例/</id>
-    <published>2016-11-03T05:33:49.000Z</published>
-    <updated>2016-11-03T05:40:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Ubuntu默认没有启用root账户，这有利于安全，但在实际操作中，我们常常需要访问一些需要root权限才可以访问的目录，需要启动root账户</p>
-<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><ol>
-<li><p>登陆服务器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ssh ubuntu@yoursiteIP</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改root密码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo passwd root</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改ssh配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo vi /etc/ssh/sshd_config</div></pre></td></tr></table></figure>
-<p>找到  <code>PermitRootLogin</code> 这项 将其改为 <code>yes</code></p>
-
-</li>
-<li><p>退出并重启ssh服务</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo service ssh restart</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Ubuntu默认没有启用root账户，这有利于安全，但在实际操作中，我们常常需要访问一些需要root权限才可以访问的目录，需要启动root账户&lt;/p&gt;
-&lt;h4 id=&quot;操作步骤&quot;&gt;&lt;a href=&quot;#操作步骤&quot; class=&quot;headerlink&quot; title=&quot;操作步骤&quot;
-    
-    </summary>
-    
-    
-      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
     
   </entry>
   
