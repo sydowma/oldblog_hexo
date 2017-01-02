@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-14T11:04:35.000Z</updated>
+  <updated>2017-01-02T04:23:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,134 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用TFHpple处理数据的请求</title>
+    <link href="http://yoursite.com/2017/01/02/30.%20%E4%BD%BF%E7%94%A8TFHpple%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%B7%E6%B1%82/"/>
+    <id>http://yoursite.com/2017/01/02/30. 使用TFHpple处理数据的请求/</id>
+    <published>2017-01-02T04:07:17.000Z</published>
+    <updated>2017-01-02T04:23:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用TFHpple处理数据的请求"><a href="#使用TFHpple处理数据的请求" class="headerlink" title="使用TFHpple处理数据的请求"></a>使用TFHpple处理数据的请求</h1><p>由于App中需要抓取网页数据，也没有做后台，就在iOS App里手动检索HTML信息进行抓取，这个过程中使用到了TFHpple框架，不过我看了一些范例都是直接使用NSData来直接获取网页的Data，这样做肯定会阻塞主线程，我一直在尝试使用其他方法，但都没有成功，困扰了我很久，直到昨天看到一篇网易公开课的文章提到了（<a href="http://www.itgo.me/a/2968793659999962488/TFHpple-XPath）。" target="_blank" rel="external">http://www.itgo.me/a/2968793659999962488/TFHpple-XPath）。</a></p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)wangyi &#123;</div><div class="line"><span class="comment">// 网易公开课地址</span></div><div class="line"><span class="built_in">NSString</span> *str=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"http://open.163.com/"</span>];</div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:[str stringByAddingPercentEscapesUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>]];</div><div class="line"><span class="comment">// UTF－8</span></div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</div><div class="line">AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:request];</div><div class="line"><span class="comment">// 请求数据，设置成功与失败的回调函数</span></div><div class="line">[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) &#123;</div><div class="line"><span class="comment">// 请求下来的整个网页数据</span></div><div class="line"><span class="built_in">NSString</span> *html = operation.responseString;</div><div class="line"><span class="comment">// 网页有gbk编码有utf8编码，全部换成utf8</span></div><div class="line"><span class="built_in">NSString</span> *utf8HtmlStr = [html stringByReplacingOccurrencesOfString:<span class="string">@"&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=GBK\"&gt;"</span> withString:<span class="string">@"&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"&gt;"</span>];</div><div class="line"><span class="comment">// TFHpple解析的是data，转换成data</span></div><div class="line"><span class="built_in">NSData</span> *htmlDataUTF8 = [utf8HtmlStr dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line"><span class="comment">// 开始解析</span></div><div class="line">TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlDataUTF8];</div><div class="line"><span class="comment">// 查找所有的 &lt;div class="g-cell1"</span></div><div class="line"><span class="comment">// 因为首页的“小编推荐”是使用该class标示的，所以主要获取的是该种形式的小课程节目</span></div><div class="line"><span class="built_in">NSArray</span> *elements</div><div class="line">= [xpathParser searchWithXPathQuery:<span class="string">@"//div[@class='g-cell1']"</span>];</div><div class="line"><span class="comment">// 不存在则不继续执行</span></div><div class="line"><span class="keyword">if</span> ([elements count] &lt;= <span class="number">0</span>) &#123;</div><div class="line"><span class="keyword">return</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 以下只是示例解析第一个课程，循环即可全部解析</span></div><div class="line">TFHppleElement *first = [elements firstObject];</div><div class="line"><span class="comment">// 完整写法</span></div><div class="line"><span class="built_in">NSArray</span> *arr = [first searchWithXPathQuery:<span class="string">@"//a[1]/@href"</span>];</div><div class="line">TFHppleElement *ele = [arr firstObject];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"网址链接：%@"</span>,[ele text]);</div><div class="line"><span class="comment">// 合并的写法</span></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"图片链接：%@"</span>,[[[first searchWithXPathQuery:<span class="string">@"//img/@src"</span>] firstObject] text]);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"标题：%@"</span>,[[[first searchWithXPathQuery:<span class="string">@"//h5"</span>] firstObject] text]);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"副标题：%@"</span>,[[[first searchWithXPathQuery:<span class="string">@"//p"</span>] firstObject] text]);</div><div class="line">&#125;failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) &#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"发生错误！%@"</span>,error);</div><div class="line">&#125;];</div><div class="line"><span class="comment">// 加入队列 开始执行</span></div><div class="line"><span class="built_in">NSOperationQueue</span> *queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</div><div class="line">[queue addOperation:operation];&#125;</div></pre></td></tr></table></figure>
+<p>这个代码使用的是AFNetworking 2x的版本，不过网页已经更改了，所以这个解析已经失效了。</p>
+<p>我把代码使用了之后，可以使用</p>
+<p>接着我尝试把TFHpple处理HTML的这部份放到子线程去执行，参考代码<a href="http://www.jianshu.com/p/943dcb9ad632" target="_blank" rel="external">http://www.jianshu.com/p/943dcb9ad632</a></p>
+<p>然后分别计算时间对比一下这三种方式。</p>
+<p>我预想的结果是把处理HTML的这部份放到子线程这样处理会更快，但结果是并没有。</p>
+<p><img src="/images/NSData_TFHpple_AFNetwoking对比.png" alt=""></p>
+<p>结果是，直接使用AFNetwoking，并且在里面对数据进行处理是最快的，当然，我只用真机测试了5次，可能会有偏差</p>
+<p>设备: iPhone5c , iOS10.2</p>
+<p>代码地址: <a href="https://github.com/magaofei/iOS_Apprentice/tree/master/NSURLSessionBackgroundData" target="_blank" rel="external">https://github.com/magaofei/iOS_Apprentice/tree/master/NSURLSessionBackgroundData</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用TFHpple处理数据的请求&quot;&gt;&lt;a href=&quot;#使用TFHpple处理数据的请求&quot; class=&quot;headerlink&quot; title=&quot;使用TFHpple处理数据的请求&quot;&gt;&lt;/a&gt;使用TFHpple处理数据的请求&lt;/h1&gt;&lt;p&gt;由于App中需要抓取网页数据
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sqlite for iOS犯的错2016年12月21日</title>
+    <link href="http://yoursite.com/2016/12/21/29.%20sqlite-for-iOS%E7%8A%AF%E7%9A%84%E9%94%992016%E5%B9%B412%E6%9C%8821%E6%97%A5/"/>
+    <id>http://yoursite.com/2016/12/21/29. sqlite-for-iOS犯的错2016年12月21日/</id>
+    <published>2016-12-21T01:21:18.000Z</published>
+    <updated>2016-12-21T01:28:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li><p>Sql语句里的<code>values</code>少了<code>s</code></p>
+<p>使用了<code>NSLog(@&quot;%s&quot;, sqlite3_errmsg(_db));</code>才发现错误,</p>
+<p> 原因是<code>NSLog(@&quot;%s&quot;, sqlite3_errmsg(_db));</code></p>
+</li>
+<li><p><code>sqlite3_column_text</code>写成<code>sqlite3_column_int64</code></p>
+</li>
+</ol>
+<ol>
+<li>NSMutableArray延迟加载写的不对</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">instancetype</span>)init &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</div><div class="line">        _students = [<span class="built_in">NSMutableArray</span> array];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 这样是老师写的, 但是它是纯代码做的, 所以控制器有alloc和init 但我使用storyboard, 所以就跳过了这一步, 通过debugging 发现数组是nil, 就说明没有成功alloc和init</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Sql语句里的&lt;code&gt;values&lt;/code&gt;少了&lt;code&gt;s&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用了&lt;code&gt;NSLog(@&amp;quot;%s&amp;quot;, sqlite3_errmsg(_db));&lt;/code&gt;才发现错误,&lt;/p&gt;
+&lt;p&gt; 原因是
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于 iPhone App 设计的几点看法和总结</title>
+    <link href="http://yoursite.com/2016/12/20/28.%20%E5%85%B3%E4%BA%8E-iPhone-App-%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%87%A0%E7%82%B9%E7%9C%8B%E6%B3%95%E5%92%8C%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2016/12/20/28. 关于-iPhone-App-设计的几点看法和总结/</id>
+    <published>2016-12-20T06:51:25.000Z</published>
+    <updated>2016-12-20T07:02:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于-iPhone-App-设计的几点看法和总结"><a href="#关于-iPhone-App-设计的几点看法和总结" class="headerlink" title="关于 iPhone App 设计的几点看法和总结"></a>关于 iPhone App 设计的几点看法和总结</h1><p>有几个原则</p>
+<ol>
+<li><p>比如不要使用高优先级的东西,</p>
+<p>比如提示用户时, 用一个HUD显示就比Alert强制用户观看的体验要好, 同理, 你在微信朋友圈点击那个评论图标时, 不是使用的弹窗, 而是在原来区域做的改变, 这点影响就有了良好的用户体验, 不警示用户, 优秀的设计就是这样, 粗略的设计就是将信息粗暴的反馈给用户, 而不管合不合理, 我们应当将反馈分级别的呈现, 而不是一以贯之.</p>
+</li>
+<li><p>一贯性的图标</p>
+<p>图标是用户每天接触App最多的东西, 极大的影响和吸引用户, 正因为如此, 有不少App愿意把活动呈现在此, 比如阿里系的App, 这很明显是为了运营, 但这影响到了用户体验, 就不应该去做, 如果阿里真的把用户放在第一位, 就不应该干这样的事</p>
+</li>
+<li><p>遵循官方推荐的设计</p>
+<p>一个平台有着自己的设计理念,在这个平台中的产品最好能做到一致, 这样用户在使用就能够方便的上手, 让用户方便上手, 自然也能够留住用户</p>
+</li>
+<li><p>不要大的改变, 只需要增增补补</p>
+<p>一款产品忌讳频繁的改变, 我举个支付宝的例子, 最早只是一款钱包App, 后来越来越重, 沉重的同时也频繁改版, 直到现在你也不知道他会改到哪里去, 但有一点是肯定的, 就是需求是不断变化的, 呵呵. 不断改版的同时也意味着, 没想清楚. </p>
+<p>每一次改版都加大了老用户的上手程度和管理的混乱, 导致用户对升级新的版本没有兴趣</p>
+</li>
+<li><p>多用原生</p>
+<p>现在有跨平台开发解决方案, 但还不够成熟, 关键是体验不太好, 建议多用原生</p>
+<p>​</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;关于-iPhone-App-设计的几点看法和总结&quot;&gt;&lt;a href=&quot;#关于-iPhone-App-设计的几点看法和总结&quot; class=&quot;headerlink&quot; title=&quot;关于 iPhone App 设计的几点看法和总结&quot;&gt;&lt;/a&gt;关于 iPhone App 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS面试题总结</title>
+    <link href="http://yoursite.com/2016/12/15/27.%20iOS%E9%9D%A2%E8%AF%95/"/>
+    <id>http://yoursite.com/2016/12/15/27. iOS面试/</id>
+    <published>2016-12-15T05:56:27.000Z</published>
+    <updated>2016-12-20T12:14:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="copy关键字的作用"><a href="#copy关键字的作用" class="headerlink" title="copy关键字的作用"></a>copy关键字的作用</h3><p>常用于NSString、NSArray、NSDictionary，防止用可变类型来作为子类，如果子类是一个可变类型，则会返回一个不可变类型给他，保护了</p>
+<h3 id="循环引用的场景"><a href="#循环引用的场景" class="headerlink" title="循环引用的场景"></a>循环引用的场景</h3><p>父子关系时</p>
+<h3 id="事件的传递"><a href="#事件的传递" class="headerlink" title="事件的传递"></a>事件的传递</h3><p>UIApplication</p>
+<p>UIWindow</p>
+<p>遍历</p>
+<ul>
+<li>事件的响应</li>
+</ul>
+<h4 id="图片切圆角"><a href="#图片切圆角" class="headerlink" title="图片切圆角"></a>图片切圆角</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;copy关键字的作用&quot;&gt;&lt;a href=&quot;#copy关键字的作用&quot; class=&quot;headerlink&quot; title=&quot;copy关键字的作用&quot;&gt;&lt;/a&gt;copy关键字的作用&lt;/h3&gt;&lt;p&gt;常用于NSString、NSArray、NSDictionary，防止用可变
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>data转NSString的Encoding问题</title>
@@ -125,11 +253,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2016/12/07/autoLayoutAndFrame/"/>
-    <id>http://yoursite.com/2016/12/07/autoLayoutAndFrame/</id>
+    <title>autoLayout</title>
+    <link href="http://yoursite.com/2016/12/07/23.%20autoLayoutAndFrame/"/>
+    <id>http://yoursite.com/2016/12/07/23. autoLayoutAndFrame/</id>
     <published>2016-12-07T14:10:20.000Z</published>
-    <updated>2016-12-07T14:10:20.000Z</updated>
+    <updated>2017-01-02T04:21:48.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="autoLayout"><a href="#autoLayout" class="headerlink" title="autoLayout"></a>autoLayout</h2><figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">(<span class="keyword">void</span>)setNeedsUpdateConstraints</div><div class="line">- (<span class="keyword">void</span>)updateConstraintsIfNeeded</div></pre></td></tr></table></figure>
 <h2 id="frame"><a href="#frame" class="headerlink" title="frame"></a>frame</h2><figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setNeedsLayout</div><div class="line">- (<span class="keyword">void</span>)layoutIfNeeded</div></pre></td></tr></table></figure>
@@ -631,146 +759,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;饿了么网上订餐流程&quot;&gt;&lt;a href=&quot;#饿了么网上订餐流程&quot; class=&quot;headerlink&quot; title=&quot;饿了么网上订餐流程&quot;&gt;&lt;/a&gt;饿了么网上订餐流程&lt;/h1&gt;&lt;h2 id=&quot;毕业设计——网上订餐系统技术调研&quot;&gt;&lt;a href=&quot;#毕业设计——网上订
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>熟悉Django的模板语言——Python第四周第二节</title>
-    <link href="http://yoursite.com/2016/11/09/11.%20%E7%86%9F%E6%82%89Django%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94Python%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AC%AC%E4%BA%8C%E8%8A%82/"/>
-    <id>http://yoursite.com/2016/11/09/11. 熟悉Django的模板语言——Python第四周第二节/</id>
-    <published>2016-11-08T16:00:00.000Z</published>
-    <updated>2016-11-11T00:55:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="熟悉Django的模板语言——Python第四周第二节"><a href="#熟悉Django的模板语言——Python第四周第二节" class="headerlink" title="熟悉Django的模板语言——Python第四周第二节"></a>熟悉Django的模板语言——Python第四周第二节</h1><h4 id="render-：渲染"><a href="#render-：渲染" class="headerlink" title="render()：渲染"></a>render()：渲染</h4><p>接收三个函数</p>
-<ul>
-<li>request 用户点击的request</li>
-<li>x.html 我们指定模板的名称</li>
-<li>context 上下文</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;a href=&quot;#熟悉Django的模板语言——Python第四周第二节&quot; class=&quot;headerlink&quot; title=&quot;熟悉Django的模板语言——Python第四周第二节&quot;&gt;&lt;/a&gt;熟悉Dja
-    
-    </summary>
-    
-    
-      <category term="django" scheme="http://yoursite.com/tags/django/"/>
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python库安装</title>
-    <link href="http://yoursite.com/2016/11/08/9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2016/11/08/9. Python库安装/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-12-03T07:40:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python库安装"><a href="#Python库安装" class="headerlink" title="Python库安装"></a>Python库安装</h1><p>pip 一键安装库</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">pip3 install requests bs4 pymongo mongoengine jupy</div></pre></td></tr></table></figure>
-<p>Ubuntu16.04问题</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">root@centos-512mb-nyc3-01:~# pip3 list</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt;</div><div class="line">    sys.exit(main())</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main</div><div class="line">    locale.setlocale(locale.LC_ALL, &apos;&apos;)</div><div class="line">  File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale</div><div class="line">    return _setlocale(category, locale)</div><div class="line">locale.Error: unsupported locale setting</div><div class="line"></div><div class="line"># 换个命令试试</div><div class="line">root@centos-512mb-nyc3-01:~# python3 -m pip list</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main</div><div class="line">    &quot;__main__&quot;, mod_spec)</div><div class="line">  File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code</div><div class="line">    exec(code, run_globals)</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt;</div><div class="line">    sys.exit(pip.main())</div><div class="line">  File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main</div><div class="line">    locale.setlocale(locale.LC_ALL, &apos;&apos;)</div><div class="line">  File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale</div><div class="line">    return _setlocale(category, locale)</div><div class="line">locale.Error: unsupported locale setting</div><div class="line"></div><div class="line"># 解决</div><div class="line">export LC_ALL=C</div></pre></td></tr></table></figure>
-<p>Python的在线编译器</p>
-<p>jupyter notebook命令会默认开启8888端口，会和surge起冲突</p>
-<p>解决：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">jupyter notebook --port [自定义端口]</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Python库安装&quot;&gt;&lt;a href=&quot;#Python库安装&quot; class=&quot;headerlink&quot; title=&quot;Python库安装&quot;&gt;&lt;/a&gt;Python库安装&lt;/h1&gt;&lt;p&gt;pip 一键安装库&lt;/p&gt;
-&lt;figure class=&quot;highlight pyt
-    
-    </summary>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Node环境介绍</title>
-    <link href="http://yoursite.com/2016/11/08/8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://yoursite.com/2016/11/08/8. Node环境介绍/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-11T00:54:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Node环境介绍"><a href="#Node环境介绍" class="headerlink" title="Node环境介绍"></a>Node环境介绍</h1><h2 id="普通的node项目环境"><a href="#普通的node项目环境" class="headerlink" title="普通的node项目环境"></a>普通的node项目环境</h2><p>主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。</p>
-<p>路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中</p>
-<p>Node.js项目文件package.json：包依赖和其他元数据</p>
-<p>node_modules中的依赖：通过package.json安装的第三方模块</p>
-<p>数据库：一个MongoDB和元数据的实例</p>
-<p>模板：以.jade结尾的文件</p>
-<p>配置文件config.json：与应用安全性无关的设置，比如应用的标题</p>
-<h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><p>node_modules：Express.js和第三方模块的依赖都在这个目录下</p>
-<p>views：Jade或者其他模版引擎文件</p>
-<p>routes：包含请求处理程序的Node.js模块</p>
-<p>db：MongoDB的种子数据和脚本</p>
-<p>public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Node环境介绍&quot;&gt;&lt;a href=&quot;#Node环境介绍&quot; class=&quot;headerlink&quot; title=&quot;Node环境介绍&quot;&gt;&lt;/a&gt;Node环境介绍&lt;/h1&gt;&lt;h2 id=&quot;普通的node项目环境&quot;&gt;&lt;a href=&quot;#普通的node项目环境&quot; class
-    
-    </summary>
-    
-    
-      <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博学谷直播介绍Vue</title>
-    <link href="http://yoursite.com/2016/11/03/7.%20%E5%8D%9A%E5%AD%A6%E8%B0%B7%E7%9B%B4%E6%92%AD%E4%BB%8B%E7%BB%8DVue.js/"/>
-    <id>http://yoursite.com/2016/11/03/7. 博学谷直播介绍Vue.js/</id>
-    <published>2016-11-03T12:17:00.000Z</published>
-    <updated>2016-11-03T12:56:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h1><ul>
-<li>客户端Javascript框架</li>
-<li>用于数据驱动的现代web开发</li>
-<li>实现了MVVM思想</li>
-</ul>
-<h4 id="比如设计一个注册页面"><a href="#比如设计一个注册页面" class="headerlink" title="比如设计一个注册页面"></a>比如设计一个注册页面</h4><p>传统方式：</p>
-<p>找到用户名的文本框，捕捉鼠标偏离的事件，判断文本框的内容进行是否存在的校验</p>
-<p>问题：</p>
-<ul>
-<li>界面代码重复使用率低</li>
-</ul>
-<ul>
-<li>需要的变化大部分是在界面上，而</li>
-</ul>
-<p>应用程序的基本逻辑：把数据放到界面上显示</p>
-<p>理想状态，界面和数据独立</p>
-<p>结论：用数据驱动界面，把界面放置到最后</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var app = new Vue(&#123;</div><div class="line">  //业务逻辑抽象</div><div class="line">	data: &#123;</div><div class="line">    username: &apos;&apos;,</div><div class="line">	email: &apos;&apos;,</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="如何使用Vue-js"><a href="#如何使用Vue-js" class="headerlink" title="如何使用Vue.js"></a>如何使用Vue.js</h4><p>Sublime</p>
-<h4 id="Vue作者建议学习顺序"><a href="#Vue作者建议学习顺序" class="headerlink" title="Vue作者建议学习顺序"></a>Vue作者建议学习顺序</h4><p>从基础着手</p>
-<p>通读javascript基础</p>
-<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><ol>
-<li>找出来页面最核心组成，用数据的方式描述<ol>
-<li>​</li>
-</ol>
-</li>
-<li>根据设计的结构完成ViewModel的编写</li>
-<li>​</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;intput <span class="class"><span class="keyword">class</span> </span>= <span class="string">""</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Vue-js&quot;&gt;&lt;a href=&quot;#Vue-js&quot; class=&quot;headerlink&quot; title=&quot;Vue.js&quot;&gt;&lt;/a&gt;Vue.js&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;客户端Javascript框架&lt;/li&gt;
-&lt;li&gt;用于数据驱动的现代web开发&lt;/li&gt;
-&lt;li
     
     </summary>
     

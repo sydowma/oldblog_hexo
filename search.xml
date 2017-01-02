@@ -4,6 +4,34 @@
   
     
     <entry>
+      <title><![CDATA[使用TFHpple处理数据的请求]]></title>
+      <url>2017%2F01%2F02%2F30.%20%E4%BD%BF%E7%94%A8TFHpple%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%B7%E6%B1%82%2F</url>
+      <content type="text"><![CDATA[使用TFHpple处理数据的请求由于App中需要抓取网页数据，也没有做后台，就在iOS App里手动检索HTML信息进行抓取，这个过程中使用到了TFHpple框架，不过我看了一些范例都是直接使用NSData来直接获取网页的Data，这样做肯定会阻塞主线程，我一直在尝试使用其他方法，但都没有成功，困扰了我很久，直到昨天看到一篇网易公开课的文章提到了（http://www.itgo.me/a/2968793659999962488/TFHpple-XPath）。 - (void)wangyi &#123;// 网易公开课地址NSString *str=[NSString stringWithFormat:@"http://open.163.com/"];NSURL *url = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];// UTF－8NSURLRequest *request = [NSURLRequest requestWithURL:url];AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:request];// 请求数据，设置成功与失败的回调函数[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) &#123;// 请求下来的整个网页数据NSString *html = operation.responseString;// 网页有gbk编码有utf8编码，全部换成utf8NSString *utf8HtmlStr = [html stringByReplacingOccurrencesOfString:@"&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=GBK\"&gt;" withString:@"&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"&gt;"];// TFHpple解析的是data，转换成dataNSData *htmlDataUTF8 = [utf8HtmlStr dataUsingEncoding:NSUTF8StringEncoding];// 开始解析TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlDataUTF8];// 查找所有的 &lt;div class="g-cell1"// 因为首页的“小编推荐”是使用该class标示的，所以主要获取的是该种形式的小课程节目NSArray *elements= [xpathParser searchWithXPathQuery:@"//div[@class='g-cell1']"];// 不存在则不继续执行if ([elements count] &lt;= 0) &#123;return;&#125;// 以下只是示例解析第一个课程，循环即可全部解析TFHppleElement *first = [elements firstObject];// 完整写法NSArray *arr = [first searchWithXPathQuery:@"//a[1]/@href"];TFHppleElement *ele = [arr firstObject];NSLog(@"网址链接：%@",[ele text]);// 合并的写法NSLog(@"图片链接：%@",[[[first searchWithXPathQuery:@"//img/@src"] firstObject] text]);NSLog(@"标题：%@",[[[first searchWithXPathQuery:@"//h5"] firstObject] text]);NSLog(@"副标题：%@",[[[first searchWithXPathQuery:@"//p"] firstObject] text]);&#125;failure:^(AFHTTPRequestOperation *operation, NSError *error) &#123;NSLog(@"发生错误！%@",error);&#125;];// 加入队列 开始执行NSOperationQueue *queue = [[NSOperationQueue alloc] init];[queue addOperation:operation];&#125; 这个代码使用的是AFNetworking 2x的版本，不过网页已经更改了，所以这个解析已经失效了。 我把代码使用了之后，可以使用 接着我尝试把TFHpple处理HTML的这部份放到子线程去执行，参考代码http://www.jianshu.com/p/943dcb9ad632 然后分别计算时间对比一下这三种方式。 我预想的结果是把处理HTML的这部份放到子线程这样处理会更快，但结果是并没有。 结果是，直接使用AFNetwoking，并且在里面对数据进行处理是最快的，当然，我只用真机测试了5次，可能会有偏差 设备: iPhone5c , iOS10.2 代码地址: https://github.com/magaofei/iOS_Apprentice/tree/master/NSURLSessionBackgroundData]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[sqlite for iOS犯的错2016年12月21日]]></title>
+      <url>2016%2F12%2F21%2F29.%20sqlite-for-iOS%E7%8A%AF%E7%9A%84%E9%94%992016%E5%B9%B412%E6%9C%8821%E6%97%A5%2F</url>
+      <content type="text"><![CDATA[Sql语句里的values少了s 使用了NSLog(@&quot;%s&quot;, sqlite3_errmsg(_db));才发现错误, 原因是NSLog(@&quot;%s&quot;, sqlite3_errmsg(_db)); sqlite3_column_text写成sqlite3_column_int64 NSMutableArray延迟加载写的不对 - (instancetype)init &#123; if (self = [super init]) &#123; _students = [NSMutableArray array]; &#125; return self;&#125;// 这样是老师写的, 但是它是纯代码做的, 所以控制器有alloc和init 但我使用storyboard, 所以就跳过了这一步, 通过debugging 发现数组是nil, 就说明没有成功alloc和init]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[关于 iPhone App 设计的几点看法和总结]]></title>
+      <url>2016%2F12%2F20%2F28.%20%E5%85%B3%E4%BA%8E-iPhone-App-%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%87%A0%E7%82%B9%E7%9C%8B%E6%B3%95%E5%92%8C%E6%80%BB%E7%BB%93%2F</url>
+      <content type="text"><![CDATA[关于 iPhone App 设计的几点看法和总结有几个原则 比如不要使用高优先级的东西, 比如提示用户时, 用一个HUD显示就比Alert强制用户观看的体验要好, 同理, 你在微信朋友圈点击那个评论图标时, 不是使用的弹窗, 而是在原来区域做的改变, 这点影响就有了良好的用户体验, 不警示用户, 优秀的设计就是这样, 粗略的设计就是将信息粗暴的反馈给用户, 而不管合不合理, 我们应当将反馈分级别的呈现, 而不是一以贯之. 一贯性的图标 图标是用户每天接触App最多的东西, 极大的影响和吸引用户, 正因为如此, 有不少App愿意把活动呈现在此, 比如阿里系的App, 这很明显是为了运营, 但这影响到了用户体验, 就不应该去做, 如果阿里真的把用户放在第一位, 就不应该干这样的事 遵循官方推荐的设计 一个平台有着自己的设计理念,在这个平台中的产品最好能做到一致, 这样用户在使用就能够方便的上手, 让用户方便上手, 自然也能够留住用户 不要大的改变, 只需要增增补补 一款产品忌讳频繁的改变, 我举个支付宝的例子, 最早只是一款钱包App, 后来越来越重, 沉重的同时也频繁改版, 直到现在你也不知道他会改到哪里去, 但有一点是肯定的, 就是需求是不断变化的, 呵呵. 不断改版的同时也意味着, 没想清楚. 每一次改版都加大了老用户的上手程度和管理的混乱, 导致用户对升级新的版本没有兴趣 多用原生 现在有跨平台开发解决方案, 但还不够成熟, 关键是体验不太好, 建议多用原生 ​]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[iOS面试题总结]]></title>
+      <url>2016%2F12%2F15%2F27.%20iOS%E9%9D%A2%E8%AF%95%2F</url>
+      <content type="text"><![CDATA[copy关键字的作用常用于NSString、NSArray、NSDictionary，防止用可变类型来作为子类，如果子类是一个可变类型，则会返回一个不可变类型给他，保护了 循环引用的场景父子关系时 事件的传递UIApplication UIWindow 遍历 事件的响应 图片切圆角]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[data转NSString的Encoding问题]]></title>
       <url>2016%2F12%2F14%2F26.%20data%E8%BD%ACNSString%E7%9A%84Encoding%E9%97%AE%E9%A2%98%2F</url>
       <content type="text"><![CDATA[data转NSString的Encoding问题在做安工助手这款App的时候需要抓取网页HTML，我想把抓取放到后台来进行，于是使用NSURLSessionDataTask，却发现了一个BUG，死活获取不到数据，不知道为什么。今天一步步排查，终于找到原因了，因为Encoding的问题 不完整代码： NSURLSessionDataTask *task = [_session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123; NSLog(@"task = %@", [NSThread currentThread]); NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; NSLog(@"str = %@", str); dispatch_async(dispatch_get_main_queue(), ^&#123; _dataTextView.text = str; NSLog(@"_dataTextView %@", [NSThread currentThread]); &#125;); &#125;]; 设置断点后的结果是，data是有数据的，但str是没数据的，这我就很纳闷了，不可能啊，试了其他代码之后，终于想到，难道是encoding的问题？我果断把请求的URL换成百度，成功了…这真是个坑，我们在将网页的NSData转换为NSString，一定要看好网页原来是什么格式的 例如我这个网页的编码是GB2312 那么就应该需要响应的编码 NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);NSString *str = [[NSString alloc] initWithData:data encoding:enc]; 运行以后，正常。]]></content>
@@ -25,8 +53,8 @@
 
     
     <entry>
-      <title></title>
-      <url>2016%2F12%2F07%2FautoLayoutAndFrame%2F</url>
+      <title><![CDATA[autoLayout]]></title>
+      <url>2016%2F12%2F07%2F23.%20autoLayoutAndFrame%2F</url>
       <content type="text"><![CDATA[autoLayout(void)setNeedsUpdateConstraints- (void)updateConstraintsIfNeeded frame- (void)setNeedsLayout- (void)layoutIfNeeded - (void)layoutSubviews // 更改子view的布局]]></content>
     </entry>
 
@@ -123,16 +151,16 @@
 
     
     <entry>
-      <title><![CDATA[Python库安装]]></title>
-      <url>2016%2F11%2F08%2F9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85%2F</url>
-      <content type="text"><![CDATA[Python库安装pip 一键安装库 pip3 install requests bs4 pymongo mongoengine jupy Ubuntu16.04问题 root@centos-512mb-nyc3-01:~# pip3 listTraceback (most recent call last): File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt; sys.exit(main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 换个命令试试root@centos-512mb-nyc3-01:~# python3 -m pip listTraceback (most recent call last): File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main &quot;__main__&quot;, mod_spec) File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code exec(code, run_globals) File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt; sys.exit(pip.main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 解决export LC_ALL=C Python的在线编译器 jupyter notebook命令会默认开启8888端口，会和surge起冲突 解决： jupyter notebook --port [自定义端口]]]></content>
+      <title><![CDATA[Node环境介绍]]></title>
+      <url>2016%2F11%2F08%2F8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%2F</url>
+      <content type="text"><![CDATA[Node环境介绍普通的node项目环境主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。 路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中 Node.js项目文件package.json：包依赖和其他元数据 node_modules中的依赖：通过package.json安装的第三方模块 数据库：一个MongoDB和元数据的实例 模板：以.jade结尾的文件 配置文件config.json：与应用安全性无关的设置，比如应用的标题 Expressnode_modules：Express.js和第三方模块的依赖都在这个目录下 views：Jade或者其他模版引擎文件 routes：包含请求处理程序的Node.js模块 db：MongoDB的种子数据和脚本 public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[Node环境介绍]]></title>
-      <url>2016%2F11%2F08%2F8.%20Node%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%2F</url>
-      <content type="text"><![CDATA[Node环境介绍普通的node项目环境主文件 app.js：相关的设置，包含路由的配置和一些其他重要的逻辑。这是我们开启服务后运行的。 路由：所有与页面相关的逻辑和从app.js中抽离出来的它所依赖的基础函数，比如从数据库中获取数据并将其写入HTML中 Node.js项目文件package.json：包依赖和其他元数据 node_modules中的依赖：通过package.json安装的第三方模块 数据库：一个MongoDB和元数据的实例 模板：以.jade结尾的文件 配置文件config.json：与应用安全性无关的设置，比如应用的标题 Expressnode_modules：Express.js和第三方模块的依赖都在这个目录下 views：Jade或者其他模版引擎文件 routes：包含请求处理程序的Node.js模块 db：MongoDB的种子数据和脚本 public：所有前端的静态文件，包括HTML、CSS、浏览器端的Javascript和Stylus或者其他CSS框架文件]]></content>
+      <title><![CDATA[Python库安装]]></title>
+      <url>2016%2F11%2F08%2F9.%20Python%E5%BA%93%E5%AE%89%E8%A3%85%2F</url>
+      <content type="text"><![CDATA[Python库安装pip 一键安装库 pip3 install requests bs4 pymongo mongoengine jupy Ubuntu16.04问题 root@centos-512mb-nyc3-01:~# pip3 listTraceback (most recent call last): File &quot;/usr/bin/pip3&quot;, line 11, in &lt;module&gt; sys.exit(main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 换个命令试试root@centos-512mb-nyc3-01:~# python3 -m pip listTraceback (most recent call last): File &quot;/usr/lib/python3.5/runpy.py&quot;, line 184, in _run_module_as_main &quot;__main__&quot;, mod_spec) File &quot;/usr/lib/python3.5/runpy.py&quot;, line 85, in _run_code exec(code, run_globals) File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 19, in &lt;module&gt; sys.exit(pip.main()) File &quot;/usr/lib/python3/dist-packages/pip/__init__.py&quot;, line 215, in main locale.setlocale(locale.LC_ALL, &apos;&apos;) File &quot;/usr/lib/python3.5/locale.py&quot;, line 594, in setlocale return _setlocale(category, locale)locale.Error: unsupported locale setting# 解决export LC_ALL=C Python的在线编译器 jupyter notebook命令会默认开启8888端口，会和surge起冲突 解决： jupyter notebook --port [自定义端口]]]></content>
     </entry>
 
     
