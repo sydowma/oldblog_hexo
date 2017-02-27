@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-02T04:23:25.000Z</updated>
+  <updated>2017-02-27T09:47:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,272 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>使用TFHpple处理数据的请求</title>
+    <title>用学生身份申请价值50美元的Digitalocean服务器</title>
+    <link href="http://yoursite.com/2017/02/27/37.%20%E7%94%A8%E5%AD%A6%E7%94%9F%E8%BA%AB%E4%BB%BD%E7%94%B3%E8%AF%B7%E4%BB%B7%E5%80%BC50%E7%BE%8E%E5%85%83%E7%9A%84Digitalocean%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://yoursite.com/2017/02/27/37. 用学生身份申请价值50美元的Digitalocean服务器/</id>
+    <published>2017-02-27T07:58:40.000Z</published>
+    <updated>2017-02-27T09:47:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>众所周知，各大公司针对学生有很多的福利，国内的阿里云和腾讯云针对学生都有特价，而国外的公司更阔绰，比如Digitalocean和AWS都会直接送相关的金额，你可以自行去选择服务器，更加灵活、自由。这次我申请的是Digitalocean的服务器，下面是申请的步骤。</p>
+<p>说明：</p>
+<p>Digitalocean和GitHub有合作，学生资格的认证是由GitHub来完成的，Digitalocean其实被包含在GitHub Education当中的Student Developer Pack里面，所以我们首先申请GitHub的Student Developer Pack</p>
+<p>要求：</p>
+<ul>
+<li>学生邮箱，没有学生邮箱需要提供学生证照片（需审核）</li>
+<li>信用卡，没有信用卡需要PayPal帐号支付5美元（可以使用银联卡）</li>
+</ul>
+<ol>
+<li><p>打开网址 <a href="https://education.github.com/pack" target="_blank" rel="external">https://education.github.com/pack</a> ，点击Get your pack</p>
+<p><img src="../images/Learn_How_to_Code_Using_the_Student_Developer_Pack_-_GitHub_Education.png" alt=""></p>
+</li>
+<li><p>根据提示，登录/注册 你的GitHub帐号</p>
+<p><img src="../images/Sign_in_to_GitHub_·_GitHub.png" alt=""></p>
+</li>
+<li><p>Tell us what you need ， 根据提示进行选择，这里我选择的是学生和个人<br><img src="../images/Request_a_discount_-_GitHub_Education.png" alt=""></p>
+</li>
+<li><p>Tell us about you，接下来认定你的学生身份，需要提供你的姓名，学生邮箱，学校姓名，毕业年份，申请原因。</p>
+<p>如果有学生邮箱，但是在Select your <strong>school-issued email address</strong>: 里面没有显示，需要你先去GitHub帐号里面将你学生邮箱添加上去。</p>
+<p>如果没有学生邮箱，需要提供你的学生证明，比如，带学生证号的学生证，成绩单等，要求必须资质上必须有日期。</p>
+<p>这是我写的范例（没有学生邮箱），仅供参考</p>
+<p><img src="../images/Request a discount - GitHub Education.png" alt=""></p>
+</li>
+<li><p>接下来等待审核，通过或者拒绝后邮箱会收到响应的邮件</p>
+</li>
+<li><p>通过审核之后，在邮箱里打开链接，或者再次打开 <a href="https://education.github.com/pack" target="_blank" rel="external">https://education.github.com/pack</a> ，点击Get your Pack，这时已经可以看到许多服务都有相关的提示了。</p>
+</li>
+<li><p>找到DigitalOcean，复制你的Code，点击 <a href="https://www.digitalocean.com/github-students/?utm_medium=partnerships&amp;utm_source=github&amp;utm_campaign=studentdevpack" target="_blank" rel="external">DigitalOcean website</a> 进行跳转</p>
+<p><img src="../images/GitHub_Student_Developer_Pack_-_GitHub_Education.png" alt=""></p>
+</li>
+<li><p>创建DigitalOcean帐号</p>
+<p><img src="../images/DigitalOcean__Cloud_computing_designed_for_developers.png" alt=""></p>
+</li>
+<li><p>验证邮箱之后，需要输入信用卡对账户进行确认。在输入前，点击 <a href="undefined">Have a Promo Code?</a> 根据提示粘贴刚刚复制好的Code</p>
+<p><img src="../images/DigitalOcean_-_Welcome.png" alt=""></p>
+<p>输入Promo Code</p>
+<p><img src="../images/DigitalOcean_-_Welcome2.png" alt="输入Promo Code"></p>
+</li>
+<li><p>如果没有信用卡，点击PayPal，最少需要支付5美元，点击继续跳转，就用银联卡支付5美元。</p>
+<p><img src="../images/使用借记卡或信用卡付款_-_PayPal.png" alt=""></p>
+</li>
+<li><p>创建成功后，确认账户余额。点击digitalocean网页右上角的头像，选择Settings。再点击左边的Billing</p>
+<p><img src="../images/DigitalOcean_-_Settings.png" alt=""></p>
+</li>
+<li><p>接下来点击右上角的按钮创建 Droplet </p>
+</li>
+<li><p>选择服务器配置，另外据我测试，San Francisco的服务器大多数已经被封了，会导致连接不上</p>
+<p><img src="../images/DigitalOcean - Create Droplets.png" alt=""></p>
+</li>
+<li><p>测试 IP</p>
+<p>在命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ping 你的IP</div></pre></td></tr></table></figure>
+<p>通的话会返回，time数值越少越好</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">64 bytes from 104.16.xx.x: icmp_seq=0 ttl=51 time=221.834 ms</div><div class="line">64 bytes from 104.16.xx.x: icmp_seq=1 ttl=51 time=221.976 ms</div><div class="line">64 bytes from 104.16.xx.x: icmp_seq=2 ttl=51 time=219.906 ms</div></pre></td></tr></table></figure>
+<p>不通会返回</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Request timeout for icmp_seq 0</div><div class="line">Request timeout for icmp_seq 1</div><div class="line">Request timeout for icmp_seq 2</div></pre></td></tr></table></figure>
+<p>如果不通则需要返回重新创建，记得把原来的关闭。</p>
+</li>
+<li><p>选择好之后点创建就可以了。如果对IP不满意，建议在 How many Droplets? 这里一次性多创建几个实例，创建好之后再进行选择。</p>
+<p><img src="../images/DigitalOcean_-_Create_Droplets.png" alt=""></p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;众所周知，各大公司针对学生有很多的福利，国内的阿里云和腾讯云针对学生都有特价，而国外的公司更阔绰，比如Digitalocean和AWS都会直接送相关的金额，你可以自行去选择服务器，更加灵活、自由。这次我申请的是Digitalocean的服务器，下面是申请的步骤。&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS面试题</title>
+    <link href="http://yoursite.com/2017/01/22/35.%20iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>http://yoursite.com/2017/01/22/35. iOS面试题/</id>
+    <published>2017-01-22T14:33:05.000Z</published>
+    <updated>2017-01-23T07:11:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="iOS面试题"><a href="#iOS面试题" class="headerlink" title="iOS面试题"></a>iOS面试题</h4><ol>
+<li>强引用循环的场景</li>
+<li>Block循环引用</li>
+<li>列出几个主要的线程锁</li>
+<li>解释runtime，和常用使用场景</li>
+<li>解释Runloop</li>
+<li>​</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;iOS面试题&quot;&gt;&lt;a href=&quot;#iOS面试题&quot; class=&quot;headerlink&quot; title=&quot;iOS面试题&quot;&gt;&lt;/a&gt;iOS面试题&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;强引用循环的场景&lt;/li&gt;
+&lt;li&gt;Block循环引用&lt;/li&gt;
+&lt;li&gt;列出几个主要的线程锁&lt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>部署Django</title>
+    <link href="http://yoursite.com/2017/01/21/34.%20%E9%83%A8%E7%BD%B2Django/"/>
+    <id>http://yoursite.com/2017/01/21/34. 部署Django/</id>
+    <published>2017-01-21T07:41:41.000Z</published>
+    <updated>2017-02-27T09:49:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="账户不在-sudoers-文件中"><a href="#账户不在-sudoers-文件中" class="headerlink" title="账户不在 sudoers 文件中"></a>账户不在 sudoers 文件中</h4><p>   1、切换到root用户权限</p>
+<p>[user@Compile ~]$ su root</p>
+<p>密码：</p>
+<pre><code>2、查看/etc/sudoers文件权限，如果只读权限，修改为可写权限
+</code></pre><p>[root@Compile user]# ls -l /etc/sudoers</p>
+<p>-r–r—–. 1 root root 4030 9月  25 00:57 /etc/sudoers</p>
+<p>[root@Compile user]# chmod 777 /etc/sudoers</p>
+<p>保存退出，并恢复/etc/sudoers的访问权限为440</p>
+<p>[root@Compile user]# chmod 440 /etc/sudoers</p>
+<h4 id="python升级带来的yum异常"><a href="#python升级带来的yum异常" class="headerlink" title="python升级带来的yum异常"></a>python升级带来的yum异常</h4><p>python升级后，发现yum无法使用了</p>
+<p>原因：这是因为yum采用python作为命令解释器，这可以从/usr/bin/yum文件中第一行#!/usr/bin/python发现。而python版本之间兼容性不太好，使得2.X版本与3.0版本之间存在语法不一致问题。而CentOS 5自带的yum采用的是python2.4，当系统将python升级到2.6或3.0后，出现语法解释错误。</p>
+<p>解决办法：</p>
+<p>很简单，一是升级yum，一是修改yum的解释器为旧版本python2.4（如果你没有采用覆盖升级的话）</p>
+<p>升级yum的作法就不详述了；</p>
+<p>修改yum的解释器为旧版本python2.4：</p>
+<p>vi /usr/bin/yum</p>
+<p>将第一行”#!/usr/bin/python” 改为 “#!/usr/bin/python2.4”即可</p>
+<p>####Loaded plugins: fastestmirror, langpacks问题</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">Loaded plugins: fastestmirror, langpacks</div><div class="line">Loading mirror speeds <span class="keyword">from</span> cached hostfile</div><div class="line"> * epel: mirrors.neusoft.edu.cn</div><div class="line">  File <span class="string">"/usr/libexec/urlgrabber-ext-down"</span>, line <span class="number">28</span></div><div class="line">    <span class="keyword">except</span> OSError, e:</div><div class="line">                  ^</div><div class="line">SyntaxError: invalid syntax</div><div class="line">Exiting on user cancel</div></pre></td></tr></table></figure>
+<p>查看发现这个文件也依赖Python版本，修改为相同即可。修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /usr/libexec/urlgrabber-ext-down</div><div class="line">#! /usr/bin/python2.7</div></pre></td></tr></table></figure>
+<h4 id="Apache2服务器的默认Log路径"><a href="#Apache2服务器的默认Log路径" class="headerlink" title="Apache2服务器的默认Log路径"></a>Apache2服务器的默认Log路径</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/var/log/apache2/</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;账户不在-sudoers-文件中&quot;&gt;&lt;a href=&quot;#账户不在-sudoers-文件中&quot; class=&quot;headerlink&quot; title=&quot;账户不在 sudoers 文件中&quot;&gt;&lt;/a&gt;账户不在 sudoers 文件中&lt;/h4&gt;&lt;p&gt;   1、切换到root用户
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux安装Python3</title>
+    <link href="http://yoursite.com/2017/01/18/33.%20Linux%E5%AE%89%E8%A3%85Python3/"/>
+    <id>http://yoursite.com/2017/01/18/33. Linux安装Python3/</id>
+    <published>2017-01-18T11:14:25.000Z</published>
+    <updated>2017-02-27T09:49:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Linux安装Python3</p>
+<p>安装依赖库和编译器：</p>
+<p># yum install gcc -y</p>
+<p># yum install openssl-devel</p>
+<p><strong>如果没有安装openssl-devel，在安装过程中pip无法安装</strong></p>
+<p><strong>Step 2</strong>:下载对应版本的Python</p>
+<p># wget <a href="https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz" target="_blank" rel="external">https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz</a></p>
+<p># xz -d Python-3.5.1.tar.xz </p>
+<p># tar -xvf Python-3.5.1.tar</p>
+<p><strong>Step 3</strong>:编译和安装Python3.5</p>
+<p># cd Python-3.5.1</p>
+<p># ./configure&amp;&amp; make &amp;&amp; make install</p>
+<p>将 python3.5 链接到python3命令</p>
+<p>大部分情况下到step3 后就大功告成了，如果你前面没有安装openssl-devel库，这时你就需要将python3.5链接到python3命令  1. 找到Python3.5安装的目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># whereis python</div></pre></td></tr></table></figure>
+<p>会输出所有Python的目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python: /usr/bin/python  /usr/bin/python2.6  /usr/lib/python2.6  /usr/local/bin/python3.5m-config  /usr/local/bin/python3.5-config  /usr/local/bin/python3.5  /usr/local/bin/python3.5m  /usr/local/lib/python3.5  /usr/include/python2.6  /usr/share/man/man1/python.1.gz</div></pre></td></tr></table></figure>
+<p>明显安装在了<strong>/usr/local/bin/python3.5</strong> 目录，执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># sudo ln -s /usr/local/bin/python3.5 /usr/bin/python3</div></pre></td></tr></table></figure>
+<p>Ubuntu Server 16.04</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">ubuntu@VM<span class="number">-82</span><span class="number">-221</span>-ubuntu:/etc$ pip3 install virtualenv</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"/usr/bin/pip3"</span>, line <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    sys.exit(main())</div><div class="line">  File <span class="string">"/usr/lib/python3/dist-packages/pip/__init__.py"</span>, line <span class="number">215</span>, <span class="keyword">in</span> main</div><div class="line">    locale.setlocale(locale.LC_ALL, <span class="string">''</span>)</div><div class="line">  File <span class="string">"/usr/lib/python3.5/locale.py"</span>, line <span class="number">594</span>, <span class="keyword">in</span> setlocale</div><div class="line">    <span class="keyword">return</span> _setlocale(category, locale)</div><div class="line">locale.Error: unsupported locale setting</div></pre></td></tr></table></figure>
+<p>解决：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">export LANGUAGE=en_US.UTF<span class="number">-8</span></div><div class="line">export LANG=en_US.UTF<span class="number">-8</span></div><div class="line">export LC_ALL=en_US.UTF<span class="number">-8</span></div><div class="line">locale-gen en_US.UTF<span class="number">-8</span></div><div class="line">sudo dpkg-reconfigure locales</div></pre></td></tr></table></figure>
+<p>创建虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># pip3 install virtualenv</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">virtualenv --python=`which python3` ~/.virtualenvs/djangodev</div><div class="line">$ source ~/.virtualenvs/djangodev/bin/activate</div></pre></td></tr></table></figure>
+<p><strong>activate script</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">$ source bin/activate</div></pre></td></tr></table></figure>
+<p>安装Django</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># pip3 install Django</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Linux安装Python3&lt;/p&gt;
+&lt;p&gt;安装依赖库和编译器：&lt;/p&gt;
+&lt;p&gt;# yum install gcc -y&lt;/p&gt;
+&lt;p&gt;# yum install openssl-devel&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果没有安装openssl-devel，在安装过程中
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TableView和CollectionView整体上移64pt问题</title>
+    <link href="http://yoursite.com/2017/01/16/32.%20TableView%E5%92%8CCollectionView%E6%95%B4%E4%BD%93%E4%B8%8A%E7%A7%BB64pt%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2017/01/16/32. TableView和CollectionView整体上移64pt问题/</id>
+    <published>2017-01-16T09:36:24.000Z</published>
+    <updated>2017-01-18T01:35:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>两个解决方案</p>
+<ol>
+<li>self.automaticallyAdjustsScrollViewInsets = NO  这个是有效的，但是会影响其他页面</li>
+<li>在切换视图的ViewController中，切换完视图就更改响应ViewController的frame</li>
+</ol>
+<p>最后的解决方法是修改了所有子View的Y值</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;两个解决方案&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;self.automaticallyAdjustsScrollViewInsets = NO  这个是有效的，但是会影响其他页面&lt;/li&gt;
+&lt;li&gt;在切换视图的ViewController中，切换完视图就更改响应ViewControl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS－当遇到tableView整体上移时的解决方案</title>
+    <link href="http://yoursite.com/2017/01/15/31.%20iOS%EF%BC%8D%E5%BD%93%E9%81%87%E5%88%B0tableView%E6%95%B4%E4%BD%93%E4%B8%8A%E7%A7%BB%E6%97%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/2017/01/15/31. iOS－当遇到tableView整体上移时的解决方案/</id>
+    <published>2017-01-15T05:14:18.000Z</published>
+    <updated>2017-01-15T05:14:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS－当遇到tableView整体上移时的解决方案"><a href="#iOS－当遇到tableView整体上移时的解决方案" class="headerlink" title="iOS－当遇到tableView整体上移时的解决方案"></a>iOS－当遇到tableView整体上移时的解决方案</h1><p>方案一</p>
+<p>在使用了navigationController后，当界面进行跳转往返后，时而会出现tableView或collectionView上移的情况，通常会自动上移64个像素，那么这种情况，我们可以关闭tableView的自动适配布局。</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="literal">NO</span>;<span class="comment">// 默认是YES</span></div></pre></td></tr></table></figure>
+<p>方案二：</p>
+<p>当出现tableView整体上移时，你当然可以在 Xcode 中修改每个 View,将他们下移20个像素（状态栏高度）或者64个像素（状态栏+导航栏高度）。</p>
+<p>但是苹果显然已经考虑到这个问题，他们早在 iOS 7 SDK 中为 ViewController 提供了一个 edgesForExtendedLayout 新属性。如果你将这个属性设置为UIRectEdgeNone，则 viewController 的所有子视图都会自动调整。</p>
+<p>目前暂时也适用于不同系统版本代码更迭出现状况时使用。</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.edgesForExtendedLayout = <span class="built_in">UIRectEdgeNone</span>;<span class="comment">// 推荐使用</span></div></pre></td></tr></table></figure>
+<p>方案三</p>
+<p>我曾经遇到过当我点击图片放大时，然后再返回，就会出现tableView整体上移20像素， 后来我发现是 MJPhotoBrowser 第三方框架的问题，然后我请教了我们组长，他后来在 MJPhotoBrowser.m  的控制器里添加了几句话</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS－当遇到tableView整体上移时的解决方案&quot;&gt;&lt;a href=&quot;#iOS－当遇到tableView整体上移时的解决方案&quot; class=&quot;headerlink&quot; title=&quot;iOS－当遇到tableView整体上移时的解决方案&quot;&gt;&lt;/a&gt;iOS－当遇到t
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用TFHpple处理数据的请求遇到的坑</title>
     <link href="http://yoursite.com/2017/01/02/30.%20%E4%BD%BF%E7%94%A8TFHpple%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%B7%E6%B1%82/"/>
     <id>http://yoursite.com/2017/01/02/30. 使用TFHpple处理数据的请求/</id>
     <published>2017-01-02T04:07:17.000Z</published>
-    <updated>2017-01-02T04:23:25.000Z</updated>
+    <updated>2017-01-03T02:30:59.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="使用TFHpple处理数据的请求"><a href="#使用TFHpple处理数据的请求" class="headerlink" title="使用TFHpple处理数据的请求"></a>使用TFHpple处理数据的请求</h1><p>由于App中需要抓取网页数据，也没有做后台，就在iOS App里手动检索HTML信息进行抓取，这个过程中使用到了TFHpple框架，不过我看了一些范例都是直接使用NSData来直接获取网页的Data，这样做肯定会阻塞主线程，我一直在尝试使用其他方法，但都没有成功，困扰了我很久，直到昨天看到一篇网易公开课的文章提到了（<a href="http://www.itgo.me/a/2968793659999962488/TFHpple-XPath）。" target="_blank" rel="external">http://www.itgo.me/a/2968793659999962488/TFHpple-XPath）。</a></p>
+    <content type="html"><![CDATA[<h1 id="使用TFHpple处理数据的请求遇到的坑"><a href="#使用TFHpple处理数据的请求遇到的坑" class="headerlink" title="使用TFHpple处理数据的请求遇到的坑"></a>使用TFHpple处理数据的请求遇到的坑</h1><p>由于App中需要抓取网页数据，也没有做后台，就在iOS App里手动检索HTML信息进行抓取，这个过程中使用到了TFHpple框架，不过我看了一些范例都是直接使用NSData来直接获取网页的Data，这样做肯定会阻塞主线程，我一直在尝试使用其他方法，但都没有成功，困扰了我很久，直到昨天看到一篇网易公开课的文章提到了（<a href="http://www.itgo.me/a/2968793659999962488/TFHpple-XPath）。" target="_blank" rel="external">http://www.itgo.me/a/2968793659999962488/TFHpple-XPath）。</a></p>
 <figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)wangyi &#123;</div><div class="line"><span class="comment">// 网易公开课地址</span></div><div class="line"><span class="built_in">NSString</span> *str=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"http://open.163.com/"</span>];</div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:[str stringByAddingPercentEscapesUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>]];</div><div class="line"><span class="comment">// UTF－8</span></div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</div><div class="line">AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:request];</div><div class="line"><span class="comment">// 请求数据，设置成功与失败的回调函数</span></div><div class="line">[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) &#123;</div><div class="line"><span class="comment">// 请求下来的整个网页数据</span></div><div class="line"><span class="built_in">NSString</span> *html = operation.responseString;</div><div class="line"><span class="comment">// 网页有gbk编码有utf8编码，全部换成utf8</span></div><div class="line"><span class="built_in">NSString</span> *utf8HtmlStr = [html stringByReplacingOccurrencesOfString:<span class="string">@"&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=GBK\"&gt;"</span> withString:<span class="string">@"&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"&gt;"</span>];</div><div class="line"><span class="comment">// TFHpple解析的是data，转换成data</span></div><div class="line"><span class="built_in">NSData</span> *htmlDataUTF8 = [utf8HtmlStr dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line"><span class="comment">// 开始解析</span></div><div class="line">TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlDataUTF8];</div><div class="line"><span class="comment">// 查找所有的 &lt;div class="g-cell1"</span></div><div class="line"><span class="comment">// 因为首页的“小编推荐”是使用该class标示的，所以主要获取的是该种形式的小课程节目</span></div><div class="line"><span class="built_in">NSArray</span> *elements</div><div class="line">= [xpathParser searchWithXPathQuery:<span class="string">@"//div[@class='g-cell1']"</span>];</div><div class="line"><span class="comment">// 不存在则不继续执行</span></div><div class="line"><span class="keyword">if</span> ([elements count] &lt;= <span class="number">0</span>) &#123;</div><div class="line"><span class="keyword">return</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 以下只是示例解析第一个课程，循环即可全部解析</span></div><div class="line">TFHppleElement *first = [elements firstObject];</div><div class="line"><span class="comment">// 完整写法</span></div><div class="line"><span class="built_in">NSArray</span> *arr = [first searchWithXPathQuery:<span class="string">@"//a[1]/@href"</span>];</div><div class="line">TFHppleElement *ele = [arr firstObject];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"网址链接：%@"</span>,[ele text]);</div><div class="line"><span class="comment">// 合并的写法</span></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"图片链接：%@"</span>,[[[first searchWithXPathQuery:<span class="string">@"//img/@src"</span>] firstObject] text]);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"标题：%@"</span>,[[[first searchWithXPathQuery:<span class="string">@"//h5"</span>] firstObject] text]);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"副标题：%@"</span>,[[[first searchWithXPathQuery:<span class="string">@"//p"</span>] firstObject] text]);</div><div class="line">&#125;failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) &#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"发生错误！%@"</span>,error);</div><div class="line">&#125;];</div><div class="line"><span class="comment">// 加入队列 开始执行</span></div><div class="line"><span class="built_in">NSOperationQueue</span> *queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</div><div class="line">[queue addOperation:operation];&#125;</div></pre></td></tr></table></figure>
 <p>这个代码使用的是AFNetworking 2x的版本，不过网页已经更改了，所以这个解析已经失效了。</p>
 <p>我把代码使用了之后，可以使用</p>
@@ -33,11 +292,32 @@
 <p>结果是，直接使用AFNetwoking，并且在里面对数据进行处理是最快的，当然，我只用真机测试了5次，可能会有偏差</p>
 <p>设备: iPhone5c , iOS10.2</p>
 <p>代码地址: <a href="https://github.com/magaofei/iOS_Apprentice/tree/master/NSURLSessionBackgroundData" target="_blank" rel="external">https://github.com/magaofei/iOS_Apprentice/tree/master/NSURLSessionBackgroundData</a></p>
+<p>后续：</p>
+<p>然而事情还远没有结束。当我把代码改动了之后，发现还有其他问题在等着我。</p>
+<p>如果使用AFNetworking请求数据，在GET方法中，我在收到了Data之后用TFHpple解析HTML，将处理后的数据保存到一个NSMutableArray中并返回，但并没有成功返回。我尝试使用<code>__block</code>修饰也不行，无奈放弃了这个方案。</p>
+<p>接着我换了另外一个方案使用<code>dispatch_semaphore</code>和<code>dispatch_group</code> 来做，但也遇到了挫折，的代码处理逻辑是</p>
+<ol>
+<li>从网络抓取，进入<code>loadTutorialsWithUrlString</code>方法</li>
+<li>在这个方法中创建group，异步执行group，创建信号量，在里面发起GET</li>
+<li>收到GET回来的数据后，在notifiy里对数据进行处理，然后返回</li>
+</ol>
+<p>但问题是，我在进入<code>loadTutorialsWithUrlString</code>之后就是异步的方法，其实我的网络请求处理数据这些会慢于其他动作，所以这个逻辑是失败的。</p>
+<p>我尝试更改它</p>
+<ol>
+<li>创建group，异步执行<code>loadTutorialsWithUrlString</code></li>
+<li>在方法中，先创建信号量，接着发起GET，方法最后发起等待信号量</li>
+<li>在方法执行完毕后，在notify里写入文件</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line">&#123;       _group = dispatch_group_create();</div><div class="line">        </div><div class="line">        dispatch_group_async(_group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line">            </div><div class="line">            [<span class="keyword">self</span> loadTutorialsWithUrlString:urlString];</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        </div><div class="line">        dispatch_group_notify(_group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line">            </div><div class="line">            <span class="comment">//放到缓存中</span></div><div class="line">            <span class="comment">//Cache目录</span></div><div class="line">            <span class="built_in">NSString</span> *path = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject];</div><div class="line">            <span class="comment">//根据传入的文件名调用相关的文件，默认为安工要闻</span></div><div class="line">            <span class="built_in">NSString</span> *filePath = [path stringByAppendingPathComponent:plistName];</div><div class="line"><span class="comment">//            ayitNewsArray = _news;</span></div><div class="line">            </div><div class="line">            <span class="built_in">BOOL</span> WriteToFileBOOL = [<span class="built_in">NSKeyedArchiver</span> archiveRootObject:_ayitNewsArray toFile:filePath];</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> (WriteToFileBOOL) &#123; <span class="comment">//写入成功</span></div><div class="line">                <span class="built_in">NSLog</span>(<span class="string">@"写入成功"</span>);</div><div class="line">                <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, filePath);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;   <span class="comment">//写入失败</span></div><div class="line">                <span class="built_in">NSLog</span>(<span class="string">@"写入失败"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">&#125;</div><div class="line">	<span class="keyword">return</span> _ayitNewsArray;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - 格式化数据</span></div><div class="line">- (<span class="keyword">void</span>)loadTutorialsWithUrlString:(<span class="built_in">NSString</span> *)urlString&#123;</div><div class="line">    </div><div class="line"></div><div class="line">    </div><div class="line">    <span class="built_in">NSLock</span> *lock = [[<span class="built_in">NSLock</span> alloc] init];</div><div class="line">    [lock lock];</div><div class="line">    <span class="comment">// 怀疑这里因为全局并发所以产生资源共享，所以这里lock</span></div><div class="line">    _semaphore = dispatch_semaphore_create(<span class="number">0</span>);</div><div class="line">    </div><div class="line">    [lock unlock];</div><div class="line">    </div><div class="line">    AFAppDotNetAPIClient *manager = [AFAppDotNetAPIClient manager];</div><div class="line">    </div><div class="line">    </div><div class="line">    manager.requestSerializer = [AFHTTPRequestSerializer serializer];</div><div class="line">    manager.responseSerializer = [AFHTTPResponseSerializer serializer];</div><div class="line">    </div><div class="line">    </div><div class="line">    [manager GET:urlString parameters:<span class="literal">nil</span> progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">        </div><div class="line">    &#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</div><div class="line">        _data = responseObject;</div><div class="line">        <span class="built_in">NSMutableArray</span> *newsGroup = [<span class="built_in">NSMutableArray</span> array];</div><div class="line">        </div><div class="line">        TFHpple *hpple = [[TFHpple alloc] initWithHTMLData:_data];</div><div class="line">        <span class="built_in">NSString</span> *pathQueryString = <span class="string">@"//div[@class='newslist l']/ul/li/a"</span>; <span class="comment">//</span></div><div class="line">        <span class="built_in">NSArray</span> *Nodes = [hpple searchWithXPathQuery:pathQueryString];</div><div class="line">        <span class="keyword">for</span> (TFHppleElement *element <span class="keyword">in</span> Nodes) &#123;</div><div class="line">            </div><div class="line">            <span class="built_in">MKNewsItem</span> *newsItem = [[<span class="built_in">MKNewsItem</span> alloc] init];</div><div class="line">            </div><div class="line">            [newsGroup addObject:newsItem];</div><div class="line">            </div><div class="line">            <span class="comment">// 6</span></div><div class="line">            <span class="comment">//                tutorial.title = [[element firstChild] content];</span></div><div class="line">            newsItem.title = [element text];</div><div class="line">            newsItem.time = [[element firstChildWithTagName:<span class="string">@"span"</span>] content];</div><div class="line">            <span class="built_in">NSMutableString</span> *tempTime = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"%@"</span>, newsItem.time];</div><div class="line">            </div><div class="line">            <span class="comment">//删除时间前后的[]字符</span></div><div class="line">            [tempTime replaceCharactersInRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">1</span>) withString:<span class="string">@""</span>];</div><div class="line">            [tempTime replaceCharactersInRange:<span class="built_in">NSMakeRange</span>(<span class="number">10</span>, <span class="number">1</span>) withString:<span class="string">@""</span>];</div><div class="line">            newsItem.time = tempTime;</div><div class="line"></div><div class="line">            newsItem.url = [<span class="built_in">NSURL</span> URLWithString:[element objectForKey:<span class="string">@"href"</span>]];</div><div class="line">            </div><div class="line"></div><div class="line">            <span class="built_in">NSMutableString</span> *tempUrl = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"http://www.ayit.edu.cn%@"</span>,newsItem.url.absoluteString];</div><div class="line">            [tempUrl deleteCharactersInRange:<span class="built_in">NSMakeRange</span>(<span class="number">22</span>, <span class="number">2</span>)];  <span class="comment">//删除那两个..</span></div><div class="line">            newsItem.url = [<span class="built_in">NSURL</span> URLWithString:tempUrl];</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//        NSLog(@"%@", newsGroup);</span></div><div class="line">        _ayitNewsArray = newsGroup;</div><div class="line">        dispatch_semaphore_signal(_semaphore);</div><div class="line">        newsGroup = <span class="literal">nil</span>;</div><div class="line">        [manager invalidateSessionCancelingTasks:<span class="literal">YES</span>];</div><div class="line">        </div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"thread = %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"发生错误！%@"</span>,error);</div><div class="line">        dispatch_semaphore_signal(_semaphore);</div><div class="line">        </div><div class="line">    &#125;];</div><div class="line">    <span class="comment">// 在网络请求成功之前 信号量等待中</span></div><div class="line">    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但又发生了两个问题，我打开Leaks测试的时候，发现了内存泄露，排查了一下，发现居然是AFNetworking，想着这不可能啊，这么多人使用的框架怎么会有这种问题呢？接着我GOOGLE和很多次，最终在作者的提示下 <a href="https://github.com/AFNetworking/AFNetworking/issues/2149" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking/issues/2149</a></p>
+<p>在数据处理完毕后，调用<code>[manager invalidateSessionCancelingTasks:YES];</code>结束Session的请求，不然的话，我每一次发出请求之后，之前的请求还一直在，这就是为什么产生内存泄露的原因。然后依照网上的说话，继承了AFHTTPSessionManager，将其设置为单例，这样每次请求的manager只有一个。</p>
+<p>接着还有个多线程的问题，我在创建信号量的时候有小概率会出现 EXC_BAD_INSTRUCTION 错误。我怀疑是因为异步并发执行导致的资源共享，所以我用NSLock给它上锁，目前看来是解决了问题。</p>
+<p>才疏学浅，目前只能写到这里了。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;使用TFHpple处理数据的请求&quot;&gt;&lt;a href=&quot;#使用TFHpple处理数据的请求&quot; class=&quot;headerlink&quot; title=&quot;使用TFHpple处理数据的请求&quot;&gt;&lt;/a&gt;使用TFHpple处理数据的请求&lt;/h1&gt;&lt;p&gt;由于App中需要抓取网页数据
+      &lt;h1 id=&quot;使用TFHpple处理数据的请求遇到的坑&quot;&gt;&lt;a href=&quot;#使用TFHpple处理数据的请求遇到的坑&quot; class=&quot;headerlink&quot; title=&quot;使用TFHpple处理数据的请求遇到的坑&quot;&gt;&lt;/a&gt;使用TFHpple处理数据的请求遇到的坑&lt;/h1&gt;&lt;
     
     </summary>
     
@@ -507,258 +787,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;指针变量的写法&quot;&gt;&lt;a href=&quot;#指针变量的写法&quot; class=&quot;headerlink&quot; title=&quot;指针变量的写法&quot;&gt;&lt;/a&gt;指针变量的写法&lt;/h1&gt;&lt;p&gt;在刚学习C语言的时候，我对于指针很畏惧，很大程度上是因为它那个恶心的&lt;code&gt;*&lt;/code&gt;，后
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS界面开发（基础篇）主观题考试</title>
-    <link href="http://yoursite.com/2016/11/21/16.%20iOS%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91%EF%BC%88%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%89%E4%B8%BB%E8%A7%82%E9%A2%98%E8%80%83%E8%AF%95/"/>
-    <id>http://yoursite.com/2016/11/21/16. iOS界面开发（基础篇）主观题考试/</id>
-    <published>2016-11-21T06:15:00.000Z</published>
-    <updated>2016-11-21T06:16:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="iOS界面开发（基础篇）主观题考试"><a href="#iOS界面开发（基础篇）主观题考试" class="headerlink" title="iOS界面开发（基础篇）主观题考试"></a>iOS界面开发（基础篇）主观题考试</h1><p><img src="http://nos.netease.com/edu-image/534CA7839EC540CB7C946BCEB1DEE313.png?imageView&amp;thumbnail=520x520&amp;quality=100" alt="img"></p>
-<p>要求：</p>
-<ol>
-<li><p>使用导航栏和UITableViewController构造一个和上面截图基本类似界面</p>
-<p><strong>界面只要求布局方位一致即可，不要求位置间距完全一致。每个商品Cell的 粉色字体 部分（限时购、特价、限购X件），不需要实现，也不用占位置</strong></p>
-<p>​</p>
-</li>
-<li><p>导航栏中间Title为 购物车（商品种类数量），例如上图是三类商品，那就是 购物车(3)，如果删除了一个商品，需要同步变成 购物车(2)</p>
-</li>
-<li><p>导航栏右侧的编辑和图标，可以不响应动作，但是需要显示出来</p>
-</li>
-<li><p>购物车里面的所有商品按照仓库分组，也就是说数据结构是：</p>
-<p>[ 仓库1 : [商品1, 商品2, …], 仓库2 : [商品1, 商品2, 商品3, …] ]</p>
-</li>
-<li><p>每个仓库的Section由：仓库名称、商品列表、仓库结算信息组成</p>
-</li>
-<li><p>仓库名称左侧选择按钮：</p>
-<p>a. 点击选中，该Section下的所有商品列表需要选中</p>
-<p>b. 取消选中，该Section下的所有商品列表需要取消选中</p>
-<p>c. 如果该Section下的所有商品列表只有部分选中，其应该为未选中：</p>
-<p><img src="http://nos.netease.com/edu-image/A4094EF2F9391856EBDD73D450D61203.png?imageView&amp;thumbnail=520x520&amp;quality=100" alt="img"></p>
-</li>
-<li><p>仓库结算信息，只需要包括 <strong>本仓总计（不含税）**</strong> **这一项，该项的数值是：该Section下的被选中的商品列表价格之和；其他结算信息项不用实现。</p>
-</li>
-<li><p>仓库和仓库Section间需要有大约10dp的灰色间隔</p>
-</li>
-<li><p>每个商品Cell需要支持右侧的滑动删除：</p>
-<p><img src="http://nos.netease.com/edu-image/68A76D49B9F8B79C60D81A420AFFEA51.png?imageView&amp;thumbnail=520x520&amp;quality=100" alt="img"></p>
-<p>当点击删除时，该商品需要被删除，导航栏的数目、仓库的左侧选中状态、仓库结算信息需要更新。</p>
-<p>税费点击展开，其中点击展开需要有高度变化动画（效果参考考拉海购APP）：</p>
-<p><img src="http://nos.netease.com/edu-image/81F06AA9BF87B6FE32B46C6930D7CDC2.png?imageView&amp;thumbnail=520x520&amp;quality=100" alt="img"></p>
-</li>
-<li><p>每个商品的文字描述最多为两行，超过显示… 。</p>
-<p>这里要求实现：a. 一行商品标题显示效果 b. 商品标题过长导致两行并跟随… 的显示效果。</p>
-</li>
-<li><p>每个商品Cell需要执行左侧的选择框的选中和取消选中，选中状态改变时，仓库的左侧选中状态、仓库结算信息需要更新。</p>
-</li>
-<li><p>整个页面底部的全部结算界面，其展示信息不需要变化，固定写死即可，也不用响应动作；只需要固定悬浮在屏幕的底部，不随滚动条滚动。</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;iOS界面开发（基础篇）主观题考试&quot;&gt;&lt;a href=&quot;#iOS界面开发（基础篇）主观题考试&quot; class=&quot;headerlink&quot; title=&quot;iOS界面开发（基础篇）主观题考试&quot;&gt;&lt;/a&gt;iOS界面开发（基础篇）主观题考试&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python爬虫四周课程</title>
-    <link href="http://yoursite.com/2016/11/21/15.%20Python%E7%88%AC%E8%99%AB%E5%9B%9B%E5%91%A8%E8%AF%BE%E7%A8%8B/"/>
-    <id>http://yoursite.com/2016/11/21/15. Python爬虫四周课程/</id>
-    <published>2016-11-21T01:32:00.000Z</published>
-    <updated>2016-11-21T01:49:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python爬虫四周课程"><a href="#Python爬虫四周课程" class="headerlink" title="Python爬虫四周课程"></a>Python爬虫四周课程</h1><ol>
-<li><p>课程相关</p>
-<ol>
-<li>答疑时间: 14:00 - 17:00</li>
-<li>直播时间: 另行通知</li>
-<li>其他</li>
-</ol>
-</li>
-<li><p>课程简介:</p>
-<p>爬、存、查、现</p>
-</li>
-<li><p>爬虫</p>
-<p>分为定向和非定向(Google、Baidu)</p>
-<ol>
-<li>我们爬取的是指定网站的爬虫，</li>
-<li>我们只需要使用一个数据库存储，百度是分层集群存储</li>
-<li>哈希表存储线性结构</li>
-</ol>
-<p>爬虫 = 数据请求(HTTP) + 数据解析(html/json)</p>
-<p>Debug: </p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Python爬虫四周课程&quot;&gt;&lt;a href=&quot;#Python爬虫四周课程&quot; class=&quot;headerlink&quot; title=&quot;Python爬虫四周课程&quot;&gt;&lt;/a&gt;Python爬虫四周课程&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;课程相关&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;答疑时
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>让你的 alfred 支持拼音搜索</title>
-    <link href="http://yoursite.com/2016/11/13/14.%20%E8%AE%A9%E4%BD%A0%E7%9A%84alfred%E6%94%AF%E6%8C%81%E6%8B%BC%E9%9F%B3%E6%90%9C%E7%B4%A2/"/>
-    <id>http://yoursite.com/2016/11/13/14. 让你的alfred支持拼音搜索/</id>
-    <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-11-13T10:19:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="让你的-Alfred-支持拼音搜索"><a href="#让你的-Alfred-支持拼音搜索" class="headerlink" title="让你的 Alfred 支持拼音搜索"></a>让你的 Alfred 支持拼音搜索</h1><p>来源：<a href="https://gist.github.com/tiann/35fb758c18036d7f8640" target="_blank" rel="external">https://gist.github.com/tiann/35fb758c18036d7f8640</a> | <a href="https://www.v2ex.com/t/248284" target="_blank" rel="external">https://www.v2ex.com/t/248284</a></p>
-<ol>
-<li><p>安装 <a href="https://github.com/mozillazg/python-pinyin" target="_blank" rel="external">pypinyin</a> 这个库（可能需要sudo）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip install pypinyin</div></pre></td></tr></table></figure>
-</li>
-<li><p>执行<strong>alfred-pinyin.py</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">python Path/filename.py</div><div class="line"><span class="comment">#python为命令名称，这里是python2， 后面的是文件的路径和名称</span></div></pre></td></tr></table></figure>
-<p>下载地址 <a href="https://gist.github.com/tiann/35fb758c18036d7f8640" target="_blank" rel="external">https://gist.github.com/tiann/35fb758c18036d7f8640</a> </p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;让你的-Alfred-支持拼音搜索&quot;&gt;&lt;a href=&quot;#让你的-Alfred-支持拼音搜索&quot; class=&quot;headerlink&quot; title=&quot;让你的 Alfred 支持拼音搜索&quot;&gt;&lt;/a&gt;让你的 Alfred 支持拼音搜索&lt;/h1&gt;&lt;p&gt;来源：&lt;a href
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>西单大悦城Apple Store体验</title>
-    <link href="http://yoursite.com/2016/11/12/13.%20%E8%A5%BF%E5%8D%95%E5%A4%A7%E6%82%A6%E5%9F%8EApple%20Store%E4%BD%93%E9%AA%8C/"/>
-    <id>http://yoursite.com/2016/11/12/13. 西单大悦城Apple Store体验/</id>
-    <published>2016-11-11T16:00:00.000Z</published>
-    <updated>2016-11-13T09:39:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="西单大悦城Apple-Store体验"><a href="#西单大悦城Apple-Store体验" class="headerlink" title="西单大悦城Apple Store体验"></a>西单大悦城Apple Store体验</h1><p>昨天去了北京的西单，路过Apple Store，焉能不进去看看？</p>
-<p>懒得去周边的商场，就一直呆了很久，对几个东西有点感触：</p>
-<ul>
-<li>iPhone7</li>
-<li>Bose降噪耳机</li>
-<li>全新的MacBook Pro</li>
-</ul>
-<h2 id="iPhone7"><a href="#iPhone7" class="headerlink" title="iPhone7"></a>iPhone7</h2><p>玩了玩iPhone7 和 iPhone7 Plus，发现大屏的体验还是不错的，改变了我对大屏手机的看法，也看了景深人像的功能，不过觉得没那么重要，Plus的作用还是大，这样的话可以接收更多的信息。</p>
-<p>把玩了许久iPhone7，又去体验体验iPhone6s，因为有不同，才能够更深刻的体验到变化。iPhone7的震动反馈做的更好，代替了原来单一的震动模式，增加了很多新的种类，结合着全新的Home Button，有了一个全新的反馈体验。</p>
-<p>对于新的Home Button，总结来说，已经不是实体按键了，看来Apple也放弃了实体键，最终转向了虚拟按键，本来还不是很适应，但当我把玩了一段时间的iPhone7之后，我再去用iPhone6s时，顿时感受手更累了，想回到iPhone7上面去。</p>
-<h2 id="Bose降噪耳机"><a href="#Bose降噪耳机" class="headerlink" title="Bose降噪耳机"></a>Bose降噪耳机</h2><p>以前就听过降噪耳机的用武之地，以前不觉得有什么，果然有些东西你不体会、不体验是不会知道的，当我戴上耳机的那一刹那，真是觉得置身事外，摘下耳机又回到了这个世界。倘若戴上这个耳机，走入地铁早高峰的洪流之中，至少耳朵是干净的。</p>
-<h2 id="全新的Macbook-Pro"><a href="#全新的Macbook-Pro" class="headerlink" title="全新的Macbook Pro"></a>全新的Macbook Pro</h2><p>没有带TouchBar的13寸的Macbook Pro，机身轻盈了不少，但13寸的好像只有2个USB-C接口，背面的ＬＯＧＯ也不亮了，这些都可以，唯一不能让人接受的就是键盘了，键盘为了配合机身，变得更薄了，但失去了触感，按下去好像没有按一样，官方声称这是第二代蝶式键盘，可我觉得和第一代没有什么改进，真是让人悲伤，或许以后会改变罢。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;西单大悦城Apple-Store体验&quot;&gt;&lt;a href=&quot;#西单大悦城Apple-Store体验&quot; class=&quot;headerlink&quot; title=&quot;西单大悦城Apple Store体验&quot;&gt;&lt;/a&gt;西单大悦城Apple Store体验&lt;/h1&gt;&lt;p&gt;昨天去了北京
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>导航控制器的按钮设置(Storyboard)</title>
-    <link href="http://yoursite.com/2016/11/11/12.%20%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E6%8C%89%E9%92%AE%E8%AE%BE%E7%BD%AE(Storyboard)/"/>
-    <id>http://yoursite.com/2016/11/11/12. 导航控制器的按钮设置(Storyboard)/</id>
-    <published>2016-11-11T07:56:53.000Z</published>
-    <updated>2016-11-11T08:16:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导航控制器的按钮设置-Storyboard"><a href="#导航控制器的按钮设置-Storyboard" class="headerlink" title="导航控制器的按钮设置(Storyboard)"></a>导航控制器的按钮设置(Storyboard)</h1><p>效果图:</p>
-
-<ol>
-<li><p>新建UIView, 放入 ViewController 中 </p>
-</li>
-<li><p>设置 UIView 的布局上左右都为0, 高度为44</p>
-
-</li>
-<li><p>更新Frame</p>
- 
-</li>
-<li><p>放入3个 Button 到 UIView 中</p>
-</li>
-<li><p>设置第一个 Button 的布局, 上下左右都为0</p>
-
-</li>
-<li><p>设置第二个 Button 的布局, 右和下为0</p>
-
-</li>
-<li><p>在上一步的基础上, 设置第二个 Button 和第一个 Button 相同宽度和高度, </p>
-<ol>
-<li>按住 Control 键, 拖拽第二个 Button 到第一个 Button 松手</li>
-<li>按住 Shift 键, 选中 Equal Widths 和 Equal Heights</li>
-<li>最后点击 Add Constraints </li>
-</ol>
-
-</li>
-<li><p>设置第三个 Button 的布局, 右和下为0 (同第6步)</p>
-</li>
-<li><p>在上一步的基础上, 设置第三个 Button 和第二个 Button 相同宽度和高度 (同第7步)</p>
-</li>
-<li><p>选中三个 Button 同时按下<code>option</code> + <code>Command</code> + <code>=</code> 更新 Frame</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导航控制器的按钮设置-Storyboard&quot;&gt;&lt;a href=&quot;#导航控制器的按钮设置-Storyboard&quot; class=&quot;headerlink&quot; title=&quot;导航控制器的按钮设置(Storyboard)&quot;&gt;&lt;/a&gt;导航控制器的按钮设置(Storyboard)
-    
-    </summary>
-    
-    
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
-    
-      <category term="Storyboard" scheme="http://yoursite.com/tags/Storyboard/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>饿了么网上订餐流程</title>
-    <link href="http://yoursite.com/2016/11/09/10.%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90%E6%B5%81%E7%A8%8B/"/>
-    <id>http://yoursite.com/2016/11/09/10. 饿了么网上订餐流程/</id>
-    <published>2016-11-08T16:00:00.000Z</published>
-    <updated>2016-11-11T00:54:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="饿了么网上订餐流程"><a href="#饿了么网上订餐流程" class="headerlink" title="饿了么网上订餐流程"></a>饿了么网上订餐流程</h1><h2 id="毕业设计——网上订餐系统技术调研"><a href="#毕业设计——网上订餐系统技术调研" class="headerlink" title="毕业设计——网上订餐系统技术调研"></a>毕业设计——网上订餐系统技术调研</h2><ol>
-<li><p>检测地理位置（可以省略或简化，比如直接选择地点，因为后边会填写详细地点，所以这里无需深究）</p>
-</li>
-<li><p>选择商家（可以按照位置分类）</p>
-</li>
-<li><p>选择商品（每个商家的商品）</p>
-</li>
-<li><p>结算（计算）</p>
-</li>
-<li><p>选择收获地址和支付方式，填写详细信息（）</p>
-</li>
-<li><p>确定下单</p>
-</li>
-<li><p>如果在线支付转到支付页面</p>
-</li>
-<li><p>判断支付是否成功</p>
-<p>​</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;饿了么网上订餐流程&quot;&gt;&lt;a href=&quot;#饿了么网上订餐流程&quot; class=&quot;headerlink&quot; title=&quot;饿了么网上订餐流程&quot;&gt;&lt;/a&gt;饿了么网上订餐流程&lt;/h1&gt;&lt;h2 id=&quot;毕业设计——网上订餐系统技术调研&quot;&gt;&lt;a href=&quot;#毕业设计——网上订
     
     </summary>
     
