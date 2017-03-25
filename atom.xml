@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-27T09:53:36.000Z</updated>
+  <updated>2017-03-04T00:52:59.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/03/03/38.%20%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2017/03/03/38. 软件测试学习/</id>
+    <published>2017-03-03T10:56:53.000Z</published>
+    <updated>2017-03-04T00:52:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="推荐实际使用的工具"><a href="#推荐实际使用的工具" class="headerlink" title="推荐实际使用的工具"></a>推荐实际使用的工具</h4><ul>
+<li>XMind </li>
+<li>Selenium </li>
+<li>JMeter</li>
+</ul>
+<h4 id="Web调试工具"><a href="#Web调试工具" class="headerlink" title="Web调试工具"></a>Web调试工具</h4><ul>
+<li>Firefox Firebug</li>
+<li>Chrome</li>
+</ul>
+<h4 id="移动自动化测试"><a href="#移动自动化测试" class="headerlink" title="移动自动化测试"></a>移动自动化测试</h4><p>UI自动化框架</p>
+<p>Appium,Calabash,Espresso,uiautomator,Robotium</p>
+<h4 id="Appium"><a href="#Appium" class="headerlink" title="Appium"></a>Appium</h4><ul>
+<li>免费</li>
+<li>开源</li>
+<li>支持Android、iOS</li>
+<li>无需修改被测应用</li>
+<li>移动自动化接口统一</li>
+<li>支持多个开发语言</li>
+</ul>
+<h4 id="性能测试工具"><a href="#性能测试工具" class="headerlink" title="性能测试工具"></a>性能测试工具</h4><p>Apache Jmeter , Gatling, Tsung, HP LoadRunner</p>
+<h4 id="Apache-Jmeter"><a href="#Apache-Jmeter" class="headerlink" title="Apache Jmeter"></a>Apache Jmeter</h4><ul>
+<li>免费</li>
+<li>开源</li>
+<li>跨平台</li>
+<li>简单易用</li>
+<li>多协议支持</li>
+<li>​</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;推荐实际使用的工具&quot;&gt;&lt;a href=&quot;#推荐实际使用的工具&quot; class=&quot;headerlink&quot; title=&quot;推荐实际使用的工具&quot;&gt;&lt;/a&gt;推荐实际使用的工具&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;XMind &lt;/li&gt;
+&lt;li&gt;Selenium &lt;/li&gt;
+&lt;li&gt;J
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>用学生身份申请价值50美元的Digitalocean服务器</title>
     <link href="http://yoursite.com/2017/02/27/37.%20%E7%94%A8%E5%AD%A6%E7%94%9F%E8%BA%AB%E4%BB%BD%E7%94%B3%E8%AF%B7%E4%BB%B7%E5%80%BC50%E7%BE%8E%E5%85%83%E7%9A%84Digitalocean%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://yoursite.com/2017/02/27/37. 用学生身份申请价值50美元的Digitalocean服务器/</id>
     <published>2017-02-27T07:58:40.000Z</published>
-    <updated>2017-02-27T09:53:36.000Z</updated>
+    <updated>2017-02-27T10:18:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>众所周知，各大公司针对学生有很多的福利，国内的阿里云和腾讯云针对学生都有特价，而国外的公司更阔绰，比如Digitalocean和AWS都会直接送相关的金额，你可以自行去选择服务器，更加灵活、自由。这次我申请的是Digitalocean的服务器，下面是申请的步骤。</p>
 <p>说明：</p>
@@ -37,7 +86,7 @@
 <li><p>根据提示，登录/注册 你的GitHub帐号</p>
 <p><img src="/images/Sign_in_to_GitHub_·_GitHub.png" alt=""></p>
 </li>
-<li><p>Tell us what you need ， 根据提示进行选择，这里我选择的是学生和个人<br><img src="/images/Request_a_discount_-_GitHub_Education.png" alt=""></p>
+<li><p>接下来会提示你输入详细信息， 根据提示进行选择，这里我选择的是学生和个人<br><img src="/images/Request_a_discount_-_GitHub_Education.png" alt=""></p>
 </li>
 <li><p>Tell us about you，接下来认定你的学生身份，需要提供你的姓名，学生邮箱，学校姓名，毕业年份，申请原因。</p>
 <p>如果有学生邮箱，但是在Select your <strong>school-issued email address</strong>: 里面没有显示，需要你先去GitHub帐号里面将你学生邮箱添加上去。</p>
@@ -66,13 +115,13 @@
 <li><p>创建成功后，确认账户余额。点击digitalocean网页右上角的头像，选择Settings。再点击左边的Billing</p>
 <p><img src="/images/DigitalOcean_-_Settings.png" alt=""></p>
 </li>
-<li><p>接下来点击右上角的按钮创建 Droplet </p>
+<li><p>接下来点击右上角的按钮 Create Droplet 创建</p>
 </li>
-<li><p>选择服务器配置，另外据我测试，San Francisco的服务器大多数已经被封了，会导致连接不上</p>
+<li><p>选择服务器配置。另外据我测试，San Francisco的服务器大多数已经被封了，会导致连接不上</p>
 <p><img src="/images/DigitalOcean - Create Droplets.png" alt=""></p>
 </li>
-<li><p>测试 IP</p>
-<p>在命令行输入</p>
+<li><p>测试 IP </p>
+<p>在终端输入</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ping 你的IP</div></pre></td></tr></table></figure>
 <p>通的话会返回，time数值越少越好</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">64 bytes from 104.16.xx.x: icmp_seq=0 ttl=51 time=221.834 ms</div><div class="line">64 bytes from 104.16.xx.x: icmp_seq=1 ttl=51 time=221.976 ms</div><div class="line">64 bytes from 104.16.xx.x: icmp_seq=2 ttl=51 time=219.906 ms</div></pre></td></tr></table></figure>
@@ -82,6 +131,9 @@
 </li>
 <li><p>选择好之后点创建就可以了。如果对IP不满意，建议在 How many Droplets? 这里一次性多创建几个实例，创建好之后再进行选择。</p>
 <p><img src="/images/DigitalOcean_-_Create_Droplets.png" alt=""></p>
+</li>
+<li><p>完毕</p>
+<p>​</p>
 </li>
 </ol>
 ]]></content>
@@ -759,37 +811,6 @@
     
     
       <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>指针变量的写法</title>
-    <link href="http://yoursite.com/2016/11/23/17.%20%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F%E7%9A%84%E5%86%99%E6%B3%95/"/>
-    <id>http://yoursite.com/2016/11/23/17. 指针变量的写法/</id>
-    <published>2016-11-23T04:56:24.000Z</published>
-    <updated>2016-11-23T05:08:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="指针变量的写法"><a href="#指针变量的写法" class="headerlink" title="指针变量的写法"></a>指针变量的写法</h1><p>在刚学习C语言的时候，我对于指针很畏惧，很大程度上是因为它那个恶心的<code>*</code>，后来接触到了以后，发现确实挺恶心的</p>
-<p>关于指针变量的写法不外乎这几种</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> *foo;</div><div class="line"><span class="keyword">int</span> * foo;</div><div class="line"><span class="keyword">int</span>* foo;</div></pre></td></tr></table></figure>
-<p>第一种最流行，它写在了变量名前面，能够很清晰的表明这是个指针变量，但我觉得也有问题，为什么？先举个例子</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</div><div class="line">foo = &amp;a;</div><div class="line">*foo = <span class="number">100</span>;</div></pre></td></tr></table></figure>
-<p>注意到了吗？</p>
-<p>在使用指针变量的时候，我们不会把那个<code>*</code>再写出来了，反而，如果你写出来的话，代表的意思就不是指针变量了，而是指针变量所指向变量。</p>
-<p>如果我写了</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> *foo;</div><div class="line">foo = &amp;a;</div></pre></td></tr></table></figure>
-<p>我会感觉到这样的代码，让我有一点歧义，明明上面的foo变量在声明时带上了*表明它是一个指针变量，而下面的带上了就成了另外一种意思，所以我有点讨厌这样的写法。</p>
-<p>第二种写法，很清晰，但也很分散，这样的代码估计很少有人写，另外也有一点歧义，太像乘<code>*</code>了</p>
-<p>第三种写法，直接写在类型的后面，写的人比第二种多一些，我觉得不错，避免了第一种的歧义。</p>
-<p>不管你怎么写，在实际当中肯定还是要遵守团队的规范</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;指针变量的写法&quot;&gt;&lt;a href=&quot;#指针变量的写法&quot; class=&quot;headerlink&quot; title=&quot;指针变量的写法&quot;&gt;&lt;/a&gt;指针变量的写法&lt;/h1&gt;&lt;p&gt;在刚学习C语言的时候，我对于指针很畏惧，很大程度上是因为它那个恶心的&lt;code&gt;*&lt;/code&gt;，后
-    
-    </summary>
-    
     
   </entry>
   
