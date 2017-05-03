@@ -1,0 +1,1089 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=h1, h2, h3, h4, h5, h6:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Tester,Appium," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="macOS 下的Appium安装与配置 Appium Installation &amp;amp; Setup With macOSiOS系统要求及说明：
+
+macOS 10.11 或更高
+brew需要最新版本的 Xcode 或Xcode Command Line
+
+介绍iOS9.3及以下使用 Automation 作为底层技术，在iOS9.3出现了XCUITest，并且在iOS10时抛弃了 Automa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS 下的Appium安装与配置">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/39. Appium Installation & Setup With macOS/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="macOS 下的Appium安装与配置 Appium Installation &amp;amp; Setup With macOSiOS系统要求及说明：
+
+macOS 10.11 或更高
+brew需要最新版本的 Xcode 或Xcode Command Line
+
+介绍iOS9.3及以下使用 Automation 作为底层技术，在iOS9.3出现了XCUITest，并且在iOS10时抛弃了 Automa">
+<meta property="og:image" content="https://testerhome.com/uploads/photo/2017/0ca50d72c936d28e0d8300400b574433.png">
+<meta property="og:image" content="https://testerhome.com/uploads/photo/2017/6a43214ff31663f386e34e19e6f7c8d7.png!large">
+<meta property="og:updated_time" content="2017-05-03T00:55:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="macOS 下的Appium安装与配置">
+<meta name="twitter:description" content="macOS 下的Appium安装与配置 Appium Installation &amp;amp; Setup With macOSiOS系统要求及说明：
+
+macOS 10.11 或更高
+brew需要最新版本的 Xcode 或Xcode Command Line
+
+介绍iOS9.3及以下使用 Automation 作为底层技术，在iOS9.3出现了XCUITest，并且在iOS10时抛弃了 Automa">
+<meta name="twitter:image" content="https://testerhome.com/uploads/photo/2017/0ca50d72c936d28e0d8300400b574433.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/22/39. Appium Installation & Setup With macOS/"/>
+
+
+  <title> macOS 下的Appium安装与配置 | blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86730422-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=59270016";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                macOS 下的Appium安装与配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-22T23:03:05+08:00" content="2017-03-22">
+              2017-03-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/22/39. Appium Installation & Setup With macOS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/22/39. Appium Installation & Setup With macOS/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/22/39. Appium Installation & Setup With macOS/" class="leancloud_visitors" data-flag-title="macOS 下的Appium安装与配置">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="macOS-下的Appium安装与配置-Appium-Installation-amp-Setup-With-macOS"><a href="#macOS-下的Appium安装与配置-Appium-Installation-amp-Setup-With-macOS" class="headerlink" title="macOS 下的Appium安装与配置 Appium Installation &amp; Setup With macOS"></a>macOS 下的Appium安装与配置 Appium Installation &amp; Setup With macOS</h1><h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><p>系统要求及说明：</p>
+<ul>
+<li>macOS 10.11 或更高</li>
+<li><code>brew</code>需要最新版本的 <code>Xcode</code> 或<code>Xcode Command Line</code></li>
+</ul>
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>iOS9.3及以下使用 Automation 作为底层技术，在iOS9.3出现了XCUITest，并且在iOS10时抛弃了 Automation ，所以Appium在iOS9.3及以下和iOS10的配置方法不同。</p>
+<h3 id="安装Appium"><a href="#安装Appium" class="headerlink" title="安装Appium"></a>安装Appium</h3><p>如果已安装过部分依赖，可直接跳过</p>
+<h4 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h4><p>强烈推荐所有macOS上的软件使用Homebrew进行安装，使用brew安装过的软件，<strong>不再需要sudo命令</strong>。</p>
+<p>打开终端，运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
+<p>brew的使用非常简单，安装一个软件使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew install #&lt;package name&gt;</div></pre></td></tr></table></figure>
+<p>如果brew提示Xcode版本过低，需要安装新版本的Xcode（安装时保存两个版本即可）</p>
+<p>下载地址：<a href="https://developer.apple.com/download/more/" target="_blank" rel="external">https://developer.apple.com/download/more/</a></p>
+<h4 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew install node</div></pre></td></tr></table></figure>
+<p>检查是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">node -v</div><div class="line"># v6.9.1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm -v</div><div class="line"># 3.10.8</div></pre></td></tr></table></figure>
+<h5 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h5><p>由于npm源在国外，我们使用npm安装库时会比较慢，可以使用taobao的镜像源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<p>检查安装是否成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cnpm -v</div><div class="line"># 4.4.0</div></pre></td></tr></table></figure>
+<p>以后均使用<code>cnpm</code> 命令代替<code>npm</code></p>
+<h4 id="安装appium"><a href="#安装appium" class="headerlink" title="安装appium"></a>安装appium</h4><h5 id="使用Node-js"><a href="#使用Node-js" class="headerlink" title="使用Node.js"></a>使用Node.js</h5><p>appium本质上就是一个Nodejs应用，我们可以使用npm对其进行安装，安装完毕后就可以使用命令行启动</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cnpm install -g appium</div></pre></td></tr></table></figure>
+<p>可以使用appium-doctor来确认安装环境是否完成</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cnpm install -g appium-doctor</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">appium-doctor</div></pre></td></tr></table></figure>
+<h5 id="下载App"><a href="#下载App" class="headerlink" title="下载App"></a>下载App</h5><p>使用软件比较简单，拥有图形化界面，并且有Inspector工具，帮助检测界面元素</p>
+<p>下载地址：<a href="https://github.com/appium/appium-desktop/releases" target="_blank" rel="external">https://github.com/appium/appium-desktop/releases</a></p>
+<h3 id="设置Appium"><a href="#设置Appium" class="headerlink" title="设置Appium"></a>设置Appium</h3><h4 id="安装Carthage"><a href="#安装Carthage" class="headerlink" title="安装Carthage"></a>安装Carthage</h4><p>Carthage 是一个管理 iOS 开发库依赖的包</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew install carthage</div></pre></td></tr></table></figure>
+<h4 id="安装语言依赖"><a href="#安装语言依赖" class="headerlink" title="安装语言依赖"></a>安装语言依赖</h4><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><h5 id="安装Python3（使用Python2跳过）"><a href="#安装Python3（使用Python2跳过）" class="headerlink" title="安装Python3（使用Python2跳过）"></a>安装Python3（使用Python2跳过）</h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew install python3</div></pre></td></tr></table></figure>
+<p>检测安装成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python3 -V</div><div class="line"># Python 3.6.0</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip3 -V</div><div class="line"># pip 9.0.1 from /usr/local/lib/python3.6/site-packages (python 3.6)</div></pre></td></tr></table></figure>
+<p>出现相应代码即成功</p>
+<p>macOS自带有Python2版本，默认情况下输入<code>python</code>调用的就是系统的python2和<code>pip</code></p>
+<p>此外，如果系统版本之前安装过python3导致安装后输入python3没有找到命令，可以尝试<code>brew link --overwrite python3</code>重新链接</p>
+<h5 id="使用-pip-安装"><a href="#使用-pip-安装" class="headerlink" title="使用 pip 安装"></a>使用 <code>pip</code> 安装</h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip3 install Appium-Python-Client</div><div class="line"># python3 -&gt; pip3</div><div class="line"># python -&gt; pip</div></pre></td></tr></table></figure>
+<p>详细信息：<a href="https://github.com/appium/python-client" target="_blank" rel="external">https://github.com/appium/python-client</a></p>
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><p>安装JDK</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew update</div><div class="line">brew cask install java</div></pre></td></tr></table></figure>
+<p>使用Maven进行依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.appium<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>java-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.0-BETA7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>详细信息：<a href="https://github.com/appium/java-client" target="_blank" rel="external">https://github.com/appium/java-client</a></p>
+<h4 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h4><p>包含了记录日志的<code>idevicesyslog</code>和端口转发的<code>iProxy</code>、<code>usbmuxd</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew install libimobiledevice --HEAD   #和iOS手机通讯使用</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew install ideviceinstaller   # 安装app使用</div></pre></td></tr></table></figure>
+<p>在iOS10需要使用 <code>ios-deploy</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cnpm install -g ios-deploy</div></pre></td></tr></table></figure>
+<p>对真机需要<code>xcpretty</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gem install xcpretty</div></pre></td></tr></table></figure>
+<p><code>gem</code> 安装速度慢可以更换镜像源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</div></pre></td></tr></table></figure>
+<h4 id="第一次运行配置"><a href="#第一次运行配置" class="headerlink" title="第一次运行配置"></a>第一次运行配置</h4><p>不配置会出现<code>xcodebuild exited with code &#39;65&#39; and signal &#39;null&#39;</code>错误</p>
+<h5 id="开发者账号："><a href="#开发者账号：" class="headerlink" title="开发者账号："></a>开发者账号：</h5><p>AppiumDesktop中加入 xcodeOrgId 和 xcodeSigningId 字段</p>
+<p><img src="https://testerhome.com/uploads/photo/2017/0ca50d72c936d28e0d8300400b574433.png" alt=""></p>
+<p>TeamID 在 <a href="https://developer.apple.com/account/" target="_blank" rel="external">https://developer.apple.com/account/</a> 里左侧的 Member ship 中找到</p>
+<p>需要 <code>xcodeOrgId</code> 和 <code>xcodeSigningId</code> 写在desired capabilities 中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">      &quot;xcodeOrgId&quot;: &quot;&lt;Team ID&gt;&quot;,</div><div class="line">      &quot;xcodeSigningId&quot;: &quot;iPhone Developer&quot;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>Team ID 在 <a href="https://github.com/developer.apple.com/account" target="_blank" rel="external">https://github.com/developer.apple.com/account</a> 中的Membership</p>
+<h5 id="免费AppleID帐号"><a href="#免费AppleID帐号" class="headerlink" title="免费AppleID帐号"></a>免费AppleID帐号</h5><ol>
+<li><p>在appium的出错日志中找到WebDriverAgent的位置，打开进行签名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[XCUITest] Using WDA path: &apos;/usr/local/lib/node_modules/appium/node_modules/.2.23.1@appium-xcuitest-driver/WebDriverAgent&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>更改 <code>WebDriverAgent</code> 的<code>BundleID</code> ，原来是<code>com.facebook.WebDriverAgentLib</code>，我建议把<code>facebook</code>改为你的名字或公司的名字，这里还有个坑，改完这个之后发现还是提示有错误，最后在<code>Build Settings</code>里的<code>Product Bundle Identifier</code>里再修改一下。</p>
+<p><a href="https://testerhome.com/uploads/photo/2017/6a43214ff31663f386e34e19e6f7c8d7.png!large" target="_blank" rel="external"><img src="https://testerhome.com/uploads/photo/2017/6a43214ff31663f386e34e19e6f7c8d7.png!large" alt="img"></a></p>
+<p>​</p>
+</li>
+<li><p>点击上面菜单栏的Product -&gt; Test 运行<br>第一次运行会提示没有权限，打开真机上的设置App，通用 -&gt; 描述文件与设备管理，找到你的邮箱，选择信任，再继续执行test，成功启动后就说明可以了，执行完毕后点击停止。</p>
+</li>
+<li><p>没有了，打开appium测试吧</p>
+</li>
+</ol>
+<h4 id="查看界面元素"><a href="#查看界面元素" class="headerlink" title="查看界面元素"></a>查看界面元素</h4><ul>
+<li><p>使用WebDriverAgent</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">从 https://github.com/facebook/WebDriverAgent 克隆, 执行 ./Scripts/bootstrap.sh 命令, 然后打开项目进行签名, </div><div class="line">执行方式</div><div class="line">1. 接着点击上面菜单栏的Product --&gt; test</div><div class="line">2. xcodebuild -project WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination id=&apos;udid&apos; test</div><div class="line"># udid 可以使用命令 idevice_id -l</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用AppiumDesktop</p>
+</li>
+<li><p>app-inspector</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># macaca-cli</div><div class="line">npm install macaca-cli -g</div><div class="line"># macaca doctor</div><div class="line">macaca doctor</div><div class="line"># app-inspector</div><div class="line">npm install app-inspector -g</div><div class="line"># 使用</div><div class="line">app-inspector -u &apos;udid&apos;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h4 id="253错误"><a href="#253错误" class="headerlink" title="253错误"></a>253错误</h4><p>如果你运行官方的TestApp示例，可能会爆出253错误，这时需要对测试App重新build（需要源代码）</p>
+<h5 id="xcodebuild-命令"><a href="#xcodebuild-命令" class="headerlink" title="xcodebuild 命令"></a>xcodebuild 命令</h5><p>project</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">xcodebuild [-project projectname] [-target targetname ...] [-configuration configurationname]</div><div class="line">            [-sdk [sdkfullpath | sdkname]] [buildaction ...] [setting=value ...]</div><div class="line">            [-userdefault=value ...]</div></pre></td></tr></table></figure>
+<p>workspace</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">xcodebuild -workspace workspacename -scheme schemename [-destination destinationspecifier]</div><div class="line">            [-destination-timeout value] [-configuration configurationname]</div><div class="line">            [-sdk [sdkfullpath | sdkname]] [buildaction ...] [setting=value ...]</div><div class="line">            [-userdefault=value ...]</div></pre></td></tr></table></figure>
+<p>示例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># xcodebuild -project RobotCalibration.xcodeproj -target RobotCalibration -sdk iphoneos -configuration development</div></pre></td></tr></table></figure>
+<h4 id="DesiredCapabilities-配置信息"><a href="#DesiredCapabilities-配置信息" class="headerlink" title="DesiredCapabilities 配置信息"></a>DesiredCapabilities 配置信息</h4><ul>
+<li><strong>确定 <code>platformVersion</code></strong></li>
+<li><strong>确定 <code>bundleId</code></strong></li>
+<li>一台设备 <code>udid</code> 可以设置为 <code>auto</code></li>
+<li>不提供 <code>app</code> 属性也可以调起 App，但需要设置 <code>bundleId</code></li>
+<li>测试 iOS 9.3以下时，需要设置 <code>automationName</code> 为 <code>Automation</code> ，其它为 <code>XCUITest</code></li>
+</ul>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>切换Xcode版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo xcode-select -s #path /Applications/Xcode.app/</div></pre></td></tr></table></figure>
+<p>查看设备udid</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">idevice_id -l</div><div class="line"># 或者使用 ideviceinfo 可以在返回的数据中找到 udid</div></pre></td></tr></table></figure>
+<h3 id="Automation-（iOS-10以下）"><a href="#Automation-（iOS-10以下）" class="headerlink" title="Automation （iOS 10以下）"></a>Automation （iOS 10以下）</h3><h5 id="推荐使用："><a href="#推荐使用：" class="headerlink" title="推荐使用："></a>推荐使用：</h5><p>Xcode7.3.1</p>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>iOS8 中需要确定设置中的开发者选项里的UIAutomation 为打开状态</p>
+<h5 id="有开发者帐号-—-gt-打开Xcode-—-gt-对设备注册"><a href="#有开发者帐号-—-gt-打开Xcode-—-gt-对设备注册" class="headerlink" title="有开发者帐号 — &gt; 打开Xcode — &gt; 对设备注册"></a>有开发者帐号 — &gt; 打开Xcode — &gt; 对设备注册</h5><h5 id="免费帐号-─-gt-打开项目-—-gt-修改-bundleID-—-gt-登录帐号进行签名"><a href="#免费帐号-─-gt-打开项目-—-gt-修改-bundleID-—-gt-登录帐号进行签名" class="headerlink" title="免费帐号 ─&gt; 打开项目 — &gt; 修改 bundleID —&gt; 登录帐号进行签名"></a>免费帐号 ─&gt; 打开项目 — &gt; 修改 bundleID —&gt; 登录帐号进行签名</h5><p>测试前查看设定的App目录是否正确</p>
+<p>接着就可以打开Appium，和测试用例了</p>
+<p>如果不牵扯自动安装和卸载App，可以先手动安装App到目标设备，再进行测试</p>
+<p>前提需要 <code>ideviceinstaller</code> </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ideviceinstaller -u &lt;UDID of device&gt; -i &lt;path of .app/.ipa&gt;</div></pre></td></tr></table></figure>
+<h5 id="Instruments-exited-with-code-253"><a href="#Instruments-exited-with-code-253" class="headerlink" title="Instruments exited with code: 253"></a>Instruments exited with code: 253</h5><p>[Instruments] Error launching instruments: Instruments crashed on startup</p>
+<p>可能是App路径不正确</p>
+<h4 id="授权iOS模拟器"><a href="#授权iOS模拟器" class="headerlink" title="授权iOS模拟器"></a>授权iOS模拟器</h4><p>需要测试模拟器进行此项，使用npm安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cnpm install -g authorize-ios</div></pre></td></tr></table></figure>
+<p>安装完毕后运行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo authorize-ios</div></pre></td></tr></table></figure>
+<p>注意：需要在安装完新的 Xcode 后再次执行</p>
+<h4 id="通过-Jenkins-运行-iOS-测试（未测试）"><a href="#通过-Jenkins-运行-iOS-测试（未测试）" class="headerlink" title="通过 Jenkins 运行 iOS 测试（未测试）"></a>通过 Jenkins 运行 iOS 测试（未测试）</h4><p>确认之前<code>authorize-ios</code>运行成功</p>
+<p>下载 jenkins</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">wget https://jenkins.ci.cloudbees.com/jnlpJars/jenkins-cli.jar</div></pre></td></tr></table></figure>
+<p>接下来定义一个 Jenkins 的 LaunchAgent来自动登录，请确保其不包含<code>SessionCreate</code> 或 <code>User</code>key 防止测试运行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">java -jar jenkins-cli.jar \</div><div class="line"> -s https://team-appium.ci.cloudbees.com \</div><div class="line"> -i ~/.ssh/id_rsa \</div><div class="line"> on-premise-executor \</div><div class="line"> -fsroot ~/jenkins \</div><div class="line"> -labels osx \</div><div class="line"> -name mac_appium</div></pre></td></tr></table></figure>
+<p>最后设置并启动</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo nano /Library/LaunchAgents/com.jenkins.ci.plist</div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</div><div class="line">&lt;plist version=&quot;1.0&quot;&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">    &lt;key&gt;Label&lt;/key&gt;</div><div class="line">    &lt;string&gt;com.jenkins.ci&lt;/string&gt;</div><div class="line">    &lt;key&gt;ProgramArguments&lt;/key&gt;</div><div class="line">    &lt;array&gt;</div><div class="line">        &lt;string&gt;java&lt;/string&gt;</div><div class="line">        &lt;string&gt;-Djava.awt.headless=true&lt;/string&gt;</div><div class="line">        &lt;string&gt;-jar&lt;/string&gt;</div><div class="line">        &lt;string&gt;/Users/appium/jenkins/jenkins-cli.jar&lt;/string&gt;</div><div class="line">        &lt;string&gt;-s&lt;/string&gt;</div><div class="line">        &lt;string&gt;https://instructure.ci.cloudbees.com&lt;/string&gt;</div><div class="line">        &lt;string&gt;on-premise-executor&lt;/string&gt;</div><div class="line">        &lt;string&gt;-fsroot&lt;/string&gt;</div><div class="line">        &lt;string&gt;/Users/appium/jenkins&lt;/string&gt;</div><div class="line">        &lt;string&gt;-executors&lt;/string&gt;</div><div class="line">        &lt;string&gt;1&lt;/string&gt;</div><div class="line">        &lt;string&gt;-labels&lt;/string&gt;</div><div class="line">        &lt;string&gt;mac&lt;/string&gt;</div><div class="line">        &lt;string&gt;-name&lt;/string&gt;</div><div class="line">        &lt;string&gt;mac_appium&lt;/string&gt;</div><div class="line">        &lt;string&gt;-persistent&lt;/string&gt;</div><div class="line">    &lt;/array&gt;</div><div class="line">    &lt;key&gt;KeepAlive&lt;/key&gt;</div><div class="line">    &lt;true/&gt;</div><div class="line">    &lt;key&gt;StandardOutPath&lt;/key&gt;</div><div class="line">    &lt;string&gt;/Users/appium/jenkins/stdout.log&lt;/string&gt;</div><div class="line">    &lt;key&gt;StandardErrorPath&lt;/key&gt;</div><div class="line">    &lt;string&gt;/Users/appium/jenkins/error.log&lt;/string&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure>
+<p>Finally set the owner, permissions, and then start the agent.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo chown root:wheel /Library/LaunchAgents/com.jenkins.ci.plist</div><div class="line">sudo chmod 644 /Library/LaunchAgents/com.jenkins.ci.plist</div><div class="line"></div><div class="line">launchctl load /Library/LaunchAgents/com.jenkins.ci.plist</div><div class="line">launchctl start com.jenkins.ci</div></pre></td></tr></table></figure>
+<h4 id="清理文件（可选）"><a href="#清理文件（可选）" class="headerlink" title="清理文件（可选）"></a>清理文件（可选）</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$HOME/Library/Logs/CoreSimulator/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/Library/Caches/com.apple.dt.instruments/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$HOME/Library/Developer/Xcode/DerivedData/</div></pre></td></tr></table></figure>
+<p>以上目录下的所有文件</p>
+<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><h4 id="安装maven"><a href="#安装maven" class="headerlink" title="安装maven"></a>安装maven</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew install maven</div></pre></td></tr></table></figure>
+<h4 id="额外的设置"><a href="#额外的设置" class="headerlink" title="额外的设置"></a>额外的设置</h4><ol>
+<li><p>下载 JDK </p>
+</li>
+<li><p>通过 Android Studio 下载 Android SDK，并设置目录</p>
+<p>macOS 设置 JavaHome和 Android SDK 目录，将下列代码放置到用户目录下的 <code>.bashrc</code> 或 <code>.zshrc</code> 中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 使用Android Studio安装后的路径</div><div class="line"># android sdk</div><div class="line">export ANDROID_HOME=~/Library/Android/sdk</div><div class="line">export PATH=&quot;$HOME/.yarn/bin:$PATH&quot;</div><div class="line"># java_home</div><div class="line">export JAVA_HOME=$(/usr/libexec/java_home)</div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div><div class="line">export CLASS_PATH=$JAVA_HOME/lib</div><div class="line"></div><div class="line"># adb等 </div><div class="line">export PATH=$&#123;PATH&#125;:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools</div><div class="line">export PATH=$&#123;PATH&#125;:$ANDROID_HOME/tools/bin</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后，可以使用 appium-doctor 来检查配置环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">appium-doctor</div></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>capabilities</code>写清楚</p>
+<ul>
+<li>确定 <code>platformVersion</code></li>
+<li>确定 <code>appPackage</code></li>
+<li>确定 <code>appActivity</code></li>
+</ul>
+<p>​</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tester/" rel="tag">#Tester</a>
+          
+            <a href="/tags/Appium/" rel="tag">#Appium</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/03/38. 软件测试学习/" rel="next" title="软件测试工具">
+                <i class="fa fa-chevron-left"></i> 软件测试工具
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="mamian" />
+          <p class="site-author-name" itemprop="name">mamian</p>
+          <p class="site-description motion-element" itemprop="description">每天进步一点点</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/magaofei" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/markmamian" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-下的Appium安装与配置-Appium-Installation-amp-Setup-With-macOS"><span class="nav-number">1.</span> <span class="nav-text">macOS 下的Appium安装与配置 Appium Installation & Setup With macOS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS"><span class="nav-number">1.1.</span> <span class="nav-text">iOS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Appium"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装Appium</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Homebrew"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">安装Homebrew</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Nodejs"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">安装Nodejs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装cnpm"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text">安装cnpm</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装appium"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">安装appium</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用Node-js"><span class="nav-number">1.1.1.3.1.</span> <span class="nav-text">使用Node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载App"><span class="nav-number">1.1.1.3.2.</span> <span class="nav-text">下载App</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置Appium"><span class="nav-number">1.1.2.</span> <span class="nav-text">设置Appium</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Carthage"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">安装Carthage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装语言依赖"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">安装语言依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">python</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装Python3（使用Python2跳过）"><span class="nav-number">1.1.2.3.1.</span> <span class="nav-text">安装Python3（使用Python2跳过）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-pip-安装"><span class="nav-number">1.1.2.3.2.</span> <span class="nav-text">使用 pip 安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装相关依赖"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">安装相关依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一次运行配置"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">第一次运行配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开发者账号："><span class="nav-number">1.1.2.6.1.</span> <span class="nav-text">开发者账号：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#免费AppleID帐号"><span class="nav-number">1.1.2.6.2.</span> <span class="nav-text">免费AppleID帐号</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看界面元素"><span class="nav-number">1.1.2.7.</span> <span class="nav-text">查看界面元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#253错误"><span class="nav-number">1.1.2.8.</span> <span class="nav-text">253错误</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#xcodebuild-命令"><span class="nav-number">1.1.2.8.1.</span> <span class="nav-text">xcodebuild 命令</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DesiredCapabilities-配置信息"><span class="nav-number">1.1.2.9.</span> <span class="nav-text">DesiredCapabilities 配置信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.1.2.10.</span> <span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automation-（iOS-10以下）"><span class="nav-number">1.1.3.</span> <span class="nav-text">Automation （iOS 10以下）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#推荐使用："><span class="nav-number">1.1.3.0.1.</span> <span class="nav-text">推荐使用：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意："><span class="nav-number">1.1.3.0.2.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有开发者帐号-—-gt-打开Xcode-—-gt-对设备注册"><span class="nav-number">1.1.3.0.3.</span> <span class="nav-text">有开发者帐号 — > 打开Xcode — > 对设备注册</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#免费帐号-─-gt-打开项目-—-gt-修改-bundleID-—-gt-登录帐号进行签名"><span class="nav-number">1.1.3.0.4.</span> <span class="nav-text">免费帐号 ─> 打开项目 — > 修改 bundleID —> 登录帐号进行签名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Instruments-exited-with-code-253"><span class="nav-number">1.1.3.0.5.</span> <span class="nav-text">Instruments exited with code: 253</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#授权iOS模拟器"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">授权iOS模拟器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过-Jenkins-运行-iOS-测试（未测试）"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">通过 Jenkins 运行 iOS 测试（未测试）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清理文件（可选）"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">清理文件（可选）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android"><span class="nav-number">1.2.</span> <span class="nav-text">Android</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装maven"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">安装maven</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#额外的设置"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">额外的设置</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mamian</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'magaofei';
+      var disqus_identifier = '2017/03/22/39. Appium Installation & Setup With macOS/';
+      var disqus_title = "macOS 下的Appium安装与配置";
+      var disqus_url = 'http://yoursite.com/2017/03/22/39. Appium Installation & Setup With macOS/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("DvawRvnH7uan5CkxBPEjLmQN-gzGzoHsz", "3hV3WpN2DJ9I2fCcoxSP8szU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
