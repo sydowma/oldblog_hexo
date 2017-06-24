@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-03T00:55:33.000Z</updated>
+  <updated>2017-06-24T04:30:08.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,106 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pywinauto使用——简单控制旺旺吧上网管理软件</title>
+    <link href="http://yoursite.com/2017/06/24/README/"/>
+    <id>http://yoursite.com/2017/06/24/README/</id>
+    <published>2017-06-24T03:56:15.000Z</published>
+    <updated>2017-06-24T04:30:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Pywinauto使用——简单控制旺旺吧上网管理软件"><a href="#Pywinauto使用——简单控制旺旺吧上网管理软件" class="headerlink" title="Pywinauto使用——简单控制旺旺吧上网管理软件"></a>Pywinauto使用——简单控制旺旺吧上网管理软件</h2><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>利用Python的库──pywinauto对Windows软件进行模拟人工的操作</p>
+<h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><p>对网吧内的相关人员进行快速下机处理</p>
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>了解到用户的需求之后我想到了两种方式，一种是破解这个软件，直接控制，但这种不现实，本人技术能力有限。第二种是模拟人工的操作，脚本运行起来肯定比人快，所以我选择第二种方式解决这个问题。</p>
+<p>首先进行调研，我首先想到的是自动化的工具，可是很多适合自动化的工具并没有用，很多适用于移动平台，比如Appium这种。</p>
+<p>接着我尝试找一些模拟人工操作的软件，有Autoit，按键精灵等，但这些软件有一个问题，我还需要一个学习成本，还要去学对应的语言，这对我而言，太不爽了，我突然想到，Python的库这么多，会不会有Python对应的操作Windows软件的库呢，Google了一下，果然是有的，就是今天的主角──pywinauto</p>
+<h4 id="pywinauto的操作本质"><a href="#pywinauto的操作本质" class="headerlink" title="pywinauto的操作本质"></a>pywinauto的操作本质</h4><p>pywinauto本质是对Windows句柄的操作需要先用spy++这种工具，利用<code>Finder Tool</code>查看当前窗口或控件的属性，根据Title、Class或者Handle进行识别的操作，得益于Python的便捷语法，写起来顺畅无比。</p>
+<p>实际操作中，Handle的值每次打开都不一样，我又怕中文的支持不好，所以一般用Class定位操作窗口和控件，用Title识别程序。</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>用户的需求是「快速下机」，针对这个需求，我看了一下软件的操作步骤，得出以下操作步骤</p>
+<ol>
+<li>在快速通道的输入框中输入相关人员的身份证号末尾或者机器号，以便搜索出对应的机器</li>
+<li>敲回车键，搜索</li>
+<li>双击搜索出来的第一个机器，弹出下机提示框</li>
+<li>点击下机</li>
+</ol>
+<p>整个流程就是这样，在写代码的过程中，对于pywinauto库的API大致浏览和查看，写到第三个步骤处卡住了，需要在搜索位置处双击，但是这个地方失败了，使用了相关的双击API传入坐标还是不行，这时我突然发现按下<code>Enter</code>键也可以，这样我就发送一个<code>Enter</code>键的指令就可以，接下来我也发现点击下机这个按钮也可以发送<code>Enter</code></p>
+<p><img src="http://os19wcerd.bkt.clouddn.com/20170624115931_xJpukW_WX20170624-115403.jpeg" alt=""></p>
+<p><img src="http://os19wcerd.bkt.clouddn.com/20170624120000_i0ERI6_WX20170624-115534.jpeg" alt=""></p>
+<h4 id="问题及处理："><a href="#问题及处理：" class="headerlink" title="问题及处理："></a>问题及处理：</h4><p>遇到脏数据的处理：</p>
+<p>这个问题是在实际运行中遇到的，比如我输入了一个身份证号，但是这个人已经下机走了，所以我根本搜索不到，也就不会弹出下机提示框，这个时候程序就一直在等待，大概有5~6秒，这对于实际使用是不可接受的，我查看API之后，有一个方法引起了我的注意<code>isVisible</code>，这应当是判断是否可见的方法，我用这个方法来判断这个弹出框是否可见，如果不可见就直接<code>pass</code>，进行下一步骤。</p>
+<p>数据和代码分离：</p>
+<p>为了防止使用的人操作代码，防止误操作，将数据存储在一个txt文件中，换行分隔，这里代码在读取数据的时候要注意去掉<code>\n</code></p>
+<p>脚本运行时相关程序必须前置：</p>
+<p>目前还无法解决</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Pywinauto使用——简单控制旺旺吧上网管理软件&quot;&gt;&lt;a href=&quot;#Pywinauto使用——简单控制旺旺吧上网管理软件&quot; class=&quot;headerlink&quot; title=&quot;Pywinauto使用——简单控制旺旺吧上网管理软件&quot;&gt;&lt;/a&gt;Pywinaut
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django使用</title>
+    <link href="http://yoursite.com/2017/06/07/40.%20Django%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/06/07/40. Django使用/</id>
+    <published>2017-06-07T02:10:25.000Z</published>
+    <updated>2017-06-07T02:38:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Django使用"><a href="#Django使用" class="headerlink" title="Django使用"></a>Django使用</h2><ol>
+<li>创建</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">django-admin startproject firstsite</div><div class="line"># 创建名字为firstsite的django站点</div></pre></td></tr></table></figure>
+<ol>
+<li><p>更改manage.py 文件上面使用的python版本</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python3 manage.py startapp firstapp</div><div class="line">#创建app</div></pre></td></tr></table></figure>
+</li>
+<li><p>在settings的INSTALLED_APPS中添加刚刚创建的App</p>
+</li>
+<li><p>执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python3 manage.py migrate</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建model</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><div class="line"># 每个类继承子Model</div><div class="line">class People(models.Model):</div><div class="line">    # 字符</div><div class="line">    # 数据库中暂时没有这个数据没有关系, 名字可以为空, 名字最长200</div><div class="line">    name=models.CharField(null=True, blank=True, max_length=200)</div><div class="line">    job=models.CharField(null=True, blank=True, max_length=200)</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建策略</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python3 manage.py makemigrations</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行migrate</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python3 manage.py migrate</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>在View中找到model中的数据</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><div class="line">from django.shortcuts import render</div><div class="line">"引入"</div><div class="line">from firstapp.models import People</div><div class="line">from django.template import Context, Template</div><div class="line">import HttpResponse</div><div class="line"></div><div class="line"># Create your views here.</div><div class="line">def first_try(request):</div><div class="line">    person = People(name='Spock', job='officer')</div><div class="line">    html_string = '''</div><div class="line">        &lt;html&gt;</div><div class="line">          &lt;head&gt;</div><div class="line">              &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/components/accordion.css"&gt;</div><div class="line">          &lt;/head&gt;</div><div class="line">          &lt;body&gt;</div><div class="line">            &lt;h1 class="ui center aligned icon header"&gt;</div><div class="line">              &lt;i class="hand spock icon"&gt;&lt;/i&gt;</div><div class="line">              Hello, <span class="template-variable">&#123;&#123; person.name &#125;&#125;</span></div><div class="line">            &lt;/h1&gt;</div><div class="line">          &lt;/body&gt;</div><div class="line">        &lt;/html&gt;</div><div class="line"></div><div class="line">    '''</div><div class="line">    # 模板</div><div class="line">    t = Template(html_string)</div><div class="line">    # 上下文</div><div class="line">    c = Context<span class="template-variable">&#123;&#123;'person': person&#125;&#125;</span></div><div class="line">    # 渲染</div><div class="line">    web_page = t.render(c)</div><div class="line">    # 编程http的对象</div><div class="line">    return HttpResponse(web_page)</div></pre></td></tr></table></figure>
+</li>
+<li><p>urls</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><div class="line">from firstapp.views import first_try</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    url(r'^admin/', admin.site.urls),</div><div class="line">    url(r'^first_try/', first_try)</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Django使用&quot;&gt;&lt;a href=&quot;#Django使用&quot; class=&quot;headerlink&quot; title=&quot;Django使用&quot;&gt;&lt;/a&gt;Django使用&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;创建&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight p
+    
+    </summary>
+    
+    
+      <category term="django" scheme="http://yoursite.com/tags/django/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>macOS 下的Appium安装与配置</title>
@@ -822,100 +922,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Genymotion-Android模拟器&quot;&gt;&lt;a href=&quot;#Genymotion-Android模拟器&quot; class=&quot;headerlink&quot; title=&quot;Genymotion Android模拟器&quot;&gt;&lt;/a&gt;Genymotion Android模拟器&lt;/
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>算法学习第一节</title>
-    <link href="http://yoursite.com/2016/11/26/20.%20%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E8%8A%82/"/>
-    <id>http://yoursite.com/2016/11/26/20. 算法学习第一节/</id>
-    <published>2016-11-26T11:14:22.000Z</published>
-    <updated>2016-11-27T13:28:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Dynamic-Connectivity-动态连通性"><a href="#Dynamic-Connectivity-动态连通性" class="headerlink" title="Dynamic Connectivity(动态连通性)"></a>Dynamic Connectivity(动态连通性)</h1><p>Question：</p>
-<p>How many connected components result after performing the following sequence of <em>union</em> operations on a set of 10 items?</p>
-<p>1-2 3-4 5-6 7-8 7-9 2-8 0-5 1-9</p>
-<p>Answer:</p>
-<p>3</p>
-<p>个人见解：这个问题是说，有几个连通的集合，比如1-2，说明1和2之间是连接的，那么1-2 和 2-8 说明1到8之间是连通状态，那么他们三个是一个集合，由此计算，总共有3个集合</p>
-<h3 id="Quick-Find（快速查找、贪心算法）"><a href="#Quick-Find（快速查找、贪心算法）" class="headerlink" title="Quick Find（快速查找、贪心算法）"></a>Quick Find（快速查找、贪心算法）</h3><p>code:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickFindUF</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span>[] id;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">QuickFindUF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)  <span class="comment">// set id of each object to itself</span></div><div class="line">      id[i] = i;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">connected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;  <span class="comment">//check whether p and q are in the same component</span></div><div class="line">    <span class="keyword">return</span> id[p] == id[q];</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;  <span class="comment">// change all entries with id[p] to id[q]</span></div><div class="line">    <span class="keyword">int</span> pid = id[p];</div><div class="line">    <span class="keyword">int</span> qid = id[q];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; id.length; i++) </div><div class="line">      <span class="keyword">if</span> (id[i] == pid) id[i] = qid;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>将连接到的数字更改为相同数字</li>
-<li>相同的数组元素就意味着连通</li>
-</ol>
-<p>时间复杂度</p>
-<p>缺点 时间复杂度太大</p>
-<h1 id="Quick-Union"><a href="#Quick-Union" class="headerlink" title="Quick Union"></a>Quick Union</h1><p>把数组看作一组树，数组中每一项是它在树中的父节点</p>
-<p>Question:</p>
-<p>Suppose that in a quick-union data structure on 10 elements that the id[] array is </p>
-<p>0 9 6 5 4 2 61 0 5</p>
-<p>What are the roots of 3 and 7, respectively?</p>
-<p>Answer:</p>
-<p>6 and 6</p>
-<p>The root of 3 is 6: 3-&gt;5-&gt;2-&gt;6</p>
-<p>The root of 7 is 6: 7-&gt;1-&gt;9-&gt;5-&gt;2-&gt;6</p>
-<p><img src="/images/QuickUnion1.png" alt="QuickUnion1"> </p>
-<p>和Quick Find的区别在于，是用相同根节点来表示数组中相同的元素，并且有利于合并。在合并树的时候，只需要改变一个值，比如把p这个树合并到q中，只需要更改<code>id[9]</code>的值为6即可，这就意味着9这个结点的根节点是6，这样其他值就无需更改，减少了操作</p>
-<p>code:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickUnionUF</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span>[] id;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">QuickUnionUF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</div><div class="line">      id[i] = i;  <span class="comment">//set id of each to itself</span></div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;  <span class="comment">// chase parent pointers until reach root</span></div><div class="line">    <span class="keyword">while</span> (i != id[i]) </div><div class="line">      i = id[i];</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">cinnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123; <span class="comment">//check if p and q have same root</span></div><div class="line">    <span class="keyword">return</span> root(p) == root(q);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;  <span class="comment">// change root of p to point to root of q</span></div><div class="line">    <span class="keyword">int</span> i = root(p);</div><div class="line">    <span class="keyword">int</span> j = root(q);</div><div class="line">    id[j] = j;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">algorithm</th>
-<th style="text-align:center">initialize</th>
-<th style="text-align:center">union</th>
-<th style="text-align:center">find</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">quick-find</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">quick-union</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">N</td>
-</tr>
-</tbody>
-</table>
-<p>to slow</p>
-<p>在查找一个高度很高的树时，每一次都需要回溯整棵树，浪费时间，每一次查找都是对数组的一次遍历</p>
-<h1 id="Quick-Union-Improvements"><a href="#Quick-Union-Improvements" class="headerlink" title="Quick-Union Improvements"></a>Quick-Union Improvements</h1><p>在实现quick-union的时候执行一些操作避免得到很高的树，如果一个大树和小树合并，避免将大树放在下面，那将会导致更高的树</p>
-<p>在带权算法中，总是将小的树放在下面</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Dynamic-Connectivity-动态连通性&quot;&gt;&lt;a href=&quot;#Dynamic-Connectivity-动态连通性&quot; class=&quot;headerlink&quot; title=&quot;Dynamic Connectivity(动态连通性)&quot;&gt;&lt;/a&gt;Dynamic
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>为什么要把插座变量声明为弱引用？</title>
-    <link href="http://yoursite.com/2016/11/25/19.%20%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8A%8A%E6%8F%92%E5%BA%A7%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E4%B8%BA%E5%BC%B1%E5%BC%95%E7%94%A8%EF%BC%9F/"/>
-    <id>http://yoursite.com/2016/11/25/19. 为什么要把插座变量声明为弱引用？/</id>
-    <published>2016-11-25T02:33:07.000Z</published>
-    <updated>2016-11-25T08:14:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="iOS上强引用循环的几处场景"><a href="#iOS上强引用循环的几处场景" class="headerlink" title="iOS上强引用循环的几处场景"></a>iOS上强引用循环的几处场景</h1><h3 id="为什么要把插座变量声明为弱引用？"><a href="#为什么要把插座变量声明为弱引用？" class="headerlink" title="为什么要把插座变量声明为弱引用？"></a>为什么要把插座变量声明为弱引用？</h3><p>将插座变量声明为弱引用是一个编程约定，当系统的可用内存偏少时，视图控制器会自动释放其视图并在之后需要显示时再创建。因此，视图控制器应该使用弱引用特性的插座变量指向view的子视图，以便在释放view时同时释放view的所有子视图</p>
-<p>来自《iOSProgramming》4th edition</p>
-<h3 id="委托弱引用"><a href="#委托弱引用" class="headerlink" title="委托弱引用"></a>委托弱引用</h3><p>对象及其委托之间产生强引用循环。例如<code>BNRHypnosisViewController</code>是<code>UITextfield</code>对象的委托，而且<code>UITextfield</code>对象是<code>BNRHypnosisViewController</code>的强引用属性，如果<code>UITextfield</code>对象再对其委托保持强引用，就会在两者之间产生强引用循环，很容易造成内存泄露</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;iOS上强引用循环的几处场景&quot;&gt;&lt;a href=&quot;#iOS上强引用循环的几处场景&quot; class=&quot;headerlink&quot; title=&quot;iOS上强引用循环的几处场景&quot;&gt;&lt;/a&gt;iOS上强引用循环的几处场景&lt;/h1&gt;&lt;h3 id=&quot;为什么要把插座变量声明为弱引用？&quot;
     
     </summary>
     
